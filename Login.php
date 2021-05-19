@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <title>Login</title>
-
+    <link rel="icon" href="images/logo2.png">
 
   </head>
   <body>
@@ -34,7 +34,7 @@
                         </div>
                         <button class="btn btn-class">Login</button><br><br>
                         <p><a href="#">Forgot Password?</a></p>
-                        <p>Don't have an account? <a href="#">Signup</a></p>
+                        <p>Don't have an account? <a href="signup.php">Signup</a></p>
                    </form>
                    
                 </div>
