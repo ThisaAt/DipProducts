@@ -55,6 +55,28 @@ body{
     color: #fff;
 }
 
-.form-control ::placeholder{
-    color: rgba(70, 32, 32, 0.938);
-}
+/* *::placeholder {
+    color: red;
+    opacity: 1; /* Firefox */
+  /* }
+  
+ * :-ms-input-placeholder { 
+   color: red;
+  }
+  
+ * ::-ms-input-placeholder { 
+   color: red;
+  } */
+
+
+  /* ::-webkit-input-placeholder { 
+    color: red;
+  }
+  
+  :-ms-input-placeholder { 
+    color: red;
+  }
+  
+  ::placeholder {
+    color: red;
+  }  */
