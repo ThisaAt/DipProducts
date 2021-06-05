@@ -1,0 +1,24 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    background-color: lightcoral;
+}
+
+#bestBuys{
+    padding: 80px 0;
+}
+
+#img{
+    max-width: 100%;
+    height: auto;
+    background: lightblue;
+    background: radial-gradient(white 30%,lightblue 70%);
+}
+.washp{
+    height: 250px;
+    width: 180px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+}

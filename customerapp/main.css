@@ -1,0 +1,39 @@
+*
+{
+    margin: 0;
+    padding: 0;
+   
+}
+
+#bestBuys{
+    padding: 80px 0;
+}
+
+#img{
+    max-width: 100%;
+    height: auto;
+    background: rgb(235, 189, 189);
+    background: radial-gradient(white 50%,rgb(235, 189, 189) 70%);
+}
+.washp{
+    height: 250px;
+    width: 180px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+div.card shadow:hover{
+
+    border: 1px solid #777;
+}
+/* 
+div.container img {
+    width: 100%;
+    height: auto;
+  } */
+
+#topic{
+    margin-top: 35px;
+    
+}

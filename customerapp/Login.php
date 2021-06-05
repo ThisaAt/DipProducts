@@ -22,17 +22,35 @@
                    <img src="images/logo.jpg" class="img-fluid" alt="Dip Products logo"> 
                 </div>
                 <div class="col-md-6">
-                   <h3 class="signin-text mb-3">Login</h3>
-                   <form action="">
+                  <h3 class="signin-text mb-3">Login</h3>
+                  <form action="./includes/login.inc.php" method="post">
+                    <?php 
+                      // if(isset($_GET["error"])){
+                      //   if($_GET["error"]=="emptyinput"){
+                      //     echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
+                      //   }
+                      //   else if($_GET["error"]=="wronglogin"){
+                      //     echo '<div class="alert alert-danger" role="alert">Incorrect login credentials!</div>';
+                      //   }
+                      //   else if($_GET["error"]=="none"){
+                      //     echo '<div class="alert alert-success" role="alert">You have signed up successfully, Please login!</div>';
+                      //   }
+                      // }
+                      // if(isset($_GET["newpwd"])){
+                      //   if($_GET["newpwd"]=="passwordupdated"){
+                      //     echo '<div class="alert alert-success" role="alert">Password updated successfully, Please login!</div>';
+                      //   }
+                      // }
+                    ?>
                         <div class="form-group">
-                          <label for="email">First Name</label>
+                          <label for="email">Email</label>
                           <input type="email" name="email" class="form-control"><br>
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
                           <input type="password" name="pw" class="form-control"><br>
                         </div>
-                        <button class="btn btn-class">Login</button><br><br>
+                        <button type="submit" name="submit" class="btn btn-class">Login</button><br><br>
                         <p><a href="#">Forgot Password?</a></p>
                         <p>Don't have an account? <a href="signup.php">Signup</a></p>
                    </form>

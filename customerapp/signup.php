@@ -15,6 +15,14 @@
   </head>
   <body>
 
+    <div>
+        <?php 
+        //   if(isset($_POST['create'])){
+        //       echo 'submit';
+        //   }  
+        ?>
+    </div>
+
         <div class="container">
             <div class="row content">
                 <div class="col-md-3">
@@ -26,18 +34,44 @@
                       <h3 class="signin-text mb-3">Signup</h3>
                     </div>
                   </div>
-                  <form action="">
+                  <form action="./includes/signup.inc.php" method="post" name="submit">
+                
+                  <?php 
+                    // if(isset($_GET["error"])){
+                    //     if($_GET["error"]=="emptyinput"){
+                    //         echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
+                    //     }
+                    //     else if($_GET["error"]=="invaliduid"){
+                    //         echo '<div class="alert alert-danger" role="alert">Choose a proper username!</div>';
+                    //     }
+                    //     else if($_GET["error"]=="invalidemail"){
+                    //         echo '<div class="alert alert-danger" role="alert">Choose a proper email!</div>';
+                    //     }
+                    //     else if($_GET["error"]=="passworddontmatch"){
+                    //         echo '<div class="alert alert-danger" role="alert">Passwords does not match!</div>';
+                    //     }
+                    //     else if($_GET["error"]=="stmtfailed"){
+                    //         echo '<div class="alert alert-danger" role="alert">Something went wrong, please try again!</div>';
+                    //     }
+                    //     else if($_GET["error"]=="usernametaken"){
+                    //         echo '<div class="alert alert-danger" role="alert">Username already taken, please try another one!</div>';
+                    //     }
+                    //     else if($_GET["error"]=="invalidContactNo"){
+                    //     echo '<div class="alert alert-danger" role="alert">Choose a proper contact no!</div>';
+                    // }
+                    // }
+                    ?>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="email">Fisrt Name</label>
-                                <input type="text" name="fName" class="form-control"><br>
+                                <label for="firstName">Fisrt Name</label>
+                                <input type="text" name="firstName" class="form-control" required><br>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" name="lastName" class="form-control"><br>
+                                <input type="text" name="lastName" class="form-control" required><br>
                             </div>
                         </div>
                     </div><br>
@@ -45,23 +79,23 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Address</label>
-                                <input type="text" name="address1" class="form-control" placeholder="Address Line One">
-                                <input type="text" name="address2" class="form-control" placeholder="Address Line Two">
-                                <input type="text" name="address3" class="form-control" placeholder="Address Line Three">
+                                <input type="text" name="address1" class="form-control" placeholder="Address Line One" required>
+                                <input type="text" name="address2" class="form-control" placeholder="Address Line Two" required>
+                                <input type="text" name="address3" class="form-control" placeholder="Address Line Three" >
                                 <input type="text" name="address4" class="form-control" placeholder="Address Line Four"><br>
                              </div>
                          </div>
                          <div class="col-md-6">
                              <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control"><br>
+                                <input type="email" name="email" class="form-control" required><br>
                             </div>  
                             <div class="form-group">
                                 <label for="lastName">Gender</label><br>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault1" required>
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Male
                                             </label>
@@ -69,7 +103,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault2" checked>
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault2" checked required>
                                             <label class="form-check-label" for="flexRadioDefault2">
                                                 Female
                                             </label>
@@ -82,22 +116,22 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Contact Number</label>
-                                <input type="number" name="mobileNo" class="form-control" placeholder="Mobile Phone">
-                                <input type="number" name="landNo" class="form-control" placeholder="Land Phone"> <br>
+                                <label for="contactNumber">Contact Number</label>
+                                <input type="number" name="mobilePhone" class="form-control" placeholder="Mobile Phone" >
+                                <input type="number" name="landPhone" class="form-control" placeholder="Land Phone" > <br>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Enter the Password">
-                                <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password"><br>
+                                <input type="password" name="password" class="form-control" placeholder="Enter the Password" >
+                                <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" ><br>
                             </div> 
                         </div>
                     </div>
                     <div class="row"><br>
                         <div class="col-md-8">
-                            <button class="btn btn-class">Signup</button>
+                            <button type="submit" name="submit" class="btn btn-class">Signup</button>
                             <p>Have an account? <a href="Login.php">Log in here</a></p>
                         </div>
                     </div>
