@@ -1,7 +1,38 @@
 <?php
+  session_start();
   require_once('./includes/dbh.inc.php');
   require_once('./component/product.item.php');
-  require_once('./includes/functions.inc.php')
+  require_once('./includes/functions.inc.php');
+  
+  if(isset($_POST['order'])){
+    //  print_r($_POST['product_id']);
+    if(isset($_SESSION['cart'])){
+
+     $item_array_id = array_column($_SESSION['cart'], 'product_id');
+    // print_r($item_array_id);
+
+     if(in_array($_POST['product_id'],$item_array_id)){
+       echo "<script>alert('Product is already added')</script>";
+       echo "<script>window.location=index.php</script>";
+     }else{
+        $count = count($_SESSION['cart']);
+        $item_array= array('product_id' => $_POST['product_id']);
+
+        $_SESSION['cart']['$count']= $item_array;
+    //    print_r($_SESSION['cart']);
+     }
+
+      // print_r($_SESSION['cart']);
+    }
+    else{
+      $item_array = array (
+        'product_id'=>$_POST['product_id']
+      );
+
+      $_SESSION['cart'][0]=$item_array;
+      print_r($_SESSION['cart']);
+    }
+  }
 
 ?>
 
@@ -31,74 +62,11 @@
 </head>
 <body>
 
-    <!-- header and the nav bar -->
+  <!-- header and the nav bar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-                <!-- logo -->
-            <nav class="navbar navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                         <img src="images/logo1.png" alt="" width="30" height="24"></a> 
-                </div>
-            </nav>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">SHOP</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FEEDBACKS</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
-                    </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li> -->
-                </ul>
-
-                
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
-                </form>
-
-                <nav class="navbar navbar-light bg-light">
-                    <form class="container-fluid justify-content-start">
-                        <button class="btn btn-sm btn-outline-secondary" type="button">Login</button> 
-                        <button class="btn btn-sm btn-outline-secondary" type="button">Signup</button>
-                    </form>
-                </nav>
-
-            </div>
-        </div>
-    </nav>
-   
+    <?php require_once("./component/header.php"); ?>
+    
+     <!-- carousel -->
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -146,7 +114,7 @@
       // component('./images/wp png.png','Washing Powder', '1 Kg', 150);
        $result = getData();
        while($row = mysqli_fetch_assoc($result)){
-        component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice']);
+        component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
        }
         
       ?>
@@ -181,11 +149,7 @@
     </section>
     
 
-
     
-
-
-
 
 
 

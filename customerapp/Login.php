@@ -51,7 +51,7 @@
                           <input type="password" name="pw" class="form-control"><br>
                         </div>
                         <button type="submit" name="submit" class="btn btn-class">Login</button><br><br>
-                        <p><a href="#">Forgot Password?</a></p>
+                        <!-- <p><a href="#">Forgot Password?</a></p> -->
                         <p>Don't have an account? <a href="signup.php">Signup</a></p>
                    </form>
                    

@@ -1,16 +1,8 @@
 <?php
 
     if(isset($_POST['submit'])){
-        $firstName = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
-        $address1 = $_POST['address1'];
-        $address2 = $_POST['address2'];
-        $address3 = $_POST['address3'];
-        $address4 = $_POST['address4'];
+        $userName = $_POST['userName'];
         $email = $_POST['email'];
-        // $gender = $_POST['gender'];
-        $mobilePhone = $_POST['mobilePhone'];
-        $landPhone = $_POST['landPhone'];
         $password = $_POST['password'];
         $checkPassword = $_POST['checkPassword'];   
 
@@ -18,7 +10,7 @@
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
 
-        createUser($conn, $firstName, $lastName, $address1, $address2, $address3, $address4, $email, $mobilePhone,$landPhone,$password);
+        createAdmin($conn, $userName, $email, $password);
     }
 
     else{

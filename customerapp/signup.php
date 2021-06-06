@@ -64,7 +64,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="firstName">Fisrt Name</label>
+                                <label for="firstName">First Name</label>
                                 <input type="text" name="firstName" class="form-control" required><br>
                             </div>
                         </div>

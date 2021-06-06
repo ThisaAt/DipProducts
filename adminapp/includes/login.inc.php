@@ -17,7 +17,7 @@
     //         exit();
     //      }
 
-        loginUser($conn, $email, $pw);
+        loginAdmin($conn, $email, $pw);
      }
      else{
         header("location: ../login.php");

@@ -4,7 +4,7 @@
     // $checkPassword = $_POST['checkPassword'];
 
 function uidExists($conn, $email){
-    $sql = "SELECT * FROM customer WHERE customerEmail = ?;";
+    $sql = "SELECT * FROM admin WHERE adminEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
     
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -29,32 +29,31 @@ function uidExists($conn, $email){
     }
 
     
-function createUser($conn, $firstName, $lastName, $address1, $address2, $address3, $address4, $email, $mobilePhone,$landPhone,$password){
+function createAdmin($conn, $userName, $email, $password){
+    
     // encrypting the password
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-       // $sql = "INSERT INTO customer (firstName, lastName, address1, address2, address3, address4, customerEmail, mobilePhone, landPhone, customerPw) VALUES (? ,?, ?, ?, ? ,?, ?, ?, ?,?)";
-    $sql = "INSERT INTO customer (firstName, lastName, address1, address2, address3, address4, customerEmail, mobilePhone, landPhone, customerPw) VALUES ('$firstName', '$lastName', '$address1', '$address2', '$address3', '$address4', '$email', '$mobilePhone','$landPhone','$hashedPwd')";
+    $sql = "INSERT INTO admin (userName, adminEmail, adminPw) VALUES ('$userName', '$email','$hashedPwd')";
 
-        $stmt = mysqli_stmt_init($conn);
+    $stmt = mysqli_stmt_init($conn);
 
-        if(!mysqli_stmt_prepare($stmt, $sql)){ // if(!mysqli_stmt_prepare($stmt, $sql))
-            header("location: ../signup.php?error=stmtfailed"); //me mokkda
+    if(!mysqli_stmt_prepare($stmt, $sql)){ 
+        header("location: ../signup.php?error=stmtfailed"); 
             exit();
-        }
-        if(mysqli_query($conn, $sql)) {   //if(mysqli_query($conn, $sql))
-            echo 'success';
-        }
-        else {
-            echo  $conn->error;
-        }
+    }
+    if(mysqli_query($conn, $sql)) {  
+        echo 'success';
+    }
+    else {
+        echo  $conn->error;
+    }
 
-       // mysqli_stmt_bind_param($stmt, $firstName, $lastName, $address1, $address2, $address3, $address4, $email, $mobilePhone, $landPhone, $hashedPwd);
-        mysqli_stmt_execute($stmt, $sql);
-        mysqli_stmt_close($stmt);
-        
-        header("location: ../login.php?error=none");
-        exit();
+    mysqli_stmt_execute($stmt, $sql);
+    mysqli_stmt_close($stmt);
+    
+    header("location: ../login.php?error=none");
+    exit();
 }
 
 function addCategory($conn, $categoryName, $categoryImage){
@@ -72,20 +71,17 @@ function addCategory($conn, $categoryName, $categoryImage){
 }
 
 
-function loginUser($conn, $email, $pw){
+function loginAdmin($conn, $email, $pw){
+
     $uidExists = uidExists($conn, $email);
-    $e1=11;
-    $e2=22;
-    // echo "hello";
+
     if($uidExists === false){
        header("location: ../login.php?error=wronglogin");
         //echo  $conn->error;
-        $e1=11;
-        echo $e1;
         exit();
     }
 
-    $pwdHashed = $uidExists["customerPw"];
+    $pwdHashed = $uidExists["adminPw"];
     $checkPwd = password_verify($pw, $pwdHashed);
 
     if($checkPwd === false){
@@ -95,16 +91,16 @@ function loginUser($conn, $email, $pw){
     else if($checkPwd === true){
         echo "true";
         session_start();
-        $_SESSION["customerId"]= $uidExists["customerId"];
-        $_SESSION["customerEmail"]= $uidExists["customerEmail"];
+        $_SESSION["adminId"]= $uidExists["adminId"];
+        $_SESSION["adminEmail"]= $uidExists["adminEmail"];
         header("location: ../dashboard/admin.php");
         exit();
     }
     else if($pwdHashed == $pw){
         echo "true";
         session_start();
-        $_SESSION["customerId"]= $uidExists["customerId"];
-        $_SESSION["customerEmail"]= $uidExists["customerEmail"];
+        $_SESSION["adminId"]= $uidExists["adminId"];
+        $_SESSION["adminEmail"]= $uidExists["adminEmail"];
         header("location: ../dashboard/admin.php");
         exit();
     }

@@ -1,6 +1,6 @@
 <?php
 
-function component($productImg, $productName,$productSize,$productPrice){
+function component($productImg, $productName,$productSize,$productPrice,$productId ){
     $element = "
     <div class='col-md-3 col-sm-6 my-3 my-md-0'>
     <form action='Index.php' method='POST'>
@@ -14,6 +14,8 @@ function component($productImg, $productName,$productSize,$productPrice){
             <span class='price'>Rs.120.00</span>
           </h6>
           <button type='submit' class='btn btn-danger my-3' name='order' >Order Now</button>
+          <input type='hidden' name='product_id' value='$productId'>
+          
         </div>
       </div>
     </form>

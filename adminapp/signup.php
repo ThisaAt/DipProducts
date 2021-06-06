@@ -64,74 +64,37 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="firstName">Fisrt Name</label>
-                                <input type="text" name="firstName" class="form-control" required><br>
+                                <label for="userName">User Name</label>
+                                <input type="text" name="userName" class="form-control" required><br>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" name="lastName" class="form-control" required><br>
-                            </div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Address</label>
-                                <input type="text" name="address1" class="form-control" placeholder="Address Line One" required>
-                                <input type="text" name="address2" class="form-control" placeholder="Address Line Two" required>
-                                <input type="text" name="address3" class="form-control" placeholder="Address Line Three" >
-                                <input type="text" name="address4" class="form-control" placeholder="Address Line Four"><br>
-                             </div>
-                         </div>
-                         <div class="col-md-6">
-                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" name="email" class="form-control" required><br>
                             </div>  
-                            <div class="form-group">
-                                <label for="lastName">Gender</label><br>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault1" required>
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Male
-                                            </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault2" checked required>
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                Female
-                                            </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div> 
-                         </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="contactNumber">Contact Number</label>
-                                <input type="number" name="mobilePhone" class="form-control" placeholder="Mobile Phone" >
-                                <input type="number" name="landPhone" class="form-control" placeholder="Land Phone" > <br>
-                            </div>
                         </div>
+                    </div>
+                    
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter the Password" >
-                                <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" ><br>
+                                
                             </div> 
                         </div>
-                    </div>
+                        <div class="col-md-6"><br>
+                            <div class="form-group">
+                                <!-- <label for="password">Password</label> -->
+                                <input type="password" name="password" class="form-control" placeholder="Confirm the Password" >
+                                <!-- <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" ><br> -->
+                            </div> 
+                        </div>
+                    </div><br>
                     <div class="row"><br>
                         <div class="col-md-8">
-                            <button type="submit" name="submit" class="btn btn-class">Signup</button>
+                            <button type="submit" name="submit" class="btn btn-class">Signup</button><br>
                             <p>Have an account? <a href="Login.php">Log in here</a></p>
                         </div>
                     </div>
