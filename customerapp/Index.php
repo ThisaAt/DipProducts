@@ -1,7 +1,7 @@
 <?php
   session_start();
   require_once('./includes/dbh.inc.php');
-  require_once('./component/product.item.php');
+  require_once('./component/components.php');
   require_once('./includes/functions.inc.php');
   
   if(isset($_POST['order'])){
