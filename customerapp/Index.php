@@ -60,7 +60,7 @@
     <title>Dip Products (Pvt) Ltd.</title>
     <link rel="icon" href="images/logo2.png">
 </head>
-<body>
+<body  >
 
   <!-- header and the nav bar -->
 
