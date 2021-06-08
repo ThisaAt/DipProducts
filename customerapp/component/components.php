@@ -25,7 +25,7 @@ function component($productImg, $productName,$productSize,$productPrice,$product
 
 }
 
-function cartElement($productImg, $productName, $productPrice){
+function cartElement($productImg, $productName,$productSize, $productPrice){
     $element="
 
     <form action='cart.php' method='get' class='cart-items'>
@@ -36,7 +36,7 @@ function cartElement($productImg, $productName, $productPrice){
             </div>
             <div class='col-md-6'>
                 <h5 class='pt-2'>$productName</h5>
-                <small class='text-secondary'>50 ml</small>
+                <small class='text-secondary'>$productSize</small>
                 <h6 class='pt-2'>$productPrice</h6>
                 <button type='submit' class='btn btn-danger' name='remove'>Remove</button>
             </div>

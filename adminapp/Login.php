@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>Login</title>
+    <title>Admin Login</title>
     <link rel="icon" href="images/logo2.png">
 
   </head>

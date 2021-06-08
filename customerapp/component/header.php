@@ -59,6 +59,7 @@
                     <form class="container-fluid justify-content-start">
                       <a href="./Login.php"><button class="btn btn-sm btn-danger me-2" type="button">Login</button> </a>  
                       <a href="./signup.php"> <button class="btn btn-sm btn-danger" type="button">Signup</button></a> 
+                    
                     </form>
                 </nav>
                 <nav class="navbar navbar-light bg-light">

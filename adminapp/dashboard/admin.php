@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION["adminId"])){
+  header("location: ../login.php");
+  exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,11 +68,11 @@
                     </div>
                 </div>
 
-                <!-- <div> -->
+                <div>
                     <?php
-        //  echo '<h1 class="text-center">Welcome ' .$_SESSION["useruid"]. ' !</h1>'
-         ?>
-                <!-- </div> -->
+                        echo '<h1 class="text-center">Welcome ' .$_SESSION["adminId"]. ' !</h1>'
+                    ?>
+                </div>
             </main>
 
             </div>

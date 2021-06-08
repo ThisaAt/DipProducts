@@ -42,11 +42,59 @@
                 <div class="shopping-cart">
                     <h6>My Cart</h6>
                     <hr>
-                    
-                    
+                    <?php
+                        $total =0;
+                        if(isset($_SESSION['cart'])){
+                            $product_id = array_column($_SESSION['cart'],'productId');
+
+                            $result = getData();
+                            while($row = mysqli_fetch_assoc($result)){
+                                foreach($product_id as $id){
+                                    if($row['id']==$id){
+                                        cartElement($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice']);
+                                        $total = $total +(int)$row['productPrice'];
+                                     }
+                                }
+                            }
+
+                        }
+                        else{
+                            echo"<h5>Cart is Empty</h5>";
+                        }
+                    ?>
+
                 </div>
             </div>
-            <div class="col-md-5"></div>
+            <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
+                <div class="pt-4">
+                    <h6>Price Details</h6>
+                    <hr>
+                    <div class="row price-details">
+                        <div class="col-md-6">
+                            <?php
+                                if(isset($_SESSION['cart'])){
+                                    $count = count($_SESSION['cart']);
+                                    echo "<h6>Price($count items)</h6>";
+                                }
+                                else{
+                                    echo "<h6>Price (0 items)</h6>";
+                                }
+                            ?>
+                            
+                            <hr>
+                            <h6>Amount Payable</h6>
+                        </div>
+              
+                        <div class="col-md-6">
+                            <h6><?php echo $total; ?></h6>
+                            <hr>
+                            <h6><?php echo $total; ?></h6>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
 

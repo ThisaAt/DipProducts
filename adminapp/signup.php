@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>signup</title>
+    <title>Admin Signup</title>
     <link rel="icon" href="images/logo2.png">
   </head>
   <body>

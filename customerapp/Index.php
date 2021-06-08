@@ -109,7 +109,7 @@
 
 <div class="container" id="bestBuys">
   <div class="row text-center py-5">
-    <h1 class="title" >Best Buys</h1>
+    <h1 class="title" >Sanitizers</h1>
       <?php
       // component('./images/wp png.png','Washing Powder', '1 Kg', 150);
        $result = getData();

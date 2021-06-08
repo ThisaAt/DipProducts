@@ -96,14 +96,14 @@ function loginAdmin($conn, $email, $pw){
         header("location: ../dashboard/admin.php");
         exit();
     }
-    else if($pwdHashed == $pw){
-        echo "true";
-        session_start();
-        $_SESSION["adminId"]= $uidExists["adminId"];
-        $_SESSION["adminEmail"]= $uidExists["adminEmail"];
-        header("location: ../dashboard/admin.php");
-        exit();
-    }
+    // else if($pwdHashed == $pw){
+    //     echo "true";
+    //     session_start();
+    //     $_SESSION["adminId"]= $uidExists["adminId"];
+    //     $_SESSION["adminEmail"]= $uidExists["adminEmail"];
+    //     header("location: ../dashboard/admin.php");
+    //     exit();
+    // }
 }
 
 

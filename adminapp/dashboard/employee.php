@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION["adminId"])){
+  header("location: ../login.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,10 +153,20 @@
                                     </div>
 
                                     <div class="mb-3 row">
+                                        <label for="phone" class="col-sm-2 col-form-label">Contact Numbers</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Land Phone" id="landNum" name="landNum">
+                                            <input class="form-control" type="text" placeholder="Mobile Phone" id="mobileNum" name="mobileNum">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
                                         <label for="address1" class="col-sm-2 col-form-label">Address</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Address Line one"
-                                                id="address1" name="address1">
+                                            <input class="form-control" type="text" placeholder="Address Line one" id="address1" name="address1">
+                                            <input class="form-control" type="text" placeholder="Address Line two" id="address2" name="address2">
+                                            <input class="form-control" type="text" placeholder="Address Line three" id="address3" name="address3">
+                                            <input class="form-control" type="text" placeholder="Address Line four" id="address4" name="address4">
                                         </div>
                                     </div>
 
@@ -167,13 +185,13 @@
                                                 id="categoryDescription" rows="3" name="categoryDescription"></textarea>
                                         </div>
                                     </div> -->
-                                    <div class="mb-3 row">
+                                    <!-- <div class="mb-3 row">
                                         <label for="productImg" class="col-sm-2 col-form-label">Image</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" id="productImg" type="file"
                                                 name="productImg" accept=".jpg,.jpeg">
                                         </div>
-                                    </div>
+                                    </div> -->
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
