@@ -27,11 +27,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT</a>
+                        <a class="nav-link" href="#footer">ABOUT</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
+                        <a class="nav-link" href="#footer">CONTACT US</a>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,21 +49,35 @@
                     </li> -->
                 </ul>
 
-                
+            
                 <form class="d-flex">
                     <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-sm btn-outline-danger" type="submit" name="search">Search</button>
                 </form>
 
+                
+
                 <nav class="navbar navbar-light bg-light">
                     <form class="container-fluid justify-content-start">
-                      <a href="./Login.php"><button class="btn btn-sm btn-danger me-2" type="button">Login</button> </a>  
-                      <a href="./signup.php"> <button class="btn btn-sm btn-danger" type="button">Signup</button></a> 
-                    
+                        <?php
+                            if(isset($_SESSION["customerId"])){
+                                echo "<a href='./orders.php'> <button class='btn btn-sm btn-danger me-2' type='button'>Orders</button></a> ";
+                                echo "<a href='./includes/logout.inc.php'> <button class='btn btn-sm btn-danger' type='button'>Logout</button></a> ";
+                         
+                            }
+                            else{
+                                echo "<a href='./Login.php'> <button class='btn btn-sm btn-danger me-2' type='button'>Login</button></a> ";
+                                echo "<a href='./signup.php'> <button class='btn btn-sm btn-danger' type='button'>Signup</button></a> ";
+                            }
+                        ?> 
+
                     </form>
-                </nav>
+
+                </nav> 
+
+
                 <nav class="navbar navbar-light bg-light">
-                    <a href="cart.php" class="nav-item nav-link active" id="cart">
+                    <a href="cart.php" class="nav-item nav-link active " id="cart">
                         <h6 class="px-5 cart">
                             <i class="fas fa-shopping-cart"></i>Cart
                             <?php
@@ -76,7 +90,7 @@
                                 }
                             ?>
                            
-                        </h5>
+                            </h6>
                     </a>
                 </nav>
 

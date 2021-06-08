@@ -78,6 +78,7 @@ function loginUser($conn, $email, $pw){
     else if($checkPwd == true){
         session_start();
         $_SESSION["customerId"]= $uidExists["customerId"];
+        $_SESSION["firstName"]= $uidExists["firstName"];
         $_SESSION["customerEmail"]= $uidExists["customerEmail"];
         header("location: ../index.php");
         exit();

@@ -92,7 +92,7 @@ function loginAdmin($conn, $email, $pw){
         echo "true";
         session_start();
         $_SESSION["adminId"]= $uidExists["adminId"];
-        $_SESSION["adminEmail"]= $uidExists["adminEmail"];
+        $_SESSION["userName"]= $uidExists["userName"];
         header("location: ../dashboard/admin.php");
         exit();
     }

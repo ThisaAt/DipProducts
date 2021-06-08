@@ -26,6 +26,7 @@
 div.card shadow:hover{
 
     border: 1px solid #777;
+    /* border: 1px solid rgb(32, 31, 31); */
 }
 /* 
 div.container img {
@@ -47,4 +48,13 @@ div.container img {
 .shopping-cart{
     padding:3% 0%;
 
+}
+
+.price-details h6{
+    padding: 3% 2%;
+}
+
+.cart{
+    height: 20px;
+    width: 40px;
 }

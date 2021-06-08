@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["adminId"])){
+if(!isset($_SESSION["userName"])){
   header("location: ../login.php");
   exit();
 }
@@ -70,7 +70,7 @@ if(!isset($_SESSION["adminId"])){
 
                 <div>
                     <?php
-                        echo '<h1 class="text-center">Welcome ' .$_SESSION["adminId"]. ' !</h1>'
+                        echo '<h1 class="text-center">Welcome ' .$_SESSION["userName"]. ' !</h1>'
                     ?>
                 </div>
             </main>

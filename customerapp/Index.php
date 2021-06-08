@@ -30,7 +30,7 @@
       );
 
       $_SESSION['cart'][0]=$item_array;
-      print_r($_SESSION['cart']);
+    print_r($_SESSION['cart']);
     }
   }
 
@@ -117,37 +117,35 @@
         component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
        }
         
+       $result = getData();
+       while($row = mysqli_fetch_assoc($result)){
+        component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
+       }
+
       ?>
   </div>
 </div>
 
+<div class="container " id="bestBuys">
+  <div class="row text-center py-5">
+    <h1 class="title" >Sanitizers</h1>
+      <?php
+      // component('./images/wp png.png','Washing Powder', '1 Kg', 150);
+       $result = getData();
+       while($row = mysqli_fetch_assoc($result)){
+        component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
+       }
+        
+      ?>
+  </div>
+</div>
 
+<div>
 
+    <?php require_once("./component/footer.php"); ?>
 
-<section id="bestBuys">
-      <div class="container text-center">
-        <h1 class="title">Best Buys</h1>
-        <div class="row text-center">
-          <div class="col-md-4">
-           <a href="#"><img src="./images/wp png.png" alt="washp" class="washp"></a> 
-            <h4>Dipol Washing Powder</h4><p> 1 Kg | Rs.150.00</p>
-            <!-- <p>First cod boys trip.Visited in 2019 May.hsabfihb hbfisadfb ihbfishbfi pibhfiupsbfib.</p> -->
-          </div>
-          <div class="col-md-4">
-          <a href="#"><img src="./images/wp png.png" alt="washp" class="washp"></a> 
-            <h4>Dipol Washing Powder</h4><p> 1 Kg | Rs.150.00</p>
-           
-          </div>
-          <div class="col-md-4">
-          <a href="#"><img src="./images/wp png.png" alt="washp" class="washp"></a> 
-            <h4>Dipol Washing Powder</h4><p> 1 Kg | Rs.150.00</p>
-           
-          </div>
-        </div>
-        <!-- <a href="https://www.youtube.com/channel/UC31ZtCfn_UjjpR7vpKYMcZA" target="_blank"><button type="button" class="btn btn-primary" >Discover More</button> </a> -->
-      </div> 
-    </section>
-    
+</div>
+<a href="Index.php" class="back-to-top"><i class="fa fa-angle-up"></i></a> 
 
     
 
