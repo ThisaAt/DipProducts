@@ -4,6 +4,12 @@
   require_once('./component/components.php');
   require_once('./includes/functions.inc.php');
 
+  if(!isset($_SESSION["customerId"])){
+    header("location: ./Login.php");
+    exit();
+  }
+  
+
   if(isset($_POST['remove'])){
      if($_GET['action']=='remove'){
          foreach($_SESSION['cart'] as $key => $value){
@@ -101,13 +107,36 @@
                             <h6><?php echo "Rs.". $total; ?></h6>
                             <hr>
                             <h6><?php echo "Rs.". $total; ?></h6>
+                            <hr>
+                            <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#exampleModal">Place the Order</button><br>
+                           
+                      
                         </div>
                     </div>
+                        
 
                 </div>
 
             </div>
+            
         </div>
+            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                         <div class="modal-body">
+                                Are you sure to place the order
+                        </div>
+                        <div class="modal-footer">
+                           <a href="./Index.php"><button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Order More Items</button></a> 
+                            <button type="button" class="btn btn-danger">Place the Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 
 

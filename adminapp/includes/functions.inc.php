@@ -122,3 +122,20 @@ function addProduct($conn, $productName,$categoryName,$productSize, $productPric
     }
 
 }
+
+
+function addEmployee($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mobileNum, $address1, $address2, $address3, $address4, $email ){
+
+    $sql = "INSERT INTO employee (firstName, lastName, jobRole, nic, landPhone, mobilePhone, address1, address2, address3, address4, email) VALUES ('$firstName', '$lastName', '$jobRole','$nic','$landNum','$mobileNum','$address1', '$address2', '$address3', '$address4','$email')";
+    $sql_run = mysqli_query($conn, $sql);
+
+    if($sql_run){
+        header("Location: ../dashboard/employee.php?error=none");
+       // echo $productSize;
+    }else{
+        header("Location: ../dashboard/employee.php?error=addfailed");
+        //echo  $conn->error;
+    }
+
+}
+

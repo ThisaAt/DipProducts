@@ -23,7 +23,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pro" href="../ui/products.php">
+                <a class="nav-link pro" href="orders.php">
                   <span data-feather="users"></span>
                   Orders
                 </a>
@@ -35,13 +35,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link rep" href="../ui/reports.php">
+                <a class="nav-link rep" href="customers.php">
                   <span data-feather="layers"></span>
                   Customers
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link inv" href="../ui/inventory.php">
+                <a class="nav-link inv" href="reports.php">
                   <span data-feather="layers"></span>
                   Reports
                 </a>

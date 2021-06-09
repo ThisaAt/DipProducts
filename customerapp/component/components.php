@@ -1,6 +1,6 @@
 <?php
 // <small><s class='text-secondary'>$productPrice</s></small>
-function component($productImg, $productName,$productSize,$productPrice,$productId ){
+function component($productImg, $productName,$productSize,$productPrice, $productId ){
     $element = "
     <div class='col-md-3 col-sm-6 my-3 my-md-0'>
     <form action='Index.php' method='POST'>
@@ -29,7 +29,7 @@ function component($productImg, $productName,$productSize,$productPrice,$product
 }
 
 function cartElement($productImg, $productName,$productSize, $productPrice,$productId ){
-  
+
 
     $element="
   
@@ -37,7 +37,7 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
       <div class='border rounded'>
         <div class='row bg-white'>
             <div class='col-md-3 pl-0'>
-               <img src='data:image;base64,".base64_encode($productImg)."' alt='product image' class='img-fluid'> 
+               <img src='data:image;base64,".base64_encode($productImg)."' alt='product image' class='img-fluid' > 
             </div>
             <div class='col-md-6'>
                 <h5 class='pt-2'>$productName</h5>

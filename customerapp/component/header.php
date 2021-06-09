@@ -1,12 +1,14 @@
+<div class="container-fluid">
+
 <header id="header">
 <!-- navbar fixed-top navbar-light bg-light -->
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
                 <!-- logo -->
             <nav class="navbar navbar-light bg-light">
                 <div class="container">
                     <a class="navbar-brand" href="./index.php">
-                         <img src="images/logo1.png" alt="" width="30" height="24"></a> 
+                        <img src="images/logo2.png" alt="" width="50" height=auto ></a> 
                 </div>
             </nav>
 
@@ -19,7 +21,7 @@
                         <a class="nav-link active" aria-current="page" href="#">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#bestBuys">SHOP</a>
+                        <a class="nav-link active" href="#bestBuys">SHOP</a>
                     </li>
 
                     <li class="nav-item">
@@ -27,11 +29,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#footer">ABOUT</a>
+                        <a class="nav-link active" href="#footer">ABOUT</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#footer">CONTACT US</a>
+                        <a class="nav-link active" href="#footer">CONTACT US</a>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,19 +80,36 @@
 
                 <nav class="navbar navbar-light bg-light">
                     <a href="cart.php" class="nav-item nav-link active " id="cart">
-                        <h6 class="px-5 cart">
-                            <i class="fas fa-shopping-cart"></i>Cart
-                            <?php
+                        <!-- <h6 class="px-5 cart "> -->
+                        <div class="row">
+                        <!-- <div class="col-6">
+                        <i class="fas fa-shopping-cart"></i>
+                        </div> -->
+                        <!-- <div class="col-6"> -->
+                        <?php
                                 if(isset($_SESSION['cart'])){
                                     $count = count($_SESSION['cart']);
-                                    echo " <span id='cartCount' class='text-warning' bg-light>$count</span>" ;
+                                    echo " <div id='cartCount' class='text-danger text-left' bg-light><i class='fas fa-shopping-cart'>$count</i></div>" ;
                                 }
                                 else{
-                                    echo " <span id='cartCount' class='text-warning' bg-light>0</span>" ; 
+                                    // echo " <span id='cartCount' class='text-danger' bg-light>0</span>" ; 
+                                    echo " <div id='cartCount' class='text-danger text-left' bg-light><i class='fas fa-shopping-cart'>0</i></div>" ;
                                 }
                             ?>
+                        <!-- </div> -->
+                        </div>
+                            <!-- <i class="fas fa-shopping-cart"></i>
+                            <?php
+                                // if(isset($_SESSION['cart'])){
+                                //     $count = count($_SESSION['cart']);
+                                //     echo " <span id='cartCount' class='text-warning' bg-light>$count</span>" ;
+                                // }
+                                // else{
+                                //     echo " <span id='cartCount' class='text-warning' bg-light>0</span>" ; 
+                                // }
+                            ?> -->
                            
-                            </h6>
+                            <!-- </h6> -->
                     </a>
                 </nav>
 
@@ -99,3 +118,10 @@
     </nav>
 
 </header>
+
+
+
+
+
+</div>
+

@@ -2,8 +2,8 @@
           <div class="container top-footer">
             <div class="row">
               <div class="col-md-4 text-center">
-              <h3> </h3>
-              <img class="img-fluid" src="images/logo2.png" alt="dip products logo" style="width:80%; height:80%;">
+              <br>
+              <img class="img-fluid" src="images/logo2.png" alt="dip products logo" style="width:80%; height:auto;">
 
               </div>
               <div class="col-md-4 text-center pl-4 pr-4 " >

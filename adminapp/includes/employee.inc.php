@@ -10,6 +10,7 @@
         $nic = $_POST['nic'];
         $landNum = $_POST['landNum'];
         $mobileNum = $_POST['mobileNum'];
+        // $address = $_POST['address1']. ", ".$_POST['address2'] .", ".  $_POST['address3'] .", ". $_POST['address4'] ;
         $address1 = $_POST['address1'];
         $address2 = $_POST['address2'];
         $address3 = $_POST['address3'];
@@ -17,7 +18,8 @@
         $email = $_POST['email'];
         
     
-        addProduct($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mobileNum, $address1, $address2, $address3, $address4, $email );
+        // addEmployee($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mobileNum, $address, $email );
+        addEmployee($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mobileNum, $address1, $address2, $address3, $address4, $email );
     
     }else{
         header("Location: ../dashboard/employee.php");

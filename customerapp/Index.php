@@ -3,6 +3,14 @@
   require_once('./includes/dbh.inc.php');
   require_once('./component/components.php');
   require_once('./includes/functions.inc.php');
+
+  $serverName="localhost";
+  $dbUserName="root";
+  $dBPassword="";
+  $dbName="dipol_db"; 
+
+
+  $conn = mysqli_connect($serverName, $dbUserName, $dBPassword, $dbName);
   
   if(isset($_POST['order'])){
     //  print_r($_POST['product_id']);
@@ -18,8 +26,8 @@
         $count = count($_SESSION['cart']);
         $item_array= array('product_id' => $_POST['product_id']);
 
-        $_SESSION['cart']['$count']= $item_array;
-    //    print_r($_SESSION['cart']);
+        $_SESSION['cart'][$count]= $item_array;
+        //print_r($_SESSION['cart']);
      }
 
       // print_r($_SESSION['cart']);
@@ -30,7 +38,7 @@
       );
 
       $_SESSION['cart'][0]=$item_array;
-    print_r($_SESSION['cart']);
+ //   print_r($_SESSION['cart']);
     }
   }
 
@@ -117,10 +125,10 @@
         component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
        }
         
-       $result = getData();
-       while($row = mysqli_fetch_assoc($result)){
-        component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
-       }
+      //  $result = getData();
+      //  while($row = mysqli_fetch_assoc($result)){
+      //   component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
+      //  }
 
       ?>
   </div>

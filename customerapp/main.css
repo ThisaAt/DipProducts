@@ -58,3 +58,7 @@ div.container img {
     height: 20px;
     width: 40px;
 }
+
+.active{
+    color: black !important;
+}

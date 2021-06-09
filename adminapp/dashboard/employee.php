@@ -88,16 +88,18 @@ if(!isset($_SESSION["adminId"])){
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Name</th>
                                         <th scope="col">Job Role</th>
                                         <th scope="col">NIC Number</th>
+                                        <th scope="col">Land Phone</th>
+                                        <th scope="col">Mobile Phone</th>
+                                        <th scope="col">Address</th>
                                         <th scope="col">Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    // include_once '../components/categoriesTable.php'
+                                      include_once '../dashboard/components/employee.table.php'
                                 ?>
                                 </tbody>
                             </table>
