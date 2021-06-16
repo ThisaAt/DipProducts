@@ -131,8 +131,9 @@
                                 Are you sure to place the order
                         </div>
                         <div class="modal-footer">
-                           <a href="./Index.php"><button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Order More Items</button></a> 
-                            <button type="button" class="btn btn-danger">Place the Order</button>
+                           <a href="./Index.php"><button type="button" class="btn btn-outline-danger" >Order More Items</button></a> 
+                           <a href="./Invoice.php"><button type="button" class="btn btn-danger" >Place the Order</button></a> 
+                            
                         </div>
                     </div>
                 </div>

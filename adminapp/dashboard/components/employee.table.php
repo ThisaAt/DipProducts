@@ -8,12 +8,12 @@
     ?>
 <tr>
     
-    <td><?php echo $row['firstName'] . $row['lastName']; ?></td>
+    <td><?php echo $row['firstName'] ." ". $row['lastName']; ?></td>
     <td><?php echo $row['jobRole']; ?></td>
     <td><?php echo $row['nic']; ?></td>
     <td><?php echo $row['landPhone']; ?></td>
     <td><?php echo $row['mobilePhone']; ?></td>
-    <td><?php echo $row['address']; ?></td>
+    <td><?php echo $row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row['address4'] ;?></td>
     <td><?php echo $row['email']; ?></td>
     
     <td>

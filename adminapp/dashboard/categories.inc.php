@@ -23,9 +23,13 @@
     
         addCategory($conn, $categoryName, $categoryImage);
     
-    }
-   
-    else{
+    }else{
        header("Location: ../dashboard/categories.php");
     }
 
+    if(isset($_GET['delete'])){
+        $categoryName = $_GET['categoryName'];
+
+
+        deleteCategory($conn, $categoryName);
+    }

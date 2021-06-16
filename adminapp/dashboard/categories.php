@@ -133,10 +133,56 @@ if(!isset($_SESSION["adminId"])){
                                                 name="categoryImage" accept=".jpg,.jpeg">
                                         </div>
                                     </div>
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" name="submit" class="btn btn-primary">Add</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                  <!-- Modal update -->
+                  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="../includes/update.cat.php" method="POST"
+                                    enctype="multipart/form-data">
+                                    <div class="mb-3 row">
+
+                                        <label for="categoryName" class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Category Name"
+                                                id="categoryNameupdate" name="categoryName">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="categoryImage" class="col-sm-2 col-form-label">Image</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="categoryImage" type="file"  name="categoryImage" accept=".jpg,.jpeg">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <input type="image" id="categoryImgUpdate" name="categoryImg" hidden>
+                                    </div>
+
+                                    <div>
+                                        <input type="text" id="categoryIdupdate" name="categoryId" hidden>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="update" class="btn btn-primary">Update</button>
                             </div>
                             </form>
                         </div>
@@ -155,6 +201,15 @@ if(!isset($_SESSION["adminId"])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script>
+<script>
+function mnk() {
+//   document.getElementById("categoryNameupdate").value = red;
+
+  
+}
+</script>
+
+
   
 </body>
 </html>

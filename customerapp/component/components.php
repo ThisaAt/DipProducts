@@ -47,9 +47,9 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
             </div>
             <div class='col-md-3 py-5' >
                 <div>
-                    <button type='button' class='btn bg-light border rounded-circle'><i class='fas fa-minus'></i></button>
+                    <button type='button' class='btn bg-light border rounded-circle' id='minus'><i class='fas fa-minus'></i></button>
                     <input type='text' value='1' class='form-control w-25 d-inline'>
-                    <button type='button' class='btn bg-light border rounded-circle'><i class='fas fa-plus'></i></button>
+                    <button type='button' class='btn bg-light border rounded-circle' id='plus'><i class='fas fa-plus'></i></button>
                 </div>
             </div>
         </div>

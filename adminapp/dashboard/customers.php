@@ -93,12 +93,9 @@ if(!isset($_SESSION["adminId"])){
                                         <th scope="col">Name</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Mobile</th>
-                                        <!-- <th scope="col">Price (Rs.)</th>
-                                        <th scope="col">Discount</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Sales</th>
-                                        <th scope="col">Actions</th> -->
+                                        <th scope="col">Mobile Phone</th>
+                                        <th scope="col">Land Phone</th>
+                                        <th scope="col">Actions</th> 
                                     </tr>
                                 </thead>
                                 <tbody>

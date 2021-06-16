@@ -133,9 +133,21 @@ function addEmployee($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mo
         header("Location: ../dashboard/employee.php?error=none");
        // echo $productSize;
     }else{
-        header("Location: ../dashboard/employee.php?error=addfailed");
-        //echo  $conn->error;
+        // header("Location: ../dashboard/employee.php?error=addfailed");
+        echo  $conn->error;
     }
 
 }
 
+function deleteCategory($conn,$categoryName){
+
+    $sql = "DELETE FROM categories (categoryName,categoryImg) WHERE categoryName='$categoryName'";
+    $sql_run = mysqli_query($conn, $sql);
+
+    if($sql_run){
+       header("Location: ../dashboard/categories.php?error=none");
+    }else{
+       header("Location: ../dashboard/categories.php?error=deletefailed");
+        //echo  $conn->error;
+    }
+}
