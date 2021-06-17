@@ -19,7 +19,7 @@
     <td>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
             <button type="button" class="btn btn-outline-dark">Update</button>
-            <button type="button" class="btn btn-outline-dark">Delete</button>
+            <a href="../includes/delete.products.php?delete=<?php echo $row['productId'];?>"><button type="button" class="btn btn-outline-dark" >Delete</button></a>
         </div>
     </td>
     </td>

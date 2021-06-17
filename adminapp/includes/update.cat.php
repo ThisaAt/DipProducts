@@ -11,18 +11,25 @@
       $categoryImg = addslashes(file_get_contents($_FILES['categoryImg']['tmp_name']));
       $categoryId = $_POST['categoryId'];
       // echo $categoryId;
-      $image;
+      // $image;
       
       if($categoryImage == NULL){
-        $image= addslashes(file_get_contents($_FILES['categoryImg']['tmp_name']));
+        // $image= addslashes(file_get_contents($_FILES['categoryImg']['tmp_name']));
+        $sql = "UPDATE categories 
+        SET categoryName=' $categoryName'
+        WHERE categoryId =$categoryId ";
       }
       else {
-        $image= addslashes(file_get_contents($_FILES['categoryImage']['tmp_name'])); 
+        // $image= addslashes(file_get_contents($_FILES['categoryImage']['tmp_name'])); 
+        $sql = "UPDATE categories 
+        SET categoryName=' $categoryName', categoryImg ='$categoryImage'  
+        WHERE categoryId =$categoryId ";
+
       }
 
-      $sql = "UPDATE categories 
-              SET categoryName=' $categoryName', categoryImg ='$image'  
-              WHERE categoryId =$categoryId ";
+      // $sql = "UPDATE categories 
+      //         SET categoryName=' $categoryName', categoryImg ='$image'  
+      //         WHERE categoryId =$categoryId ";
 
       $sql_run = mysqli_query($conn, $sql);
 

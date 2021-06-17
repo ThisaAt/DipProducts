@@ -108,7 +108,7 @@
                             <hr>
                             <h6><?php echo "Rs.". $total; ?></h6>
                             <hr>
-                            <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#exampleModal">Place the Order</button><br>
+                            <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#placeOrderAlert">Place the Order</button><br>
                            
                       
                         </div>
@@ -120,24 +120,26 @@
             </div>
             
         </div>
-            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                         <div class="modal-body">
-                                Are you sure to place the order
-                        </div>
-                        <div class="modal-footer">
-                           <a href="./Index.php"><button type="button" class="btn btn-outline-danger" >Order More Items</button></a> 
-                           <a href="./Invoice.php"><button type="button" class="btn btn-danger" >Place the Order</button></a> 
-                            
-                        </div>
+        <!-- Are you sure to place the order Model -->
+
+        <div class="modal fade " id="placeOrderAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                        <div class="modal-body">
+                            Are you sure to place the order
+                    </div>
+                    <div class="modal-footer">
+                        <a href="./Index.php"><button type="button" class="btn btn-outline-danger" >Order More Items</button></a> 
+                        <a href="./Invoice.php"><button type="button" class="btn btn-danger" >Place the Order</button></a> 
+                        
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 
 

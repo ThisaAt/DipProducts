@@ -97,7 +97,7 @@ if(!isset($_SESSION["adminId"])){
                                 <tbody>
                                     <?php
                                         include_once '../dashboard/components/categories.table.php'
-                                ?>
+                                    ?>
                                 </tbody>
                             </table>
                         </form>
@@ -145,7 +145,7 @@ if(!isset($_SESSION["adminId"])){
                 </div>
 
                   <!-- Modal update -->
-                  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -173,10 +173,6 @@ if(!isset($_SESSION["adminId"])){
                                     </div>
 
                                     <div>
-                                        <input type="image" id="categoryImgUpdate" name="categoryImg" hidden>
-                                    </div>
-
-                                    <div>
                                         <input type="text" id="categoryIdupdate" name="categoryId" hidden>
                                     </div>
                             </div>
@@ -188,6 +184,35 @@ if(!isset($_SESSION["adminId"])){
                         </div>
                     </div>
                 </div>
+            <!-- Delete Alert Model -->
+
+            <div class="modal fade " id="deleteAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warnning!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                        <div class="modal-body">
+                          <h5>Are you sure to delete the category?</h5>  
+                    </div>
+                    
+                    <div>
+                        <input type="text" id="categoryIdDelete" name="categoryId" hidden>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+
+                    <button type="button" class="btn btn-primary" onclick="window.location.href = '../includes/delete.cat.php?delete='+document.getElementById('categoryIdDelete').value;">Delete</button></a> 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                <!-- end delete model -->
 
 
              </main>
@@ -201,13 +226,7 @@ if(!isset($_SESSION["adminId"])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script>
-<script>
-function mnk() {
-//   document.getElementById("categoryNameupdate").value = red;
 
-  
-}
-</script>
 
 
   

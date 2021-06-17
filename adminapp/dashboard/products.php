@@ -102,7 +102,7 @@ if(!isset($_SESSION["adminId"])){
                                         <th scope="col">Category</th>
                                         <th scope="col">Size</th>
                                         <th scope="col">Price (Rs.)</th>
-                                        <th scope="col">Discount</th>
+                                        <th scope="col">Discount (%)</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Sales</th>
                                         <th scope="col">Actions</th>
@@ -211,8 +211,14 @@ if(!isset($_SESSION["adminId"])){
                                     <div class="mb-3 row">
                                         <label for="productDiscount" class="col-sm-2 col-form-label">Discount</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Product Discount"
-                                                id="productDiscount" name="productDiscount">
+                                            <div class="row"> 
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="text" placeholder="Product Discount" id="productDiscount" name="productDiscount">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="input-group-text col-form-label">%</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- <div class="mb-3 row">
