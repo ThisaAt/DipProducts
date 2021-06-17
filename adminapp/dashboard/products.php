@@ -245,8 +245,157 @@ if(!isset($_SESSION["adminId"])){
                         </div>
                     </div>
                 </div>
+                 
+                  <!-- Modal update -->
+              
+                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="../includes/update.products.php" method="POST"
+                                    enctype="multipart/form-data">
 
+                                    <div class="mb-3 row">
+                                        <label for="productName" class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Product Name"
+                                                id="productNameUpdate" name="productName" >
+                                        </div>
+                                    </div>
 
+                                    <div class="mb-3 row">
+                                        <label for="categoryName" class="col-sm-2 col-form-label">Category</label>
+                                        <div class="col-sm-10">                                            
+                                            <!-- <select class="form-select" name="categoryName" id="categoryNameUpdate" disabled>
+                                                <option selected>Category</option> 
+                                                <?php
+                                                // require_once '../includes/dbh.inc.php';
+
+                                                // $sql = "SELECT * FROM categories;";
+                                                // $sql_run = mysqli_query($conn, $sql);
+
+                                                // while($row = mysqli_fetch_array($sql_run)){ ?>
+                                                       
+                                                    <option value='<?php //echo $row['categoryName']?>'><?php //echo $row['categoryName']; ?></option> 
+
+                                                <?php // } ?>
+                                            </select> -->
+                                            <input class="form-control" type="text" placeholder="Product Name"
+                                                id="categoryNameUpdate" name="categoryName" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label for="productSize" class="col-sm-2 col-form-label">Size</label>
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" placeholder="Product Size" id="productSizeUpdate" name="productSize" disabled>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-select" name="unit" id="unit">
+                                                        <option selected>Unit</option>
+                                                        <option value="Kg"> Kg</option>
+                                                        <option value="g"> g</option>
+                                                        <option value="L"> L</option>
+                                                        <option value="ml"> ml</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                       
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="productPrice" class="col-sm-2 col-form-label">Price (Rs.)</label>
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <span class="input-group-text col-form-label">Rs.</span>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control col-form-label" placeholder="Product Price" id="productPriceUpdate" name="productPrice">
+                                                </div>
+                                                <!-- <div class="col-md-2">
+                                                    <span class="input-group-text col-form-label">.00</span>
+                                                </div> -->
+                                            </div>                                                                      
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="productQty" class="col-sm-2 col-form-label">Quantity</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Product Quantity" id="productQtyUpdate" name="productQty">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="productDiscount" class="col-sm-2 col-form-label">Discount</label>
+                                        <div class="col-sm-10">
+                                            <div class="row"> 
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="text" placeholder="Product Discount" id="productDiscountUpdate" name="productDiscount">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="input-group-text col-form-label">%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="productImg" class="col-sm-2 col-form-label">Image</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="productImgUpdate" type="file"
+                                                name="productImg" accept=".jpg,.jpeg">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="text" id="productIdupdate" name="productId" hidden>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="update" class="btn btn-primary">Update</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                                                       
+
+                   <!-- Delete Alert Model -->
+
+                <div class="modal fade " id="deleteAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Warnning!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Are you sure to delete the product?</h5>  
+                            </div>
+                                                
+                            <div> <!-- product  id -->
+                                <input type="text" id="productIdDelete" name="productId" hidden>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '../includes/delete.products.php?delete='+document.getElementById('productIdDelete').value;">Delete</button></a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end delete model -->
              </main>
         </div>
     </div>

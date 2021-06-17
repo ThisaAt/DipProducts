@@ -4,15 +4,14 @@
 
          echo $id;
          require_once 'dbh.inc.php';
-       // require_once 'functions.inc.php';
 
-        $sql = "DELETE FROM categories WHERE categoryId =$id";
+        $sql = "DELETE FROM employee WHERE employeeId =$id";
         $sql_run = mysqli_query($conn, $sql);
     
         if ($conn->query($sql) === TRUE) {
-            header("Location: ../dashboard/categories.php?itemdeleted");
+            header("Location: ../dashboard/employee.php?itemdeleted");
           } else {
-           header("Location: ../dashboard/categories.php?error=deletefailed");
+           header("Location: ../dashboard/employee.php?error=deletefailed");
             // echo  $conn->error;
           }
           

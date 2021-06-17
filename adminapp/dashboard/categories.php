@@ -210,8 +210,6 @@ if(!isset($_SESSION["adminId"])){
                 </div>
             </div>
         </div>
-
-
                 <!-- end delete model -->
 
 

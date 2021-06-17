@@ -204,8 +204,117 @@ if(!isset($_SESSION["adminId"])){
                         </div>
                     </div>
                 </div>
+            <!-- Update Model  -->
+                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update Employee</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="../includes/update.emp.php" method="POST"
+                                    enctype="multipart/form-data">
 
+                                    <div class="mb-3 row">
+                                        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="First Name"
+                                                id="firstNameupdate" name="firstName">
+                                        </div>
+                                    </div>
 
+                                    <div class="mb-3 row">
+                                        <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Last Name"
+                                                id="lastNameUpdate" name="lastName">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="jobRole" class="col-sm-2 col-form-label">Job Role</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Job Role"
+                                                id="jobRoleUpdate" name="jobRole">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="nic" class="col-sm-2 col-form-label">NIC No.</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="NIC Number"
+                                                id="nicUpdate" name="nic">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="phone" class="col-sm-2 col-form-label">Contact Numbers</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Land Phone" id="landNumUpdate" name="landNum">
+                                            <input class="form-control" type="text" placeholder="Mobile Phone" id="mobileNumUpdate" name="mobileNum">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="address1" class="col-sm-2 col-form-label">Address</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Address Line one" id="address1Update" name="address1">
+                                            <input class="form-control" type="text" placeholder="Address Line two" id="address2Update" name="address2">
+                                            <input class="form-control" type="text" placeholder="Address Line three" id="address3Update" name="address3">
+                                            <input class="form-control" type="text" placeholder="Address Line four" id="address4Update" name="address4">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Email"
+                                                id="emailUpdate" name="email">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="text" id="employeeIdupdate" name="employeeId" hidden>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="update" class="btn btn-primary">Update</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                   <!-- Delete Alert Model -->
+
+            <div class="modal fade " id="deleteAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warnning!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                        <div class="modal-body">
+                          <h5>Are You Sure to Delete the Employee?</h5>  
+                    </div>
+                    
+                    <div>
+                        <input type="text" id="employeeIdDelete" name="employeeId" hidden>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+
+                    <button type="button" class="btn btn-primary" onclick="window.location.href = '../includes/delete.emp.php?delete='+document.getElementById('employeeIdDelete').value;">Delete</button></a> 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- end delete model -->
              </main>
         </div>
     </div>

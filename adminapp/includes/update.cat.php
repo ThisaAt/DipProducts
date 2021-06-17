@@ -7,11 +7,7 @@
       
       $categoryName = $_POST['categoryName'];
       $categoryImage = addslashes(file_get_contents($_FILES['categoryImage']['tmp_name']));
-      // echo  $_POST['categoryId'];
-      $categoryImg = addslashes(file_get_contents($_FILES['categoryImg']['tmp_name']));
       $categoryId = $_POST['categoryId'];
-      // echo $categoryId;
-      // $image;
       
       if($categoryImage == NULL){
         // $image= addslashes(file_get_contents($_FILES['categoryImg']['tmp_name']));
