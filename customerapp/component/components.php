@@ -28,11 +28,11 @@ function component($productImg, $productName,$productSize,$productPrice, $produc
 
 }
 
-function cartElement($productImg, $productName,$productSize, $productPrice,$productId ){
+function cartElement($productImg, $productName,$productSize, $productPrice,$productId,$productQty ){
 
 
     $element="
-  
+
     <form action='cart.php?action=remove&id= $productId' method='post' class='cart-items'>
       <div class='border rounded'>
         <div class='row bg-white'>
@@ -46,10 +46,8 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                 <button type='submit' class='btn btn-danger' name='remove'>Remove</button>
             </div>
             <div class='col-md-3 py-5' >
-                <div>
-                    <button type='button' class='btn bg-light border rounded-circle' id='minus'><i class='fas fa-minus'></i></button>
-                    <input type='text' value='1' class='form-control w-25 d-inline'>
-                    <button type='button' class='btn bg-light border rounded-circle' id='plus'><i class='fas fa-plus'></i></button>
+                <div>  
+                    <input type = 'number' min='1' max='$productQty' class='form-control itemQty' value='1' style='width:75px;'>
                 </div>
             </div>
         </div>
@@ -58,6 +56,8 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
     ";
     echo $element;
    
-
-   
 }
+  // plus minus button -->
+// <button type='button' class='btn bg-light border rounded-circle' id='minus'><i class='fas fa-minus'></i></button>
+// <input type='text' value='1' class='form-control w-25 d-inline'>
+// <button type='button' class='btn bg-light border rounded-circle' id='plus'><i class='fas fa-plus'></i></button>

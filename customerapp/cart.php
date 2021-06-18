@@ -69,7 +69,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 foreach($product_id as $id){
                                     if($row['productId']==$id){
-                                        cartElement($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
+                                        cartElement($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId'], $row['productQty']);
                                         $total = $total +(int)$row['productPrice'];
                                      }
                                 }
