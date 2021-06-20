@@ -41,17 +41,17 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link rep" href="feedback.php">
+                  <span data-feather="layers"></span>
+                  Feedbacks
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link inv" href="reports.php">
                   <span data-feather="layers"></span>
                   Reports
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link pur" href="../ui/purchases.php">
-                  <span data-feather="layers"></span>
-                  Purchases
-                </a>
-              </li> -->
             </ul>
           </div>
         </nav>

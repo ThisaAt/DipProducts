@@ -50,9 +50,15 @@
                         <?php 
                             $msg ="";
                             if(isset($_GET['error'])){
-                                $msg="Please Fill All the Blanks";
+                                $msg="Error Submitting the Feedback";
                                 echo '<div class="alert alert-danger">'.$msg.'</div>';
                             }
+
+                            if(isset($_GET['success'])){
+                                $msg="Successfully Submitted the Feedback";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }
+
 
                         ?>
                     </div>
@@ -60,10 +66,10 @@
                     <div class="card-body">
                         <form action="./includes/feedback.inc.php" method="POST">
 
-                        <input type="text" name="name" placeholder="Name" class="form-control mb-2" id="floatingInput">
-                        <input type="email" name="email" placeholder="Email" class="form-control mb-2">
-                        <div class="form-floating">
-                            <select class="form-select mb-2" id="floatingSelect" aria-label="Floating label select example">
+                        <input type="text" name="name" placeholder="Name" class="form-control mb-2" id="floatingInput" required>
+                        <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
+                        <div class="form-floating" >
+                            <select class="form-select mb-2" id="floatingSelect" aria-label="Floating label select example" required>
                                 <option selected>Select a Feedback Type</option>
                                 <option value="type">Customer Service</option>
                                 <option value="type">Product Quality</option>
@@ -73,7 +79,7 @@
                             <label for="floatingSelect">Type</label>
                         </div>
                         <div class="form-floating">
-                            <textarea name="comment" class="form-control mb-2" placeholder="Leave your feedback here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <textarea name="comment" class="form-control mb-2" placeholder="Leave your feedback here" id="floatingTextarea2" style="height: 100px" required></textarea>
                             <label for="floatingTextarea2">Feedback</label>
                         </div>
                         <button type="submit" class="btn btn-danger" name="submit"> Submit </button>

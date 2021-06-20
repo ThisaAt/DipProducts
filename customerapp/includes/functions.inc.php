@@ -127,3 +127,17 @@ function loginUser($conn, $email, $pw){
 
 }
 
+function addFeedback($conn, $name,$email,$type, $comment){
+
+    $sql = "INSERT INTO feedback (name, email, type, comment) VALUES ('$name', '$email','$type','$comment')";
+    $sql_run = mysqli_query($conn, $sql);
+
+    if($sql_run){
+        header("location: ../feedback.php?success"); 
+    }else{
+        header("location: ../feedback.php?error=submitfail"); 
+        // echo  $conn->error;
+    }
+
+}
+

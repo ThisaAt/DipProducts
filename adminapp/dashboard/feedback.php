@@ -49,7 +49,7 @@ if(!isset($_SESSION["adminId"])){
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Customers</h1>
+                    <h1 class="h2">Customer Feedbacks</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                             <!-- <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
@@ -62,25 +62,7 @@ if(!isset($_SESSION["adminId"])){
 
                 <div>
                     <div>
-                        <?php 
-                    //     if(isset($_GET["error"])){
-                    //     if($_GET["error"]=="emptyinput"){
-                    //         echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="categoryexists"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category already exists, Please try another one!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="none"){
-                    //         echo '<div class="alert alert-success" role="alert">Category added successfully!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="addfailed"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category adding failed, Please try again!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="categoryimagetoobig"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category image size is too big, Please select a file smaller than 5MB!</div>';
-                    //     }
-                    // }
-                    ?>
+                    
                     </div>
 
                     <!--Display categories table start -->
@@ -88,25 +70,23 @@ if(!isset($_SESSION["adminId"])){
                         <form action="" method="POST" enctype="multipart/form-data">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>
-                                        
+                                    <tr>   
                                         <th scope="col">Name</th>
-                                        <th scope="col">Address</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Mobile Phone</th>
-                                        <th scope="col">Land Phone</th>
-                                        <th scope="col">Actions</th> 
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Feedback</th>
+                                        <th scope="col">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                     include_once '../dashboard/components/customers.table.php'
+                                     include_once '../dashboard/components/feedback.table.php'
                                 ?>
                                 </tbody>
                             </table>
                         </form>
                     </div>
-                    <!--Display categories table end -->
+                    <!--Display table end -->
                 </div>
 
              </main>
