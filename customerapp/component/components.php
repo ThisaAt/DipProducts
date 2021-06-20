@@ -41,13 +41,15 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
             </div>
             <div class='col-md-6'>
                 <h5 class='pt-2'>$productName</h5>
-                <small class='text-secondary'>$productSize</small>
-                <h6 class='pt-2'>Rs.$productPrice</h6>
+                <small class='text-secondary'>$productSize</small><br>
+                <small >  Rs.$productPrice/Unit</small>
+                <h6 class='pt-2'>Total: Rs.$productPrice</h6>
+                
                 <button type='submit' class='btn btn-danger' name='remove'>Remove</button>
             </div>
             <div class='col-md-3 py-5' >
                 <div>  
-                    <input type = 'number' min='1' max='$productQty' class='form-control itemQty' value='1' style='width:75px;'>
+                    <input id='qtyButton' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='1' style='width:75px;'>
                 </div>
             </div>
         </div>

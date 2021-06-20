@@ -3,6 +3,28 @@
     // $checkPassword = $_POST['checkPassword'];
     // $checkPassword = $_POST['checkPassword'];
 
+function emptyInputSignup($firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password,  $checkPassword){
+        // $result;
+    if(empty($firstName) || empty($lastName) || empty($address1) || empty($address2) || empty($address3) || empty($address4) || empty($email) || empty($gender) || empty($mobilePhone) || empty($landPhone)|| empty($password)|| empty($checkPassword)){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }
+
+function invalidContactNo($mobilePhone){
+        // $result;
+    if(!is_numeric($mobilePhone) || strlen($mobilePhone) != 10){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }
+
 function uidExists($conn, $email){
     $sql = "SELECT * FROM customer WHERE customerEmail = ?";
     $stmt = mysqli_stmt_init($conn);
@@ -29,12 +51,12 @@ function uidExists($conn, $email){
         mysqli_stmt_close($stmt);
 }
     
-function createUser($conn, $firstName, $lastName, $address1, $address2, $address3, $address4, $email, $mobilePhone,$landPhone,$password){
+function createUser($conn, $firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password){
     // encrypting the password
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
        // $sql = "INSERT INTO customer (firstName, lastName, address1, address2, address3, address4, customerEmail, mobilePhone, landPhone, customerPw) VALUES (? ,?, ?, ?, ? ,?, ?, ?, ?,?)";
 
-    $sql = "INSERT INTO customer (firstName, lastName, address1, address2, address3, address4, customerEmail, mobilePhone, landPhone, customerPw) VALUES ('$firstName', '$lastName', '$address1', '$address2', '$address3', '$address4', '$email', '$mobilePhone','$landPhone','$hashedPwd')";
+    $sql = "INSERT INTO customer (firstName, lastName, address1, address2, address3, address4, customerEmail,gender, mobilePhone, landPhone, customerPw) VALUES ('$firstName', '$lastName', '$address1', '$address2', '$address3', '$address4', '$email', '$gender', '$mobilePhone','$landPhone','$hashedPwd')";
          
     $stmt = mysqli_stmt_init($conn);
 
@@ -45,6 +67,7 @@ function createUser($conn, $firstName, $lastName, $address1, $address2, $address
     
     if(mysqli_query($conn, $sql)) {   //if(mysqli_query($conn, $sql))
         echo 'success';
+        // echo $gender;
     }
     else {
         echo  $conn->error;

@@ -8,21 +8,46 @@
         $address3 = $_POST['address3'];
         $address4 = $_POST['address4'];
         $email = $_POST['email'];
-        // $gender = $_POST['gender'];
+        $gender = $_POST['gender'];
         $mobilePhone = $_POST['mobilePhone'];
         $landPhone = $_POST['landPhone'];
         $password = $_POST['password'];
         $checkPassword = $_POST['checkPassword'];   
 
-        // echo $firstName;
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
 
-        createUser($conn, $firstName, $lastName, $address1, $address2, $address3, $address4, $email, $mobilePhone,$landPhone,$password);
+        //error handlers
+
+    if(emptyInputSignup($firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password,  $checkPassword) !== false){
+        header("location: ../signup.php=emptyinput");
+        exit();
+    }
+    // if(invalidUid($username)!==false){
+    //     header("location: ../ui/signup.php?error=invaliduid");
+    //     exit();
+    // }
+    // if(invalidEmail($email)!==false){
+    //     header("location: ../ui/signup.php?error=invalidemail");
+    //     exit();
+    // }
+    // if(pwdMatch($pwd, $pwdrepeat)!==false){
+    //     header("location: ../ui/signup.php?error=passworddontmatch");
+    //     exit();
+    // }
+    // if(uidExists($conn, $username, $email)!==false){
+    //     header("location: ../ui/signup.php?error=usernametaken");
+    //     exit();
+    // }
+    if(invalidContactNo($mobilePhone)!==false){
+        header("location: ../signup.php?error=invalidContactNo");
+        exit();
+    }
+
+    createUser($conn, $firstName, $lastName, $address1, $address2, $address3, $address4, $email, $gender, $mobilePhone,$landPhone,$password);
     }
 
     else{
-       // echo 'Not Setted';
         header("location: ../signup.php");
         exit();
     }

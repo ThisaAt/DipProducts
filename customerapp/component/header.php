@@ -1,8 +1,8 @@
 <div class="container-fluid">
 
 <header id="header">
-<!-- navbar fixed-top navbar-light bg-light -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<!-- navbar fixed-top navbar-light bg-light style="position:fixed; width:100%;" -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " >
         <div class="container-fluid">
                 <!-- logo -->
             <nav class="navbar navbar-light bg-light">
@@ -25,7 +25,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">FEEDBACKS</a>
+                        <a class="nav-link active" href="./feedback.php">FEEDBACKS</a>
                     </li>
 
                     <li class="nav-item">

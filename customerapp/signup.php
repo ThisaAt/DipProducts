@@ -37,10 +37,10 @@
                   <form action="./includes/signup.inc.php" method="post" name="submit">
                 
                   <?php 
-                    // if(isset($_GET["error"])){
-                    //     if($_GET["error"]=="emptyinput"){
-                    //         echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
-                    //     }
+                    if(isset($_GET["error"])){
+                        if($_GET["error"]=="emptyinput"){
+                            echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
+                        }
                     //     else if($_GET["error"]=="invaliduid"){
                     //         echo '<div class="alert alert-danger" role="alert">Choose a proper username!</div>';
                     //     }
@@ -56,22 +56,22 @@
                     //     else if($_GET["error"]=="usernametaken"){
                     //         echo '<div class="alert alert-danger" role="alert">Username already taken, please try another one!</div>';
                     //     }
-                    //     else if($_GET["error"]=="invalidContactNo"){
-                    //     echo '<div class="alert alert-danger" role="alert">Choose a proper contact no!</div>';
-                    // }
-                    // }
+                        else if($_GET["error"]=="invalidContactNo"){
+                        echo '<div class="alert alert-danger" role="alert">Choose a proper contact no!</div>';
+                    }
+                     }
                     ?>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
-                                <input type="text" name="firstName" class="form-control" required><br>
+                                <input type="text" name="firstName" class="form-control" ><br>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" name="lastName" class="form-control" required><br>
+                                <input type="text" name="lastName" class="form-control" ><br>
                             </div>
                         </div>
                     </div><br>
@@ -95,7 +95,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault1" required>
+                                            <input class="form-check-input" type="radio" name="gender"id="flexRadioDefault1" value="Male" required>
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Male
                                             </label>
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"id="flexRadioDefault2" checked required>
+                                            <input class="form-check-input" type="radio" name="gender"id="flexRadioDefault2" value="Female" required>
                                             <label class="form-check-label" for="flexRadioDefault2">
                                                 Female
                                             </label>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">Password <small class="text-danger"> *Must be 8-20 characters long</small></label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter the Password" >
                                 <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" ><br>
                             </div> 
