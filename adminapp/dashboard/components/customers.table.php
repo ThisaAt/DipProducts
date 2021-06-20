@@ -14,6 +14,7 @@
     <td><?php echo $row['customerEmail']; ?></td>
     <td><?php echo $row['mobilePhone']; ?></td>
     <td><?php echo $row['landPhone']; ?></td>
+    <td><?php echo $row['date']; ?></td>
  
     
     <td>

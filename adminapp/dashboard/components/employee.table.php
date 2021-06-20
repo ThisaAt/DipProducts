@@ -15,6 +15,7 @@
     <td><?php echo $row['mobilePhone']; ?></td>
     <td><?php echo $row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row['address4'] ;?></td>
     <td><?php echo $row['email']; ?></td>
+    <td><?php echo $row['date']; ?></td>
     <?php  $row['employeeId']; ?>
     <td>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
