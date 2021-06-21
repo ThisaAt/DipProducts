@@ -23,7 +23,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pro" href="orders.php">
+                <a class="nav-link pro" href="order.php">
                   <span data-feather="users"></span>
                   Orders
                 </a>

@@ -69,12 +69,12 @@
                         <input type="text" name="name" placeholder="Name" class="form-control mb-2" id="floatingInput" required>
                         <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
                         <div class="form-floating" >
-                            <select class="form-select mb-2" id="floatingSelect" aria-label="Floating label select example" required>
+                            <select class="form-select mb-2" name="type" id="floatingSelect" aria-label="Floating label select example" required>
                                 <option selected>Select a Feedback Type</option>
-                                <option value="type">Customer Service</option>
-                                <option value="type">Product Quality</option>
-                                <option value="type">Delivery</option>
-                                <option value="type">Other</option>
+                                <option value="Customer Service">Customer Service</option>
+                                <option value="Product Quality">Product Quality</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Other">Other</option>
                             </select>
                             <label for="floatingSelect">Type</label>
                         </div>
