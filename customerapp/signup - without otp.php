@@ -37,38 +37,6 @@
                   <form action="./includes/signup.inc.php" method="post" name="submit">
                 
                   <?php 
-                    if (isset($_POST['sendotp'])){
-
-                        require('./sms/textlocal.class.php');
-                        require('./sms/credentials.php');
-                        
-                        $textlocal = new Textlocal(false, false,API_KEY);
-
-                        // $numbers = array(MOBILE);
-                        $numbers = array($_POST['mobilePhone']);
-                        $sender = 'TXTLCL';
-                        $otp = mt_rand(10000,99999);
-                        $message =  " This is your OTP for Dip Products signup: " . $otp;
-
-                        try {
-                            $result = $textlocal->sendSms($numbers, $message, $sender);
-                            setcookie('otp',$otp);
-                            echo "OTP send";
-                        } catch (Exception $e) {
-                            die('Error: ' . $e->getMessage());
-                        }
-                    }
-                    if (isset($_POST['verify'])){
-                        $otp = $_POST['otp'];
-                        if($_COOKIE['otp'] == $otp){
-                            echo "Mobile Number is verified!";
-                        }
-                        else {
-                            echo "OTP is invalid";
-                        }
-                    }
-
-
                     if(isset($_GET["error"])){
                         if($_GET["error"]=="emptyinput"){
                             echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
@@ -154,22 +122,11 @@
                     </div><br>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="contactNumber">Contact Number</label>
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <div class="form-group">
-                                        <!-- <label for="contactNumber">Contact Number</label> -->
-                                        <input type="number" name="mobilePhone" class="form-control" placeholder="Mobile Phone" >
-                                        <input type="number" name="landPhone" class="form-control" placeholder="Land Phone" > <br>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <form role="form" method="post" enctype="multipart/form-data">
-                                        <button type="submit" name="sendotp" class="btn btn-danger btn-sm">Send OTP</button>
-                                    </form>
-                                </div>
+                            <div class="form-group">
+                                <label for="contactNumber">Contact Number</label>
+                                <input type="number" name="mobilePhone" class="form-control" placeholder="Mobile Phone" >
+                                <input type="number" name="landPhone" class="form-control" placeholder="Land Phone" > <br>
                             </div>
-                    
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
@@ -180,20 +137,7 @@
                         </div>
                     </div>
                     <div class="row"><br>
-                        <div class="col-md-6">
-                            <form role="form" method="post" action="">
-                                <label for="otp">OTP</label>
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <input type="text" id="otp" name="otp" class="form-control" placeholder="Enter OTP" >
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="submit" name="verify" class="btn btn-danger btn-sm">Verify</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <button type="submit" name="submit" class="btn btn-class">Signup</button>
                             <p>Have an account? <a href="Login.php">Log in here</a></p>
                         </div>

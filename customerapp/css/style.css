@@ -44,6 +44,31 @@ body{
     box-shadow: none;
 }
 
+.form-select{
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-color: #db283d!important;
+  border-style: solid !important;
+  border-width: 0 0 1px 0 !important;
+  padding: 0px !important;
+  color: #495057;
+  height: auto;
+  border-radius: 0;
+  border-color: #fff;
+  background-clip: padding-box;
+}
+
+.form-select{
+  color: #495057;
+  background-color: #fff;
+  border-color: #fff;
+  outline: 0;
+  box-shadow: none;
+}
+
 .btn-class{
     border-color: #db283d;
     color: #db283d;

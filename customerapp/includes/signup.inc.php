@@ -20,25 +20,25 @@
         //error handlers
 
     if(emptyInputSignup($firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password,  $checkPassword) !== false){
-        header("location: ../signup.php=emptyinput");
+        header("location: ../signup.php?error=emptyinput");
         exit();
     }
     // if(invalidUid($username)!==false){
     //     header("location: ../ui/signup.php?error=invaliduid");
     //     exit();
     // }
-    // if(invalidEmail($email)!==false){
-    //     header("location: ../ui/signup.php?error=invalidemail");
+    if(invalidEmail($email)!==false){
+        header("location: ../signup.php?error=invalidemail");
+        exit();
+    }
+    // if(pwdMatch($pwd, $checkPassword)!==false){
+    //     header("location: ../signup.php?error=passworddontmatch");
     //     exit();
     // }
-    // if(pwdMatch($pwd, $pwdrepeat)!==false){
-    //     header("location: ../ui/signup.php?error=passworddontmatch");
-    //     exit();
-    // }
-    // if(uidExists($conn, $username, $email)!==false){
-    //     header("location: ../ui/signup.php?error=usernametaken");
-    //     exit();
-    // }
+    if(uidExists($conn, $email)!==false){
+        header("location: ../signup.php?error=usernametaken");
+        exit();
+    }
     if(invalidContactNo($mobilePhone)!==false){
         header("location: ../signup.php?error=invalidContactNo");
         exit();

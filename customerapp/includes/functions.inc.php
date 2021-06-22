@@ -14,6 +14,28 @@ function emptyInputSignup($firstName, $lastName, $address1, $address2, $address3
         return $result;
     }
 
+function invalidEmail($email){
+     
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }
+
+function pwdMatch($pwd, $checkPassword){
+       
+    if($pwd !== $checkPassword){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }
+
 function invalidContactNo($mobilePhone){
         // $result;
     if(!is_numeric($mobilePhone) || strlen($mobilePhone) != 10){

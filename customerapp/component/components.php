@@ -43,7 +43,7 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                 <h5 class='pt-2'>$productName</h5>
                 <small class='text-secondary'>$productSize</small><br>
                 <small >  Rs.$productPrice/Unit</small>
-                <h6 class='pt-2'>Total: Rs.$productPrice</h6>
+                <h6 class='pt-2'>Total: Rs. $productPrice</h6>
                 
                 <button type='submit' class='btn btn-danger' name='remove'>Remove</button>
             </div>
