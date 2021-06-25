@@ -28,11 +28,11 @@ function component($productImg, $productName,$productSize,$productPrice, $produc
 
 }
 
-function cartElement($productImg, $productName,$productSize, $productPrice,$productId,$productQty ){
+function cartElement($productImg, $productName,$productSize, $productPrice,$productId,$productQty, $qtyVal){
 
 
     $element="
-
+ 
     <form action='cart.php?action=remove&id= $productId' method='post' class='cart-items'>
       <div class='border rounded'>
         <div class='row bg-white'>
@@ -49,7 +49,7 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
             </div>
             <div class='col-md-3 py-5' >
                 <div>  
-                    <input id='qtyButton' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='1' style='width:75px;'>
+                    <input id='qtyButton' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='$qtyVal' style='width:75px;'>
                 </div>
             </div>
         </div>

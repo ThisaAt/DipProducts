@@ -37,29 +37,27 @@
                   <form action="./includes/signup.inc.php" method="post" name="submit">
                 
                   <?php 
-                    // if(isset($_GET["error"])){
-                    //     if($_GET["error"]=="emptyinput"){
-                    //         echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="invaliduid"){
-                    //         echo '<div class="alert alert-danger" role="alert">Choose a proper username!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="invalidemail"){
-                    //         echo '<div class="alert alert-danger" role="alert">Choose a proper email!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="passworddontmatch"){
-                    //         echo '<div class="alert alert-danger" role="alert">Passwords does not match!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="stmtfailed"){
-                    //         echo '<div class="alert alert-danger" role="alert">Something went wrong, please try again!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="usernametaken"){
-                    //         echo '<div class="alert alert-danger" role="alert">Username already taken, please try another one!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="invalidContactNo"){
-                    //     echo '<div class="alert alert-danger" role="alert">Choose a proper contact no!</div>';
-                    // }
-                    // }
+                    if(isset($_GET["error"])){
+                        if($_GET["error"]=="emptyinput"){
+                            echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
+                        }
+                        else if($_GET["error"]=="invaliduid"){
+                            echo '<div class="alert alert-danger" role="alert">Choose a proper username!</div>';
+                        }
+                        else if($_GET["error"]=="invalidemail"){
+                            echo '<div class="alert alert-danger" role="alert">Choose a proper email!</div>';
+                        }
+                        else if($_GET["error"]=="passworddontmatch"){
+                            echo '<div class="alert alert-danger" role="alert">Passwords does not match!</div>';
+                        }
+                        else if($_GET["error"]=="stmtfailed"){
+                            echo '<div class="alert alert-danger" role="alert">Something went wrong, please try again!</div>';
+                        }
+                        else if($_GET["error"]=="usernametaken"){
+                            echo '<div class="alert alert-danger" role="alert">Email is already taken, please signup with a different email!</div>';
+                        }
+                 
+                    }
                     ?>
                     <div class="row">
                         <div class="col-md-6">
@@ -80,15 +78,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Enter the Password" >
+                                <input type="password" name="password" class="form-control" placeholder="Enter the Password" required >
                                 
                             </div> 
                         </div>
                         <div class="col-md-6"><br>
                             <div class="form-group">
-                                <!-- <label for="password">Password</label> -->
-                                <input type="password" name="password" class="form-control" placeholder="Confirm the Password" >
-                                <!-- <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" ><br> -->
+                                <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" required>
                             </div> 
                         </div>
                     </div><br>

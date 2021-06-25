@@ -31,10 +31,10 @@
         header("location: ../signup.php?error=invalidemail");
         exit();
     }
-    // if(pwdMatch($pwd, $checkPassword)!==false){
-    //     header("location: ../signup.php?error=passworddontmatch");
-    //     exit();
-    // }
+    if(pwdMatch($password, $checkPassword)!==false){
+        header("location: ../signup.php?error=passworddontmatch");
+        exit();
+    }
     if(uidExists($conn, $email)!==false){
         header("location: ../signup.php?error=usernametaken");
         exit();

@@ -25,7 +25,6 @@
      }else{
         $count = count($_SESSION['cart']);
         $item_array= array('product_id' => $_POST['product_id']);
-
         $_SESSION['cart'][$count]= $item_array;
         //print_r($_SESSION['cart']);
      }
@@ -33,10 +32,7 @@
       // print_r($_SESSION['cart']);
     }
     else{
-      $item_array = array (
-        'product_id'=>$_POST['product_id']
-      );
-
+      $item_array = array ('product_id'=>$_POST['product_id'] );
       $_SESSION['cart'][0]=$item_array;
  //   print_r($_SESSION['cart']);
     }

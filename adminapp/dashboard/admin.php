@@ -72,6 +72,7 @@ if(!isset($_SESSION["userName"])){
                     <?php
                         echo '<h1 class="text-center">Welcome ' .$_SESSION["userName"]. ' !</h1>'
                     ?>
+                       
                 </div>
             </main>
 

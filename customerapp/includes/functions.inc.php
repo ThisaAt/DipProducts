@@ -14,6 +14,7 @@ function emptyInputSignup($firstName, $lastName, $address1, $address2, $address3
         return $result;
     }
 
+
 function invalidEmail($email){
      
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -25,9 +26,9 @@ function invalidEmail($email){
         return $result;
     }
 
-function pwdMatch($pwd, $checkPassword){
+function pwdMatch($password, $checkPassword){
        
-    if($pwd !== $checkPassword){
+    if($password !== $checkPassword){
         $result=true;
     }
     else{
@@ -103,6 +104,17 @@ function createUser($conn, $firstName, $lastName, $address1, $address2, $address
     header("location: ../login.php?error=none");
     exit();
 }
+
+function emptyInputLogin($email, $pw){
+  
+    if(empty($email) || empty($pw)){
+    $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+}
 function loginUser($conn, $email, $pw){
     $uidExists = uidExists($conn, $email);
 
@@ -123,8 +135,19 @@ function loginUser($conn, $email, $pw){
     else if($checkPwd == true){
         session_start();
         $_SESSION["customerId"]= $uidExists["customerId"];
+
+          require_once '../includes/dbh.inc.php';
+            $id =$_SESSION["customerId"];
+            $sql = "SELECT mobilePhone FROM customer WHERE customerId = '$id'";
+            $result =mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($result);
+           
+            $mobno =$row['mobilePhone'];
+            $_SESSION["mobile"]= $mobno;
+
         $_SESSION["firstName"]= $uidExists["firstName"];
         $_SESSION["customerEmail"]= $uidExists["customerEmail"];
+        
         header("location: ../index.php");
         exit();
     }

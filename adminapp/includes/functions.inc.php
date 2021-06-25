@@ -3,6 +3,39 @@
     // $checkPassword = $_POST['checkPassword'];
     // $checkPassword = $_POST['checkPassword'];
 
+function emptyInputSignup($userName, $email, $password,  $checkPassword){
+        
+    if(empty($userName) || empty($email) ||  empty($password)|| empty($checkPassword)){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }
+
+function invalidUid($userName){
+      
+    if(!preg_match("/^[a-zA-Z0-9]*$/", $userName)){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+}    
+
+function invalidEmail($email){
+     
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }
+
 function uidExists($conn, $email){
     $sql = "SELECT * FROM admin WHERE adminEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -28,6 +61,16 @@ function uidExists($conn, $email){
         mysqli_stmt_close($stmt);
     }
 
+function pwdMatch($password, $checkPassword){
+    
+    if($password !== $checkPassword){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }    
     
 function createAdmin($conn, $userName, $email, $password){
     
@@ -70,6 +113,16 @@ function addCategory($conn, $categoryName, $categoryImage){
 
 }
 
+function emptyInputLogin($email, $pw){
+  
+    if(empty($email) || empty($pw)){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
+    }
 
 function loginAdmin($conn, $email, $pw){
 
@@ -89,7 +142,7 @@ function loginAdmin($conn, $email, $pw){
         exit(); 
     }
     else if($checkPwd === true){
-        echo "true";
+        // echo "true";
         session_start();
         $_SESSION["adminId"]= $uidExists["adminId"];
         $_SESSION["userName"]= $uidExists["userName"];
@@ -105,8 +158,6 @@ function loginAdmin($conn, $email, $pw){
     //     exit();
     // }
 }
-
-
 
 function addProduct($conn, $productName,$categoryName,$productSize, $productPrice, $productQty, $productDiscount, $productImg){
 

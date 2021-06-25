@@ -25,13 +25,13 @@
                   <h3 class="signin-text mb-3">Login</h3>
                   <form action="./includes/login.inc.php" method="post">
                     <?php 
-                      // if(isset($_GET["error"])){
-                      //   if($_GET["error"]=="emptyinput"){
-                      //     echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
-                      //   }
-                      //   else if($_GET["error"]=="wronglogin"){
-                      //     echo '<div class="alert alert-danger" role="alert">Incorrect login credentials!</div>';
-                      //   }
+                      if(isset($_GET["error"])){
+                        if($_GET["error"]=="emptyinput"){
+                          echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
+                        }
+                        else if($_GET["error"]=="wronglogin"){
+                          echo '<div class="alert alert-danger" role="alert">Incorrect login credentials!</div>';
+                        }}
                       //   else if($_GET["error"]=="none"){
                       //     echo '<div class="alert alert-success" role="alert">You have signed up successfully, Please login!</div>';
                       //   }
@@ -44,11 +44,11 @@
                     ?>
                         <div class="form-group">
                           <label for="email">Email</label>
-                          <input type="email" name="email" class="form-control"><br>
+                          <input type="email" name="email" class="form-control" required><br>
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
-                          <input type="password" name="pw" class="form-control"><br>
+                          <input type="password" name="pw" class="form-control" required><br>
                         </div>
                         <button type="submit" name="submit" class="btn btn-class">Login</button><br><br>
                         <!-- <p><a href="#">Forgot Password?</a></p> -->

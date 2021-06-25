@@ -7,6 +7,8 @@
   if(!isset($_SESSION["customerId"])){
     header("location: ./Login.php");
     exit();
+  }else {
+    //   $ad1 = $_SESSION["address1"];
   }
   
 
@@ -62,6 +64,7 @@
                     <hr>
                     <?php
                         $total =0;
+                        $qtyVal =1;
                         if(isset($_SESSION['cart'])){
                             $product_id = array_column($_SESSION['cart'],'product_id');
 
@@ -69,7 +72,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 foreach($product_id as $id){
                                     if($row['productId']==$id){
-                                        cartElement($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId'], $row['productQty']);
+                                        cartElement($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId'], $row['productQty'],$qtyVal);
                                         $total = $total +(int)$row['productPrice'];
                                      }
                                 }
@@ -108,8 +111,12 @@
                             <hr>
                             <h6><?php echo "Rs.". $total; ?></h6>
                             <hr>
+                            <?php 
+                                if(isset($_SESSION['cart'])):
+                                if(count($_SESSION['cart'])>0):
+                            ?>
                             <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#placeOrderAlert">Place the Order</button><br>
-                           
+                           <?php endif; endif; ?>
                       
                         </div>
                     </div>
@@ -126,17 +133,44 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                        <div class="modal-body">
-                            Are you sure to place the order
+                    <form action="../includes/order.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                            <div class="mb-3 row">
+                                <label for="phone" class="col-sm-2 col-form-label">Contact Numbers</label>
+                                <div class="col-sm-10">
+                                    <?php
+                                        
+                                        // include './includes/functions.inc.php';
+                                        // require_once '../includes/dbh.inc.php';
+                                        // $id =$_SESSION["customerId"];
+                                        // $sql = "SELECT mobilePhone FROM customer WHERE customerId = '$id'";
+                                        // $sql_run = mysqli_query($conn, $sql);
+                                        // $mobno =$row['customerId'];
+                                        // $mobno = array_column($_SESSION['customerId'], 'mobilePhone');
+                                    ?>
+                                   
+                                    <input class="form-control" type="number" placeholder="Mobile Phone" id="mobileNumUpdate" name="mobileNum" value="<?php echo $_SESSION["mobile"] ?>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="address1" class="col-sm-2 col-form-label">Address</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" placeholder="Address Line one" id="address1Update" name="address1" value=" <?php echo $_SESSION["customerId"] ?>">
+                                    <input class="form-control" type="text" placeholder="Address Line two" id="address2Update" name="address2">
+                                    <input class="form-control" type="text" placeholder="Address Line three" id="address3Update" name="address3">
+                                    <input class="form-control" type="text" placeholder="Address Line four" id="address4Update" name="address4">
+                                </div>
+                            </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <a href="./Index.php"><button type="button" class="btn btn-outline-danger" >Order More Items</button></a> 
-                        <a href="./Invoice.php"><button type="button" class="btn btn-danger" >Place the Order</button></a> 
-                        
+                        <a href="./Invoice.php"><button type="button" class="btn btn-danger" >Place the Order</button></a>  
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

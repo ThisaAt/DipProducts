@@ -33,7 +33,7 @@ if(!$conn){
         <!-- <button type="button" class="btn btn-outline-dark" >Delete</button> -->
                 <!-- <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#placeOrderAlert">Place the Order</button><br> -->
 
-         <!-- <a href="../includes/delete.cat.php?delete=<?php// echo $row['categoryId'];?>"><button type="button" class="btn btn-outline-dark" ata-bs-toggle="modal" data-bs-target="#deleteAlert" >Delete</button></a>  -->
+         <!-- <a href="../includes/delete.cat.php?delete=<?php // echo $row['categoryId'];?>"><button type="button" class="btn btn-outline-dark" ata-bs-toggle="modal" data-bs-target="#deleteAlert" >Delete</button></a>  -->
 
         
             
