@@ -138,16 +138,18 @@ function loginUser($conn, $email, $pw){
 
           require_once '../includes/dbh.inc.php';
             $id =$_SESSION["customerId"];
-            $sql = "SELECT mobilePhone FROM customer WHERE customerId = '$id'";
+            $sql = "SELECT mobilePhone,address1,address2,address3,address4 FROM customer WHERE customerId = '$id'";
             $result =mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result);
            
-            $mobno =$row['mobilePhone'];
-            $_SESSION["mobile"]= $mobno;
+            $_SESSION["mobile"] =$row['mobilePhone'];
+            $_SESSION["address1"] =$row['address1'];
+            $_SESSION["address2"] =$row['address2'];
+            $_SESSION["address3"] =$row['address3'];
+            $_SESSION["address4"] =$row['address4'];
 
-        $_SESSION["firstName"]= $uidExists["firstName"];
-        $_SESSION["customerEmail"]= $uidExists["customerEmail"];
-        
+        // $_SESSION["firstName"]= $uidExists["firstName"];
+
         header("location: ../index.php");
         exit();
     }

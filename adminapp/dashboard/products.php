@@ -132,7 +132,6 @@ if(!isset($_SESSION["adminId"])){
                             <div class="modal-body">
                                 <form action="../includes/products.inc.php" method="POST"
                                     enctype="multipart/form-data">
-
                                     <div class="mb-3 row">
                                         <label for="productName" class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">

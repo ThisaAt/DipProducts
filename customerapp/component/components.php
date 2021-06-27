@@ -49,7 +49,7 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
             </div>
             <div class='col-md-3 py-5' >
                 <div>  
-                    <input id='qtyButton' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='$qtyVal' style='width:75px;'>
+                    <input id='qtyButton' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='$qtyVal' style='width:45px;'>
                 </div>
             </div>
         </div>
