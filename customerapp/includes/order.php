@@ -18,6 +18,21 @@
         $address4 = $_POST['address4'];
         $customerId = $_POST['customerId'];
 
+        // insert into orders table 
+
+        $sql = "INSERT INTO orders (phone, customerId, address1, address2, address3, address4) VALUES ('$mobile', '$customerId', '$address1', '$address2', '$address3', '$address4')";
+
+        $sql_run = mysqli_query($conn, $sql);
+
+        if ($sql_run){
+            header("Location:  ../cart.php?error=none");
+            $orderId = mysqli_insert_id($conn);
+            // echo $orderId;
+        }else {
+            header("Location:  ../cart.php?error=orderfailed");
+        }
+          
+
         if(isset($_SESSION['cart'])){
             $product_id = array_column($_SESSION['cart'],'product_id');
 
@@ -36,9 +51,9 @@
                         // $total = $total +(int)$row['productPrice'];
                         // echo $total; 
 
-                        // insert into orderdetails table 
+                                        // insert into orderdetails table 
 
-                        $sql1 = "INSERT INTO orderdetails (ProductId, qty, price) VALUES ('$productId', '$productQty', '$productPrice')";
+                        $sql1 = "INSERT INTO orderdetails (orderId, ProductId, qty, price) VALUES ('$orderId','$productId', '$productQty', '$productPrice')";
 
                         $sql1_run = mysqli_query($conn, $sql1);
 
@@ -47,20 +62,7 @@
                         }else {
                           header("Location:  ../cart.php?error=orderdetailsfailed");
                         //   echo  $conn->error;
-                        }
-
-                        // insert into orders table 
-
-                        $sql = "INSERT INTO orders (phone, customerId, address1, address2, address3, address4) VALUES ('$mobile', '$customerId', '$address1', '$address2', '$address3', '$address4')";
-
-                        $sql_run = mysqli_query($conn, $sql);
-
-                        if ($sql_run){
-                          header("Location:  ../cart.php?error=none");
-                        }else {
-                          header("Location:  ../cart.php?error=orderfailed");
-                        }
-                        
+                        }    
                     }
                 }
             }
