@@ -276,7 +276,7 @@ if(!isset($_SESSION["adminId"])){
                                                 <?php
                                                 // require_once '../includes/dbh.inc.php';
 
-                                                // $sql = "SELECT * FROM categories;";
+                                                // $s45ql = "SELECT * FROM categories;";
                                                 // $sql_run = mysqli_query($conn, $sql);
 
                                                 // while($row = mysqli_fetch_array($sql_run)){ ?>
@@ -294,10 +294,10 @@ if(!isset($_SESSION["adminId"])){
                                         <label for="productSize" class="col-sm-2 col-form-label">Size</label>
                                         <div class="col-sm-10">
                                             <div class="row">
-                                                <div class="col-md-8">
+                                                <div class="col-sm-12">
                                                     <input class="form-control" type="text" placeholder="Product Size" id="productSizeUpdate" name="productSize" disabled>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <!-- <div class="col-md-4">
                                                     <select class="form-select" name="unit" id="unit">
                                                         <option selected>Unit</option>
                                                         <option value="Kg"> Kg</option>
@@ -305,7 +305,7 @@ if(!isset($_SESSION["adminId"])){
                                                         <option value="L"> L</option>
                                                         <option value="ml"> ml</option>
                                                     </select>
-                                                </div>
+                                                </div> -->
                                             </div>
                                        
                                         </div>

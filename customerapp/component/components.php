@@ -42,14 +42,42 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
             <div class='col-md-6'>
                 <h5 class='pt-2'>$productName</h5>
                 <small class='text-secondary'>$productSize</small><br>
-                <small >  Rs.$productPrice/Unit</small>
-                <h6 class='pt-2'>Total: Rs. $productPrice</h6>
+                <small >Rs.<small id='unitPrice'>$productPrice</small>/Unit</small>
+                <h6 class='pt-2'>Total: Rs. </h6><h6 id='$productId.Id'>$productPrice</h6>
                 
                 <button type='submit' class='btn btn-danger' name='remove'>Remove</button>
             </div>
             <div class='col-md-3 py-5' >
-                <div>  
-                    <input id='qtyButton' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='$qtyVal' style='width:45px;'>
+                <div> 
+                  <button type='button' class='btn bg-light border rounded-circle' id='$productId.min' ><i class='fas fa-minus'></i></button>
+                  <input id='$productId' type='number' min='1' max='$productQty' class='form-control itemQty w-25 d-inline' value='1' style='width:45px;'>
+                  <button type='button' class='btn bg-light border rounded-circle' id='$productId.plus' ><i class='fas fa-plus'></i></button>
+
+                  <script>
+                                
+                    var button= document.getElementById('$productId.plus');
+                    var button2= document.getElementById('$productId.min');
+                    button.addEventListener('click',(e)=>{
+
+                      if (document.getElementById('$productId').value >= $productQty) {
+                      }
+                      else{
+                        document.getElementById('$productId').value++;
+                        priceCal($productPrice,document.getElementById('$productId').value);
+                        document.getElementById('$productId.Id').innerHTML = ($productPrice*document.getElementById('$productId').value)+'.00';
+                      }
+                    }) 
+
+                    button2.addEventListener('click',(e)=>{
+                      if (document.getElementById('$productId').value == 1){
+                      }
+                      else{
+                        document.getElementById('$productId').value--;
+                        priceCal($productPrice,document.getElementById('$productId').value);
+                        document.getElementById('$productId.Id').innerHTML = ($productPrice*document.getElementById('$productId').value)+'.00';
+                      }
+                    })
+                  </script> 
                 </div>
             </div>
         </div>
@@ -59,7 +87,13 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
     echo $element;
    
 }
+
+
+
   // plus minus button -->
 // <button type='button' class='btn bg-light border rounded-circle' id='minus'><i class='fas fa-minus'></i></button>
 // <input type='text' value='1' class='form-control w-25 d-inline'>
 // <button type='button' class='btn bg-light border rounded-circle' id='plus'><i class='fas fa-plus'></i></button>
+
+
+ //<input id='$productId' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='$qtyVal' style='width:45px;'>

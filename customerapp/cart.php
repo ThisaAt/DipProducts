@@ -47,6 +47,15 @@
 
     <title>Dip Products (Pvt) Ltd.</title>
     <link rel="icon" href="images/logo2.png">
+    <script>
+        var count1=0;
+        var input_value = [];
+        var unit = [];
+
+        function priceCal(x,y){
+            console.log(x*y)
+        }
+    </script>
 </head>
 <body class="bg-light">
 
@@ -108,7 +117,7 @@
                         <div class="col-md-6">
                             <h6><?php echo "Rs.". $total; ?></h6>
                             <hr>
-                            <h6><?php echo "Rs.". $total; ?></h6>
+                            <h6 id="grand"><?php echo "Rs.". $total; ?></h6>
                             <hr>
                             <?php 
                                 if(isset($_SESSION['cart'])):
@@ -212,6 +221,7 @@
     </script>
 
     <script src="js/scriptIndex.js"></script>
-    
+
+  
 </body>
 </html>
