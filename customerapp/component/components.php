@@ -77,6 +77,7 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                         document.getElementById('$productId.Id').innerHTML = ($productPrice*document.getElementById('$productId').value)+'.00';
                       }
                     })
+                  
                   </script> 
                 </div>
             </div>
@@ -97,3 +98,5 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
 
 
  //<input id='$productId' type = 'number' min='1' max='$productQty' class='form-control itemQty' value='$qtyVal' style='width:45px;'>
+
+//  console.log('hello',document.getElementById('$productId').value);

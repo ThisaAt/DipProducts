@@ -66,8 +66,13 @@
                     <div class="card-body">
                         <form action="./includes/feedback.inc.php" method="POST">
 
-                        <input type="text" name="name" placeholder="Name" class="form-control mb-2" id="floatingInput" required>
-                        <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" placeholder="Name" class="form-control mb-2" id="floatingInput" value="<?php echo $_SESSION["customerName"] ?>" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="Email" class="form-control mb-2"  value="<?php echo $_SESSION["customerEmail"] ?>" required>
+
+                        <label for="type">Feedback Type</label>
                         <div class="form-floating" >
                             <select class="form-select mb-2" name="type" id="floatingSelect" aria-label="Floating label select example" required>
                                 <option selected>Select a Feedback Type</option>
@@ -76,14 +81,14 @@
                                 <option value="Delivery">Delivery</option>
                                 <option value="Other">Other</option>
                             </select>
-                            <label for="floatingSelect">Type</label>
+                            <!-- <label for="floatingSelect">Type</label> -->
                         </div>
+                        <label for="comment">Comment</label>
                         <div class="form-floating">
                             <textarea name="comment" class="form-control mb-2" placeholder="Leave your feedback here" id="floatingTextarea2" style="height: 100px" required></textarea>
-                            <label for="floatingTextarea2">Feedback</label>
+                            <label for="floatingTextarea2"></label>
                         </div>
                         <button type="submit" class="btn btn-danger" name="submit"> Submit </button>
-
                         </form>
                     </div>
 

@@ -136,19 +136,43 @@ if(!isset($_SESSION["adminId"])){
             <!-- Update Model End -->
 
             <!-- Modal -->
-                <div class=" modal-xl modal fade " id="viewOrderModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class=" modal fade  " id="viewOrderModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl ">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                           <!--Display order details table start -->
+                    <div>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>   
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Customer Id</th>
+                                        <th scope="col">Mobile No.</th>
+                                        <th scope="col">Delivery Address</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Order Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                     include_once '../dashboard/components/order.table.php'
+                                ?>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    <!--Display table end -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                     </div>
                     </div>
                 </div>
