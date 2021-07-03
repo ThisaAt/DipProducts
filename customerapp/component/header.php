@@ -63,7 +63,7 @@
                     <form class="container-fluid justify-content-start">
                         <?php
                             if(isset($_SESSION["customerId"])){
-                                echo "<a href='./orders.php'> <button class='btn btn-sm btn-danger me-2' type='button'>Orders</button></a> ";
+                                echo "<a href='./order.php'> <button class='btn btn-sm btn-danger me-2' type='button'>Orders</button></a> ";
                                 echo "<a href='./includes/logout.inc.php'> <button class='btn btn-sm btn-danger' type='button'>Logout</button></a> ";
                          
                             }
