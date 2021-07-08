@@ -72,6 +72,8 @@ if(!isset($_SESSION["userName"])){
                     <?php
                         echo '<h1 class="text-center">Welcome ' .$_SESSION["userName"]. ' !</h1>'
                     ?>
+
+                    <!-- <iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=4fdd227a-911a-4551-a0dc-bb75782a6a9d&autoAuth=true&ctid=84c31ca0-ac3b-4eae-ad11-519d80233e6f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe> -->
                        
                 </div>
             </main>

@@ -170,7 +170,35 @@ if(!isset($_SESSION["adminId"])){
                                             <input class="form-control" type="text" placeholder="Address Line one" id="address1" name="address1">
                                             <input class="form-control" type="text" placeholder="Address Line two" id="address2" name="address2">
                                             <input class="form-control" type="text" placeholder="Address Line three" id="address3" name="address3">
-                                            <input class="form-control" type="text" placeholder="Address Line four" id="address4" name="address4">
+                                            <!-- <input class="form-control" type="text" placeholder="Address Line four" id="address4" name="address4"> -->
+                                            <select class="form-select small" placeholder="District" name="address4" id="unit">
+                                                <option selected><small>District</small></option>
+                                                <option value="Anuradhapura">Anuradhapura</option>
+                                                <option value="Ampara">Ampara</option>
+                                                <option value="Badulla">Badulla</option>
+                                                <option value="Batticola">Batticola</option>
+                                                <option value="Colombo">Colombo</option>
+                                                <option value="Galle">Galle</option>
+                                                <option value="Gampaha">Gampaha</option>
+                                                <option value="Hambanthota">Hambanthota</option>
+                                                <option value="Jaffna">Jaffna</option>
+                                                <option value="Kaluthara">Kaluthara</option>
+                                                <option value="Kandy">Kandy</option>
+                                                <option value="Kegalle">Kegalle</option>
+                                                <option value="Kilinochchi">Kilinochchi</option>
+                                                <option value="Kandy">Kurunagala</option>
+                                                <option value="Mannar">Mannar</option>
+                                                <option value="Kandy">Matale</option>
+                                                <option value="Matara">Matara</option>
+                                                <option value="Monaragala">Monaragala</option>
+                                                <option value="Mullaitivu">Mullaitivu</option>
+                                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                                <option value="Puttlam">Puttlam</option>
+                                                <option value="Ratnapura">Ratnapura</option>
+                                                <option value="Kandy">Trincomalee</option>
+                                                <option value="Vavuniya">Vavuniya</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -266,6 +294,7 @@ if(!isset($_SESSION["adminId"])){
                                             <input class="form-control" type="text" placeholder="Address Line two" id="address2Update" name="address2">
                                             <input class="form-control" type="text" placeholder="Address Line three" id="address3Update" name="address3">
                                             <input class="form-control" type="text" placeholder="Address Line four" id="address4Update" name="address4">
+                                        
                                         </div>
                                     </div>
 
