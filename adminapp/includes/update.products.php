@@ -28,9 +28,9 @@
       $sql_run = mysqli_query($conn, $sql);
 
       if ($sql_run){
-        header("Location: ../dashboard/products.php?error=none");
+        header("Location: ../dashboard/products.php?updated");
       }else {
-        header("Location: ../dashboard/products.php?error=noneupdatefail");
+        header("Location: ../dashboard/products.php?updatefail");
       }
 
   }

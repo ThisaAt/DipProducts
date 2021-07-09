@@ -63,23 +63,41 @@ if(!isset($_SESSION["adminId"])){
                 <div>
                     <div>
                         <?php 
-                    //     if(isset($_GET["error"])){
-                    //     if($_GET["error"]=="emptyinput"){
-                    //         echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="categoryexists"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category already exists, Please try another one!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="none"){
-                    //         echo '<div class="alert alert-success" role="alert">Category added successfully!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="addfailed"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category adding failed, Please try again!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="categoryimagetoobig"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category image size is too big, Please select a file smaller than 5MB!</div>';
-                    //     }
-                    // }
+ 
+                            $msg ="";
+                            if(isset($_GET['error'])){
+                                $msg="Error adding the category";
+                                echo '<div class="alert alert-danger">'.$msg.'</div>';
+                            }
+                            if(isset($_GET['exists'])){
+                                $msg="Category Already Exists";
+                                echo '<div class="alert alert-danger">'.$msg.'</div>';
+                                }
+                            if(isset($_GET['success'])){
+                                $msg="Successfully added the category";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }
+                            if(isset($_GET['updated'])){
+                                $msg="Successfully Updated the category";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }
+                            if(isset($_GET['updatefail'])){
+                                $msg="Error Updating the category";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }     
+                            if(isset($_GET['deleted'])){
+                                $msg="Category Deleted";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }     
+                            if(isset($_GET['deletefailed'])){
+                                $msg="Category Deleted Fail";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }
+                                            
+                        // else if($_GET["error"]=="categoryimagetoobig"){
+                        //     echo '<div class="alert alert-danger" role="alert">Category image size is too big, Please select a file smaller than 5MB!</div>';
+                        // }
+                  
                     ?>
                     </div>
 
@@ -123,14 +141,14 @@ if(!isset($_SESSION["adminId"])){
                                         <label for="categoryName" class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="text" placeholder="Category Name"
-                                                id="categoryName" name="categoryName">
+                                                id="categoryName" name="categoryName" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label for="categoryImage" class="col-sm-2 col-form-label">Image</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" id="categoryImage" type="file"
-                                                name="categoryImage" accept=".jpg,.jpeg">
+                                                name="categoryImage" accept=".jpg,.jpeg" required>
                                         </div>
                                     </div>
 
@@ -161,7 +179,7 @@ if(!isset($_SESSION["adminId"])){
 
                                         <label for="categoryName" class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Category Name" id="categoryNameupdate" name="categoryName">
+                                            <input class="form-control" type="text" placeholder="Category Name" id="categoryNameupdate" name="categoryName" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">

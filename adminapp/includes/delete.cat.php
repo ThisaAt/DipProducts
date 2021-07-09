@@ -10,9 +10,9 @@
         $sql_run = mysqli_query($conn, $sql);
     
         if ($conn->query($sql) === TRUE) {
-            header("Location: ../dashboard/categories.php?itemdeleted");
+            header("Location: ../dashboard/categories.php?deleted");
           } else {
-           header("Location: ../dashboard/categories.php?error=deletefailed");
+           header("Location: ../dashboard/categories.php?deletefailed");
             // echo  $conn->error;
           }
           

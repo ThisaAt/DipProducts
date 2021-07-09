@@ -30,9 +30,9 @@
       $sql_run = mysqli_query($conn, $sql);
 
       if ($sql_run){
-        header("Location: ../dashboard/categories.php?error=none");
+        header("Location: ../dashboard/categories.php?updated");
       }else {
-        header("Location: ../dashboard/categories.php?error=noneupdatefail");
+        header("Location: ../dashboard/categories.php?updatefail");
         //  echo  $conn->error;
       }
 

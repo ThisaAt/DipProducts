@@ -9,7 +9,7 @@
         $sql_run = mysqli_query($conn, $sql);
     
         if ($conn->query($sql) === TRUE) {
-            header("Location: ../dashboard/products.php?itemdeleted");
+            header("Location: ../dashboard/products.php?deleted");
           } else {
             header("Location: ../dashboard/products.php?error=deletefailed");
             

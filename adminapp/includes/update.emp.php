@@ -25,9 +25,9 @@
       $sql_run = mysqli_query($conn, $sql);
 
       if ($sql_run){
-        header("Location: ../dashboard/employee.php?error=none");
+        header("Location: ../dashboard/employee.php?updated");
       }else {
-        header("Location: ../dashboard/employee.php?error=noneupdatefail");
+        header("Location: ../dashboard/employee.php?updatefail");
         
       }
 

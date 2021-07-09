@@ -11,21 +11,6 @@
         $productQty = $_POST['productQty'];
         $productDiscount = $_POST['productDiscount'];
         $productImg = addslashes(file_get_contents($_FILES['productImg']['tmp_name']));  
-
-
-      
-
-      //  echo $categoryImage;
-        
-    
-        // if(emptyInputCategory($categoryImage, $categoryName, $categoryDescription) !== false){
-        //     header("location: ../ui/categories.php?error=emptyinput");
-        //     exit();
-        //   }
-        // if(categoryExists($conn, $categoryName) !== false){
-        //     header("location: ../ui/categories.php?error=categoryexists");
-        //     exit();
-        // }
     
         addProduct($conn, $productName,$categoryName,$productSize, $productPrice, $productQty, $productDiscount, $productImg);
     

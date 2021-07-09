@@ -12,7 +12,7 @@ function emptyInputSignup($userName, $email, $password,  $checkPassword){
         $result=false;
     }
         return $result;
-    }
+}
 
 function invalidUid($userName){
       
@@ -34,7 +34,7 @@ function invalidEmail($email){
         $result=false;
     }
         return $result;
-    }
+}
 
 function uidExists($conn, $email){
     $sql = "SELECT * FROM admin WHERE adminEmail = ?;";
@@ -59,7 +59,7 @@ function uidExists($conn, $email){
         }
     
         mysqli_stmt_close($stmt);
-    }
+}
 
 function pwdMatch($password, $checkPassword){
     
@@ -70,7 +70,7 @@ function pwdMatch($password, $checkPassword){
         $result=false;
     }
         return $result;
-    }    
+}    
     
 function createAdmin($conn, $userName, $email, $password){
     
@@ -105,9 +105,9 @@ function addCategory($conn, $categoryName, $categoryImage){
     $sql_run = mysqli_query($conn, $sql);
 
     if($sql_run){
-        header("Location: ../dashboard/categories.php?error=none");
+        header("Location: ../dashboard/categories.php?success");
     }else{
-        header("Location: ../dashboard/categories.php?error=addfailed");
+        header("Location: ../dashboard/categories.php?error");
         //echo  $conn->error;
     }
 
@@ -122,7 +122,7 @@ function emptyInputLogin($email, $pw){
         $result=false;
     }
         return $result;
-    }
+}
 
 function loginAdmin($conn, $email, $pw){
 
@@ -165,11 +165,11 @@ function addProduct($conn, $productName,$categoryName,$productSize, $productPric
     $sql_run = mysqli_query($conn, $sql);
 
     if($sql_run){
-        header("Location: ../dashboard/products.php?error=none");
-       // echo $productSize;
+        header("Location: ../dashboard/products.php?success");
+       
     }else{
-        header("Location: ../dashboard/products.php?error=addfailed");
-        //echo  $conn->error;
+        header("Location: ../dashboard/products.php?addfailed");
+        
     }
 
 }
@@ -181,11 +181,11 @@ function addEmployee($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mo
     $sql_run = mysqli_query($conn, $sql);
 
     if($sql_run){
-        header("Location: ../dashboard/employee.php?error=none");
+        header("Location: ../dashboard/employee.php?success");
        // echo $productSize;
     }else{
-        // header("Location: ../dashboard/employee.php?error=addfailed");
-        echo  $conn->error;
+        header("Location: ../dashboard/employee.php?error=addfailed");
+        // echo  $conn->error;
     }
 
 }
@@ -196,9 +196,59 @@ function deleteCategory($conn,$categoryName){
     $sql_run = mysqli_query($conn, $sql);
 
     if($sql_run){
-       header("Location: ../dashboard/categories.php?error=none");
+       header("Location: ../dashboard/categories.php?deleted");
     }else{
-       header("Location: ../dashboard/categories.php?error=deletefailed");
+       header("Location: ../dashboard/categories.php?deletefailed");
         //echo  $conn->error;
     }
+}
+
+function categoryExists($conn, $categoryName){
+    $sql = "SELECT * FROM categories WHERE categoryName = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location:../dashboard/categories.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $categoryName);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if($row = mysqli_fetch_assoc($resultData)){
+        return $row;
+    }
+    else{
+        $result=false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function employeeExists($conn, $nic){
+    $sql = "SELECT * FROM employee WHERE nic= ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location:../dashboard/employee.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $nic);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if($row = mysqli_fetch_assoc($resultData)){
+        return $row;
+    }
+    else{
+        $result=false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
 }

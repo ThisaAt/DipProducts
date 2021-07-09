@@ -16,10 +16,10 @@
         //     header("location: ../ui/categories.php?error=emptyinput");
         //     exit();
         //   }
-        // if(categoryExists($conn, $categoryName) !== false){
-        //     header("location: ../ui/categories.php?error=categoryexists");
-        //     exit();
-        // }
+        if(categoryExists($conn, $categoryName) !== false){
+            header("Location: ../dashboard/categories.php?exists");
+            exit();
+        }
     
         addCategory($conn, $categoryName, $categoryImage);
     

@@ -62,24 +62,36 @@ if(!isset($_SESSION["adminId"])){
                 <div>
                     <div>
                         <?php 
-                    //     if(isset($_GET["error"])){
-                    //     if($_GET["error"]=="emptyinput"){
-                    //         echo '<div class="alert alert-danger" role="alert">Fill in all the fields!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="categoryexists"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category already exists, Please try another one!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="none"){
-                    //         echo '<div class="alert alert-success" role="alert">Category added successfully!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="addfailed"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category adding failed, Please try again!</div>';
-                    //     }
-                    //     else if($_GET["error"]=="categoryimagetoobig"){
-                    //         echo '<div class="alert alert-danger" role="alert">Category image size is too big, Please select a file smaller than 5MB!</div>';
-                    //     }
-                    // }
-                    ?>
+                               $msg ="";
+                               if(isset($_GET['error'])){
+                                   $msg="Error adding the employee";
+                                   echo '<div class="alert alert-danger">'.$msg.'</div>';
+                               }
+                               if(isset($_GET['exists'])){
+                                    $msg="Employee Already Exists";
+                                    echo '<div class="alert alert-danger">'.$msg.'</div>';
+                                }
+                               if(isset($_GET['success'])){
+                                   $msg="Successfully added the employee";
+                                   echo '<div class="alert alert-success">'.$msg.'</div>';
+                               }
+                               if(isset($_GET['updated'])){
+                                    $msg="Successfully Updated the employee";
+                                    echo '<div class="alert alert-success">'.$msg.'</div>';
+                                }
+                               if(isset($_GET['updatefail'])){
+                                    $msg="Error Updating the employee";
+                                    echo '<div class="alert alert-success">'.$msg.'</div>';
+                                }     
+                               if(isset($_GET['deleted'])){
+                                    $msg="Employee Deleted";
+                                    echo '<div class="alert alert-success">'.$msg.'</div>';
+                                }     
+                               if(isset($_GET['deletefailed'])){
+                                    $msg="Employee Deleted Fail";
+                                    echo '<div class="alert alert-success">'.$msg.'</div>';
+                                }
+                        ?>
                     </div>
 
                     <!--Display categories table start -->

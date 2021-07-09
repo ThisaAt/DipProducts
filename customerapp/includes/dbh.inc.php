@@ -2,7 +2,7 @@
 
     $serverName="localhost";
     $dbUserName="root";
-    $dBPassword="";
+    $dBPassword="123";
     $dbName="dipol_db"; 
 
   //  $conn = mysqli_connect("localhost","root","","dipol_db");

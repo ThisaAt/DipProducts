@@ -17,8 +17,10 @@
         $address4 = $_POST['address4'];
         $email = $_POST['email'];
         
-    
-        // addEmployee($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mobileNum, $address, $email );
+        if(employeeExists($conn, $nic) !== false){
+            header("Location: ../dashboard/employee.php?exists");
+            exit();
+        }
         addEmployee($conn, $firstName, $lastName, $jobRole, $nic, $landNum, $mobileNum, $address1, $address2, $address3, $address4, $email );
     
     }else{
