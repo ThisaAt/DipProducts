@@ -6,7 +6,7 @@
 
   $serverName="localhost";
   $dbUserName="root";
-  $dBPassword="";
+  $dBPassword="123";
   $dbName="dipol_db"; 
 
 

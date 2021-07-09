@@ -1,8 +1,5 @@
 <?php
 
-    // $checkPassword = $_POST['checkPassword'];
-    // $checkPassword = $_POST['checkPassword'];
-
 function emptyInputSignup($firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password,  $checkPassword){
         // $result;
     if(empty($firstName) || empty($lastName) || empty($address1) || empty($address2) || empty($address3) || empty($address4) || empty($email) || empty($gender) || empty($mobilePhone) || empty($landPhone)|| empty($password)|| empty($checkPassword)){
@@ -12,8 +9,7 @@ function emptyInputSignup($firstName, $lastName, $address1, $address2, $address3
         $result=false;
     }
         return $result;
-    }
-
+}
 
 function invalidEmail($email){
      
@@ -24,7 +20,7 @@ function invalidEmail($email){
         $result=false;
     }
         return $result;
-    }
+}
 
 function pwdMatch($password, $checkPassword){
        
@@ -35,7 +31,7 @@ function pwdMatch($password, $checkPassword){
         $result=false;
     }
         return $result;
-    }
+}
 
 function invalidContactNo($mobilePhone){
         // $result;
@@ -46,7 +42,7 @@ function invalidContactNo($mobilePhone){
         $result=false;
     }
         return $result;
-    }
+}
 
 function uidExists($conn, $email){
     $sql = "SELECT * FROM customer WHERE customerEmail = ?";
@@ -163,7 +159,7 @@ function loginUser($conn, $email, $pw){
     // require_once('./dbh.inc.php');
     $serverName="localhost";
     $dbUserName="root";
-    $dBPassword="";
+    $dBPassword="123";
     $dbName="dipol_db"; 
 
   //  $conn = mysqli_connect("localhost","root","","dipol_db");
