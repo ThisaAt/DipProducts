@@ -138,6 +138,7 @@ function loginUser($conn, $email, $pw){
             $result =mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result);
 
+            // $_SESSION["customerId"]  =$row['firstName'];
             $_SESSION["firstName"] =$row['firstName'];
             $_SESSION["lastName"] =$row['lastName'];
             $_SESSION["customerName"] =$row['firstName']. " ".$row['lastName'];

@@ -51,7 +51,7 @@
                     <thead>
                         <tr>   
                             <th scope="col">Order Id</th>
-                            <th scope="col">Customer Id</th>
+                            <!-- <th scope="col">Customer Id</th> -->
                             <th scope="col">Mobile No.</th>
                             <th scope="col">Delivery Address</th>
                             <th scope="col">Total</th>
