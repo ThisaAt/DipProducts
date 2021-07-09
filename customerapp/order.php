@@ -62,7 +62,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            include_once '../adminapp/dashboard/components/order.table.php'
+                            include_once './component/order.table.php'
                             // include_once '../dashboard/components/order.table.php'
                     ?>
                     </tbody>
