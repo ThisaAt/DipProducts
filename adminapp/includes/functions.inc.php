@@ -252,3 +252,11 @@ function employeeExists($conn, $nic){
 
     mysqli_stmt_close($stmt);
 }
+
+
+function get_safe_value($conn,$str){ //??
+	if($str!=''){
+		$str=trim($str);
+		return strip_tags( mysqli_real_escape_string($conn,$str));
+	}
+}

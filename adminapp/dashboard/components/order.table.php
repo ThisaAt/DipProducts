@@ -1,9 +1,7 @@
 <?php
     require_once '../includes/dbh.inc.php';
 
-    
-
-    $sql = "SELECT * FROM orders;";
+    $sql = "SELECT * FROM orders;"; 
     $sql_run = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_array($sql_run)){
@@ -17,11 +15,10 @@
     <td><?php echo $row['orderDate']; ?></td>
     <td><?php echo $row['orderStatus']; ?></td>
    
- 
-    
     <td>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-dark"  data-bs-toggle="modal" data-bs-target="#viewOrderModel">View</button>
+            <button type="button" class="btn btn-outline-dark"  data-bs-toggle="modal" data-bs-target="#viewOrderModel" onclick="
+            document.getElementById('orderIdView').value='<?php echo $row['orderId'];?>';">View</button>
             
             <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updateModal" onclick="
             document.getElementById('orderStatus').value ='<?php echo$row['orderStatus']; ?>';
@@ -30,7 +27,6 @@
     </td>
     </td>
 </tr>
-
 
 <?php
 }

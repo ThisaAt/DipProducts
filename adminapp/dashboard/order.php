@@ -135,8 +135,8 @@ if(!isset($_SESSION["adminId"])){
                 </div>
             <!-- Update Model End -->
 
-            <!-- Modal -->
-                <div class=" modal fade  " id="viewOrderModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- View Order Modal -->
+                <div class="modal fade" id="viewOrderModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl ">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -150,20 +150,19 @@ if(!isset($_SESSION["adminId"])){
                             <table class="table table-hover">
                                 <thead>
                                     <tr>   
+                                        <th scope="col"> </th>
                                         <th scope="col">Order Id</th>
-                                        <th scope="col">Customer Id</th>
-                                        <th scope="col">Mobile No.</th>
-                                        <th scope="col">Delivery Address</th>
-                                        <th scope="col">Total</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Order Status</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Ordered Quantity</th>
+                                        <th scope="col">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <input type="text" id="orderIdView" name="orderIdView" value="<?php echo $row['orderId']; ?>" hidden>
                                     <?php
-                                     include_once '../dashboard/components/order.table.php'
-                                ?>
+                                        $OID =  $row['orderId']; //??
+                                        include_once '../dashboard/components/order.table.php'
+                                    ?>
                                 </tbody>
                             </table>
                         </form>
