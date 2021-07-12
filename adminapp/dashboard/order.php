@@ -160,7 +160,9 @@ if(!isset($_SESSION["adminId"])){
                                 <tbody>
                                     <input type="text" id="orderIdView" name="orderIdView" value="<?php echo $row['orderId']; ?>" hidden>
                                     <?php
-                                        $OID =  $row['orderId']; //??
+                                        //     $OID =  $row['orderId']; //??
+                                        //  $sql = "SELECT * FROM orderdetails WHERE orderId= $OID;";
+                                  
                                         include_once '../dashboard/components/order.table.php'
                                     ?>
                                 </tbody>
