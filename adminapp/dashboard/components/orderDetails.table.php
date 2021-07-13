@@ -25,7 +25,6 @@
     while($row = mysqli_fetch_array($sql_run)){
     ?>
     <tr>
-        <td><?php echo $row['orderdetailsId']; ?></td>
         <td><?php echo $row['orderId']; ?></td>
         <td><?php echo $row['ProductId']; ?></td>
         <td><?php echo $row['qty']; ?></td>

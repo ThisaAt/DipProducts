@@ -36,7 +36,6 @@ if(!isset($_SESSION["adminId"])){
 </head>
 <body>
 
-
     <?php
        include_once 'components/navbar.php'
     ?>
@@ -49,15 +48,7 @@ if(!isset($_SESSION["adminId"])){
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Customer Orders</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group me-2">
-                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                data-bs-target="#addModal">
-                                Add Product
-                            </button> -->
-                        </div>
-                    </div>
+                    <a href="./order.php"><button type="button" class="btn btn-dark">Back</button></a>
                 </div>
 
                 <div>
@@ -68,11 +59,10 @@ if(!isset($_SESSION["adminId"])){
                     <!--Display categories table start -->
                     <div>
                         <form action="" method="POST" enctype="multipart/form-data">
-                            <h2 class="h3">Order Details</h2>
+                            <h1 class="h2">Order Details</h1>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>   
-                                        <th scope="col"> </th>
                                         <th scope="col">Order Id</th>
                                         <th scope="col">Product Name</th>
                                         <th scope="col">Ordered Quantity</th>
