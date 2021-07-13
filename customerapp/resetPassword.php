@@ -22,7 +22,7 @@
                    <img src="images/logo.jpg" class="img-fluid" alt="Dip Products logo"> 
                 </div>
                 <div class="col-md-6">
-                  <h3 class="signin-text mb-3">Login</h3>
+                  <h3 class="signin-text mb-3">Reset Password</h3>
                   <form action="./includes/login.inc.php" method="post">
                     <?php 
                       if(isset($_GET["error"])){
@@ -46,14 +46,7 @@
                           <label for="email">Email</label>
                           <input type="email" name="email" class="form-control" required><br>
                         </div>
-                        <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" name="pw" class="form-control" required><br>
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-class">Login</button><br><br>
-                        <!-- <p><a href="./resetPassword.php">Forgot Password?</a></p> -->
-                        <p>Forgot Password? <a href="./resetPassword.php">Reset Password</a></p>
-                        <p>Don't have an account? <a href="signup.php">Signup</a></p>
+                        <button type="submit" name="submit" class="btn btn-class">Send Verification Code</button><br><br>
                    </form>
                    
                 </div>

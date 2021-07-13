@@ -53,7 +53,7 @@ if(!isset($_SESSION["adminId"])){
 
                 <div>
                     <div>
-                    
+                     
                     </div>
 
                     <!--Display categories table start -->
