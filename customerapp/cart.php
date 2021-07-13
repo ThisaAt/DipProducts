@@ -58,10 +58,41 @@
     </script>
 </head>
 <body class="bg-light">
+<div class="container-fluid">
 
-    <?php
-        require_once('./component/header.php');
-    ?>
+<header id="header">
+<!-- navbar fixed-top navbar-light bg-light style="position:fixed; width:100%;" -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " >
+        <div class="container-fluid" style="inline-size: auto !important;">
+                <!-- logo -->
+            <nav class="navbar navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="images/logo2.png" alt="" width="50" height=auto ></a> 
+                </div>
+            </nav>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <?php echo"<a class='nav-link active' aria-current='page' id='totallink' href='index.php'>HOME</a>"; ?>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+
+
+
+
+</div>
 
     <div class="container-fluid">
         <div class="row px-5">
@@ -70,11 +101,12 @@
                     <h6>My Cart</h6>
                     <hr>
                     <?php
+
                         $total =0;
                         $qtyVal =1;
                         if(isset($_SESSION['cart'])){
                             $product_id = array_column($_SESSION['cart'],'product_id');
-
+                            print_r($_SESSION['cart']);
                             $result = getData();
                             while($row = mysqli_fetch_assoc($result)){
                                 foreach($product_id as $id){
@@ -85,7 +117,6 @@
                                      }
                                 }
                             }
-
                         }
                         else{
                             echo"<h5>Cart is Empty</h5>";
@@ -98,6 +129,7 @@
                 <div class="pt-4">
                     <h6>Price Details</h6>
                     <hr>
+                    
                     <div class="row price-details">
                         <div class="col-md-6">
                             <?php
@@ -115,9 +147,26 @@
                         </div>
               
                         <div class="col-md-6">
-                            <h6><?php echo "Rs.". $total; ?></h6>
+                            <h6><?php 
+                            
+                            if(isset($_SESSION['cart'])){
+                                if(isset($_SESSION['total'])){
+                                    $total = $_SESSION['total'];
+                                }
+                                if ($_SESSION['cart'] == NULL){
+                                    echo "<script>
+                                    document.getElementById('grand').innerHTML = '0.00';
+                                    document.getElementById('beforetax').innerHTML = '0.00';
+                                    </script>";
+                                    unset($_SESSION['total']);
+                                    $total = 0.00;
+                                }
+                            }
+                            
+                            echo "Rs.<span id='beforetax'>$total</span></h6>";
+                            ?>
                             <hr>
-                            <h6 id="grand"><?php echo "Rs.". $total; ?></h6>
+                            <h6><?php echo "Rs.<span id='grand'> $total</span>"; ?></h6>
                             <hr>
                             <?php 
                                 if(isset($_SESSION['cart'])):

@@ -65,6 +65,9 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                         document.getElementById('$productId').value++;
                         priceCal($productPrice,document.getElementById('$productId').value);
                         document.getElementById('$productId.Id').innerHTML = ($productPrice*document.getElementById('$productId').value)+'.00';
+                        var total = parseInt(document.getElementById('grand').innerHTML);
+                        total += $productPrice;
+                        updateTotal(total);
                       }
                     }) 
 
@@ -75,8 +78,17 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                         document.getElementById('$productId').value--;
                         priceCal($productPrice,document.getElementById('$productId').value);
                         document.getElementById('$productId.Id').innerHTML = ($productPrice*document.getElementById('$productId').value)+'.00';
+                        var total = parseInt(document.getElementById('grand').innerHTML);
+                        total -= $productPrice;
+                        updateTotal(total);
                       }
                     })
+
+                    function updateTotal(Val){
+                      document.getElementById('grand').innerHTML = Val+'.00';
+                      document.getElementById('beforetax').innerHTML = Val+'.00';
+                      document.getElementById('totallink').href = 'add2session.php?totalqty='+Val+'.00';
+                    }
                   
                   </script> 
                 </div>
