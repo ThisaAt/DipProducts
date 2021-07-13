@@ -16,7 +16,6 @@ function component($productImg, $productName,$productSize,$productPrice, $produc
           </h6>
           <button type='submit' class='btn btn-danger my-3' name='order' >Add to Cart</button>
           <input type='hidden' name='product_id' value='$productId'>
-
           
           
         </div>
@@ -52,22 +51,22 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                   <button type='button' class='btn bg-light border rounded-circle' id='$productId.min' ><i class='fas fa-minus'></i></button>
                   <input id='$productId' type='number' min='1' max='$productQty' class='form-control itemQty w-25 d-inline' value='1' style='width:45px;'>
                   <button type='button' class='btn bg-light border rounded-circle' id='$productId.plus' ><i class='fas fa-plus'></i></button>
-
                   <script>
                                 
                     var button= document.getElementById('$productId.plus');
                     var button2= document.getElementById('$productId.min');
                     button.addEventListener('click',(e)=>{
-
                       if (document.getElementById('$productId').value >= $productQty) {
                       }
                       else{
                         document.getElementById('$productId').value++;
                         priceCal($productPrice,document.getElementById('$productId').value);
                         document.getElementById('$productId.Id').innerHTML = ($productPrice*document.getElementById('$productId').value)+'.00';
+                        var total = parseInt(document.getElementById('grand').innerHTML);
+                        total += $productPrice;
+                        updateTotal(total);
                       }
                     }) 
-
                     button2.addEventListener('click',(e)=>{
                       if (document.getElementById('$productId').value == 1){
                       }
@@ -75,8 +74,16 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                         document.getElementById('$productId').value--;
                         priceCal($productPrice,document.getElementById('$productId').value);
                         document.getElementById('$productId.Id').innerHTML = ($productPrice*document.getElementById('$productId').value)+'.00';
+                        var total = parseInt(document.getElementById('grand').innerHTML);
+                        total -= $productPrice;
+                        updateTotal(total);
                       }
                     })
+                    function updateTotal(Val){
+                      document.getElementById('grand').innerHTML = Val+'.00';
+                      document.getElementById('beforetax').innerHTML = Val+'.00';
+                      document.getElementById('totallink').href = 'add2session.php?totalqty='+Val+'.00';
+                    }
                   
                   </script> 
                 </div>
