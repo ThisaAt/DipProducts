@@ -10,7 +10,11 @@
     // $userInfo=mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM orders WHERE id='$order_id'"));
     
 
-    $sql = "SELECT * FROM orderdetails WHERE orderId= $order_id;"; // ??
+    // $sql = "SELECT * FROM orderdetails WHERE orderId= $order_id;"; // ??
+    $sql ="SELECT * 
+    FROM orderdetails 
+    INNER JOIN product ON orderdetails.ProductId  =product.productId
+    WHERE orderId= $order_id  ;";
     // $sql ="SELECT * 
     // FROM orders
     // INNER JOIN customer ON orders.customerId =customer.customerId 
@@ -21,12 +25,14 @@
     // INNER JOIN customer ON orders.customerId =customer.customerId ;
     // orders.customerId =customer.customerId;";
     $sql_run = mysqli_query($conn, $sql);
-
+    $title ="<h1 class='h2'>Order Details of Order Number $order_id</h1>"; 
+    echo $title;
     while($row = mysqli_fetch_array($sql_run)){
     ?>
     <tr>
-        <td><?php echo $row['orderId']; ?></td>
-        <td><?php echo $row['ProductId']; ?></td>
+        <td><?php echo $row['orderId'];?></td>
+        <!-- <td><?php //echo $row['productName']; ?></td> -->
+        <td><?php echo $row['productName']." (".$row['productSize'].")"; ?></td>
         <td><?php echo $row['qty']; ?></td>
         <td><?php echo $row['price']; ?></td>
     </tr>

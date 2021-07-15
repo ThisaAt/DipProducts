@@ -199,6 +199,7 @@
                                 <label for="phone" class="col-sm-2 col-form-label">Mobile</label>
                                 <div class="col-sm-10"> 
                                     <input class="form-control" type="number" placeholder="Mobile Phone" id="mobileNumUpdate" name="mobileNum" value="<?php echo $_SESSION["mobile"] ?>">
+                                    <input class="form-control" type="hidden" id="billtotal" name="billtotal" value="<?php echo $total ?>">
                                 </div>
                             </div>
                             <div class="mb-3 row">

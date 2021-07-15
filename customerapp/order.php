@@ -42,13 +42,14 @@
         require_once('./component/header.php');
     ?>
 
-    <div class="container-fluid px-5">
+    <div class="container-fluid px-5 py-2 ">
 
       <!--Display categories table start -->
         <div>
             <form action="" method="POST" enctype="multipart/form-data">
-                <table class="table table-hover">
-                    <thead>
+                <h1 class="h2 py-1 ">Your Orders</h1>
+                <table class="table table-hover  border-danger ">
+                    <thead id="tableHead" class="border-danger border border-2 ">
                         <tr>   
                             <th scope="col">Order Id</th>
                             <!-- <th scope="col">Customer Id</th> -->
@@ -63,7 +64,6 @@
                     <tbody>
                         <?php
                             include_once './component/order.table.php'
-                            // include_once '../dashboard/components/order.table.php'
                     ?>
                     </tbody>
                 </table>

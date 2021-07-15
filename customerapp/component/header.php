@@ -2,7 +2,7 @@
 
 <header id="header">
 <!-- navbar fixed-top navbar-light bg-light style="position:fixed; width:100%;" -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " >
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom" >
         <div class="container-fluid">
                 <!-- logo -->
             <nav class="navbar navbar-light bg-light">
@@ -21,7 +21,7 @@
                         <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#bestBuys">SHOP</a>
+                        <a class="nav-link active" href="index.php#bestBuys">SHOP</a>
                     </li>
 
                     <li class="nav-item">
@@ -29,26 +29,12 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="#footer">ABOUT</a>
+                        <a class="nav-link active" href="index.php#footer">ABOUT</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="#footer">CONTACT US</a>
+                        <a class="nav-link active" href="index.php#footer">CONTACT US</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li> -->
                 </ul>
 
 <!--             
@@ -63,8 +49,21 @@
                     <form class="container-fluid justify-content-start">
                         <?php
                             if(isset($_SESSION["customerId"])){
-                                echo "<a href='./order.php'> <button class='btn btn-sm btn-danger me-2' type='button'>Orders</button></a> ";
-                                echo "<a href='./includes/logout.inc.php'> <button class='btn btn-sm btn-danger' type='button'>Logout</button></a> ";
+                                $name = $_SESSION['firstName'];
+                                echo "<div class='btn-group'>
+                                <button type='button' class='btn btn-danger btn-sm dropdown-toggle me-0' data-bs-toggle='dropdown' aria-expanded='false'>
+                                    Welcome $name!
+                                </button>
+                                <ul class='dropdown-menu' role='menu' >
+                                    <li><a class='dropdown-item' href='./profile.php'>Profile</a></li>
+                                    <li><a class='dropdown-item' href='./order.php'>Orders</a></li>
+                                    <li><hr class='dropdown-divider'></li>
+                                    <li><a class='dropdown-item' href='./includes/logout.inc.php'>Logout</a></li>
+                                </ul>
+                            </div>   ";
+
+                                // echo "<a href='./order.php'> <button class='btn btn-sm btn-danger me-2' type='button'>Orders</button></a> ";
+                                // echo "<a href='./includes/logout.inc.php'> <button class='btn btn-sm btn-danger' type='button'>Logout</button></a> ";
                          
                             }
                             else{
@@ -72,9 +71,7 @@
                                 echo "<a href='./signup.php'> <button class='btn btn-sm btn-danger' type='button'>Signup</button></a> ";
                             }
                         ?> 
-
                     </form>
-
                 </nav> 
 
 
@@ -119,8 +116,34 @@
 
 </header>
 
-
-
-
-
 </div>
+
+<!-- <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon'></span>
+</button>                  
+<li class='nav-item dropdown'>
+    <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> Welcome - <?php //echo $_SESSION['firstName']?></a>
+    <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+    <a class='dropdown-item' href='./order.php'>Order</a><br>
+    <a class='dropdown-item' href='./profile.php'>Profile</a><br>
+    <a class='dropdown-item' href='./includes/logout.inc.php'>Logout</a>
+    </div>
+</li>                          -->
+
+
+
+
+ <!-- <div class='btn-group'>
+    <button type='button' class='btn btn-danger btn-sm dropdown-toggle me-2' data-bs-toggle='dropdown' aria-expanded='false'>
+        Action
+    </button>
+    <ul class='dropdown-menu' role='menu' >
+        <li><a class='dropdown-item' href='./profile.php'>Profile</a></li>
+        <li><a class='dropdown-item' href='./order.php'>Orders</a></li>
+        <li><hr class='dropdown-divider'></li>
+        <li><a class='dropdown-item' href='./includes/logout.inc.php'>Logout</a></li>
+    </ul>
+</div>  -->
+
+
+

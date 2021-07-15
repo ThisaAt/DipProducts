@@ -17,10 +17,11 @@
         $address3 = $_POST['address3'];
         $address4 = $_POST['address4'];
         $customerId = $_POST['customerId'];
+        $billtotal = $_POST['billtotal'];
 
         // insert into orders table 
 
-        $sql = "INSERT INTO orders (phone, customerId, address1, address2, address3, address4) VALUES ('$mobile', '$customerId', '$address1', '$address2', '$address3', '$address4')";
+        $sql = "INSERT INTO orders (phone, customerId, address1, address2, address3, address4, total) VALUES ('$mobile', '$customerId', '$address1', '$address2', '$address3', '$address4', '$billtotal')";
 
         $sql_run = mysqli_query($conn, $sql);
 

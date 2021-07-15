@@ -14,22 +14,17 @@
     ?>
 <tr>
     <td><?php echo $row['orderId']; ?></td>
-    <!-- <td><?php // echo $row['customerId']; ?></td> -->
     <td><?php echo $row['phone']; ?></td>
     <td><?php echo $row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row['address4'] ;?></td>
     <td><?php echo $row['total']; ?></td>
     <td><?php echo $row['orderDate']; ?></td>
     <td><?php echo $row['orderStatus']; ?></td>
-   
- 
     
     <td>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-dark"  data-bs-toggle="modal" data-bs-target="#viewOrderModel">View</button>
-            
-            <!-- <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updateModal" onclick="
-            document.getElementById('orderStatus').value ='<?php echo$row['orderStatus']; ?>';
-            document.getElementById('orderIdupdate').value='<?php echo $row['orderId'];?>';">Update</button> -->
+
+            <a href="./orderdetails.php ?id=<?=$row['orderId'];?>"><button type="button" class="btn btn-outline-danger">View</button></a>
+      
         </div>
     </td>
   

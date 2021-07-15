@@ -59,7 +59,7 @@ if(!isset($_SESSION["adminId"])){
                     <!--Display categories table start -->
                     <div>
                         <form action="" method="POST" enctype="multipart/form-data">
-                            <h1 class="h2">Order Details</h1>
+                            <!-- <h1 class="h2">Order Details</h1> -->
                             <table class="table table-hover">
                                 <thead>
                                     <tr>   
