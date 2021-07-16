@@ -1,8 +1,8 @@
 <?php 
 
     $serverName="localhost";
-    $dbUserName="root";
-    $dBPassword="123";
+    $dbUserName="nipuna";
+    $dBPassword="nipuna";
     $dbName="dipol_db"; 
 
   //  $conn = mysqli_connect("localhost","root","","dipol_db");

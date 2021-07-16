@@ -5,8 +5,8 @@
   require_once('./includes/functions.inc.php');
 
   $serverName="localhost";
-  $dbUserName="root";
-  $dBPassword="123";
+  $dbUserName="nipuna";
+  $dBPassword="nipuna";
   $dbName="dipol_db"; 
 
 

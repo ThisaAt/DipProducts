@@ -80,6 +80,10 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                         updateTotal(total);
                       }
                     })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62d4621ee43b02b5a3f1f6435003b649736ba0d4
                     function updateTotal(Val){
                       document.getElementById('grand').innerHTML = Val+'.00';
                       document.getElementById('beforetax').innerHTML = Val+'.00';
