@@ -16,7 +16,7 @@
     <td><?php echo $row['orderId']; ?></td>
     <td><?php echo $row['phone']; ?></td>
     <td><?php echo $row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row['address4'] ;?></td>
-    <td><?php echo $row['total']; ?></td>
+    <td><?php echo $row['total'].".00"; ?></td>
     <td><?php echo $row['orderDate']; ?></td>
     <td><?php echo $row['orderStatus']; ?></td>
     

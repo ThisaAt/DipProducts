@@ -150,6 +150,7 @@ function loginUser($conn, $email, $pw){
             $_SESSION["customerName"] =$row['firstName']. " ".$row['lastName'];
             $_SESSION["customerEmail"] =$row['customerEmail'];
             $_SESSION["mobile"] =$row['mobilePhone'];
+            $_SESSION["landphone"] =$row['landPhone'];
             $_SESSION["address1"] =$row['address1'];
             $_SESSION["address2"] =$row['address2'];
             $_SESSION["address3"] =$row['address3'];
@@ -172,7 +173,26 @@ function loginUser($conn, $email, $pw){
   //  $conn = mysqli_connect("localhost","root","","dipol_db");
     $conn = mysqli_connect($serverName, $dbUserName, $dBPassword, $dbName);
 
-    $sql = "SELECT * FROM product;";
+    $sql = "SELECT * FROM product WHERE categoryName='Sanitizers';";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result)>0){
+        return $result;
+    }
+
+}
+
+function getDataDetergents(){
+    // require_once('./dbh.inc.php');
+    $serverName="localhost";
+    $dbUserName="root";
+    $dBPassword="123";
+    $dbName="dipol_db"; 
+
+  //  $conn = mysqli_connect("localhost","root","","dipol_db");
+    $conn = mysqli_connect($serverName, $dbUserName, $dBPassword, $dbName);
+
+    $sql = "SELECT * FROM product WHERE categoryName='Detergents';";
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result)>0){
@@ -264,4 +284,42 @@ function sendEmail($email, $body, $subject)
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
+}
+
+function sendBill($conn,$orderId){
+
+    // require_once('./dbh.inc.php');
+    // $serverName="localhost";
+    // $dbUserName="root";
+    // $dBPassword="123";
+    // $dbName="dipol_db"; 
+
+    // $conn = mysqli_connect($serverName, $dbUserName, $dBPassword, $dbName);
+
+    $sql = "SELECT * FROM order WHERE orderId = $orderId;";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+
+    $total= $row['total'];
+    echo $total;
+
+    $body = "Hello! ";
+    
+    $sql = "UPDATE customer SET customerPw = ? WHERE customerEmail = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+
+        // header("location:  ../User/login.php?error=stmtfailed"); //directs back to the login page
+        exit();
+    }
+    // $hashedPwd = password_hash($randstr, PASSWORD_DEFAULT); //hashing auto updates
+    // mysqli_stmt_bind_param($stmt,"ss",$hashedPwd, $email);
+    mysqli_stmt_execute($stmt);
+
+    $subject ="Recover Password";
+    // sendEmail($email, $body, $subject);
+
+    header("location: ../login.php?error=none");
+    exit();  
 }

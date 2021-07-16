@@ -51,8 +51,9 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                   <button type='button' class='btn bg-light border rounded-circle' id='$productId.min' ><i class='fas fa-minus'></i></button>
                   <input id='$productId' type='number' min='1' max='$productQty' class='form-control itemQty w-25 d-inline' value='1' style='width:45px;'>
                   <button type='button' class='btn bg-light border rounded-circle' id='$productId.plus' ><i class='fas fa-plus'></i></button>
+                  <h6 class='pt-2'>Available Items:$productQty</h6>
                   <script>
-                                
+                              
                     var button= document.getElementById('$productId.plus');
                     var button2= document.getElementById('$productId.min');
                     button.addEventListener('click',(e)=>{

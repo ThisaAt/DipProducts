@@ -110,7 +110,50 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<!-- carousel end  -->
 
+  <!-- category cards -->
+  <div class="row row-cols-1 row-cols-md-3 g-4 px-5 pt-5">
+      
+    <div class="col text-center">
+      <div class="card">
+        <a href="./Index.php#bestBuys">
+          <img src="./images/wp png.png" class="card-img-top" alt="...">  
+        </a>
+        <div class="card-body">
+          <h2 class="card-title"><b>Sanitizers</b></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col text-center">
+      <div class="card">
+      <a href="./Index.php#detergents">
+        <img src="./images/wp png.png" class="card-img-top" alt="..."> </a>
+        <div class="card-body">
+          <h2 class="card-title"><b>detergents</b></h2>
+        </div>
+       
+      </div>
+    </div>
+
+    <div class="col text-center">
+      <div class="card">
+        <img src="./images/wp png.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class="card-title"><b>Sanitizers</b></h2>
+        </div>
+      </div>
+    </div>
+
+ 
+  </div>
+
+
+
+
+
+        <!-- products -->
 <div class="container" id="bestBuys">
   <div class="row text-center py-5">
     <h1 class="title" >Sanitizers</h1>
@@ -130,12 +173,12 @@
   </div>
 </div>
 
-<div class="container " id="bestBuys">
+<div class="container " id="detergents">
   <div class="row text-center py-5">
-    <h1 class="title" >Sanitizers</h1>
+    <h1 class="title" >Detergents</h1>
       <?php
       // component('./images/wp png.png','Washing Powder', '1 Kg', 150);
-       $result = getData();
+       $result = getDataDetergents();
        while($row = mysqli_fetch_assoc($result)){
         component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
        }

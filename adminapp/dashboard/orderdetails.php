@@ -66,7 +66,7 @@ if(!isset($_SESSION["adminId"])){
                                         <th scope="col">Order Id</th>
                                         <th scope="col">Product Name</th>
                                         <th scope="col">Ordered Quantity</th>
-                                        <th scope="col">Price</th>
+                                        <th scope="col">Price (Rs.)</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -3,6 +3,21 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+
+
+.profile{
+    font-family: 'Poppins', sans-serif;
+    background-color:#fff;
+    /* #00ac96; */
+}
+
+.content{
+    /* margin: 8%; */
+    background-color: #fff;
+    /* padding: 4rem 1rem 4rem 1rem; */
+    box-shadow: 0 0 5px 5px rgba(0,0,0, .05);
+
+}
 *
 {
     margin: 0;

@@ -67,10 +67,10 @@
                         <form action="./includes/feedback.inc.php" method="POST">
 
                         <label for="name">Name</label>
-                        <input type="text" name="name" placeholder="Name" class="form-control mb-2" id="floatingInput" value="<?php echo $_SESSION["customerName"] ?>" required>
+                        <input type="text" name="name" placeholder="Name" class="form-control mb-2" id="floatingInput" value="<?php echo$_SESSION["customerName"] ?>" required>
 
                         <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Email" class="form-control mb-2"  value="<?php echo $_SESSION["customerEmail"] ?>" required>
+                        <input type="email" name="email" placeholder="Email" class="form-control mb-2"  value="<?php echo$_SESSION["customerEmail"] ?>" required>
 
                         <label for="type">Feedback Type</label>
                         <div class="form-floating" >
@@ -112,9 +112,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- bootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         // $(document).ready(function(){

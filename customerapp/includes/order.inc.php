@@ -3,11 +3,7 @@
      require_once('./dbh.inc.php');
      require_once('../component/components.php');
      require_once('./functions.inc.php');
-    //  C:\wamp64\www\DipProducts\customerapp\
-    //  if(!isset($_SESSION["customerId"])){
-    //    header("location: ./Login.php");
-    //    exit();
-    //  }
+
     if(isset($_POST['submit'])){
         require_once 'dbh.inc.php';
       
@@ -47,6 +43,21 @@
                         // $productQty = $row['productQty'];
                         $productPrice = $row['productPrice'];
                         // echo  $productQty ;
+
+                        $sqlproduct = "SELECT * FROM product where productId = $productId ;";
+                        $sqlproduct_run = mysqli_query($conn, $sqlproduct);
+
+                        $qtyget = (int)$row['productQty'];
+                        $salesget = (int)$row['productSales'];
+
+                        $Qty =  $qtyget - $productQty;
+                        $Sales = $salesget +  $productQty ;
+
+
+                        $sqlUpdate = "UPDATE product 
+                            SET productQty=' $Qty', productSales ='$Sales'    
+                            WHERE productId =$productId ";
+                         $sqlUpdate_run = mysqli_query($conn, $sqlUpdate);
                    
                         // cartElement($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId'], $row['productQty'],$qtyVal);
                         // $total = $total +(int)$row['productPrice'];
@@ -58,18 +69,62 @@
 
                         $sql1_run = mysqli_query($conn, $sql1);
 
-                        if ($sql1_run){
-                          header("Location:  ../cart.php?error=none");
-                        }else {
-                          header("Location:  ../cart.php?error=orderdetailsfailed");
+                        // if ($sql1_run){
+                        //   header("Location:  ../orders.php?orderPlaced");
+                        // }else {
+                        //   header("Location:  ../cart.php?error=orderdetailsfailed");
                         //   echo  $conn->error;
                         }    
                     }
                 }
             }
-        }
 
-    }
-    else {
-        header("Location: ../cart.php");
-    }
+            $result = getDataDetergents();
+            while($row = mysqli_fetch_assoc($result)){
+                foreach($product_id as $id){
+                    if($row['productId']==$id){
+                      
+                        $productId = $row['productId'];
+                        $productQty = "1";
+                        // $productQty = $row['productQty'];
+                        $productPrice = $row['productPrice'];
+
+                        $sqlproduct = "SELECT * FROM product where productId = $productId ;";
+                        $sqlproduct_run = mysqli_query($conn, $sqlproduct);
+
+                        $qtyget = (int)$row['productQty'];
+                        $salesget = (int)$row['productSales'];
+
+                        $Qty =  $qtyget - $productQty;
+                        $Sales = $salesget +  $productQty ;
+
+
+                        $sqlUpdate = "UPDATE product 
+                            SET productQty=' $Qty', productSales ='$Sales'    
+                            WHERE productId =$productId ";
+                         $sqlUpdate_run = mysqli_query($conn, $sqlUpdate);
+
+                        $sql1 = "INSERT INTO orderdetails (orderId, ProductId, qty, price) VALUES ('$orderId','$productId', '$productQty', '$productPrice')";
+
+                        $sql1_run = mysqli_query($conn, $sql1);
+
+                        // if ($sql1_run){
+                        //   header("Location:  ../orders.php?orderPlaced");
+                        // }else {
+                        //   header("Location:  ../cart.php?error=orderdetailsfailed");
+                        // }    
+                    }
+                }
+            }
+
+            if ($sql_run ){
+                sendBill($conn,$orderId);
+                header("Location:  ../order.php?orderPlaced");
+              }else {
+                header("Location:  ../cart.php?error=orderdetailsfailed");
+              } 
+            
+
+        }else {
+            header("Location: ../cart.php");
+        }
