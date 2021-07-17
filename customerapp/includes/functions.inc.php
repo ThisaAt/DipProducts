@@ -239,8 +239,7 @@ function sendOTP($conn,$email){
     exit();  
 }
 
-function sendEmail($email, $body, $subject)
-{
+function sendEmail($email, $body, $subject){
     // Load Composer's autoloader
     require '../vendor/autoload.php';
 
@@ -286,40 +285,69 @@ function sendEmail($email, $body, $subject)
     }
 }
 
-function sendBill($conn,$orderId){
+function sendBill($conn,$orderId,$customerId){
 
-    // require_once('./dbh.inc.php');
-    // $serverName="localhost";
-    // $dbUserName="root";
-    // $dBPassword="123";
-    // $dbName="dipol_db"; 
+    $sqlOrder = "SELECT * FROM orders WHERE orderId = $orderId;";
+    $resultOrder = mysqli_query($conn, $sqlOrder);
+    $rowOrder = mysqli_fetch_array($resultOrder);
+    $total= $rowOrder['total'];
+    $phone= $rowOrder['phone'];
+    $address= $rowOrder['address1'].", ".$rowOrder['address2'].", ".$rowOrder['address3'].", ".$rowOrder['address4'];
+    $date= $rowOrder['orderDate'];
 
-    // $conn = mysqli_connect($serverName, $dbUserName, $dBPassword, $dbName);
+    $sqlCustomer = "SELECT * FROM customer WHERE customerId = $customerId;";
+    $resultCustomer = mysqli_query($conn, $sqlCustomer);
+    $rowCustomer = mysqli_fetch_array($resultCustomer);
+    $customerName= $rowCustomer['firstName']." ".$rowCustomer['lastName'];
+    $email= $rowCustomer['customerEmail'];
 
-    $sql = "SELECT * FROM order WHERE orderId = $orderId;";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
+    $subject ="Order Details";
+    $body = "Hello ".$customerName. "! <br><br>Order Details of Order No:".$orderId."<br><br>
+            Date: ".  $date."<br>Total(Rs.): ".  $total."<br>Delivery Address: ".  $address."<br>
+            Mobile Number: ".  $phone."<br><br>Thank you for shopping with Dip Products.";
 
-    $total= $row['total'];
-    echo $total;
-
-    $body = "Hello! ";
-    
-    $sql = "UPDATE customer SET customerPw = ? WHERE customerEmail = ?;";
-    $stmt = mysqli_stmt_init($conn);
-
-    if (!mysqli_stmt_prepare($stmt,$sql)) {
-
-        // header("location:  ../User/login.php?error=stmtfailed"); //directs back to the login page
-        exit();
-    }
-    // $hashedPwd = password_hash($randstr, PASSWORD_DEFAULT); //hashing auto updates
-    // mysqli_stmt_bind_param($stmt,"ss",$hashedPwd, $email);
-    mysqli_stmt_execute($stmt);
-
-    $subject ="Recover Password";
-    // sendEmail($email, $body, $subject);
-
-    header("location: ../login.php?error=none");
+    sendBillEmail($email, $body, $subject);
+    header("Location:../order.php?orderPlaced");
     exit();  
+}
+
+function sendBillEmail($email, $body, $subject){
+    
+    require '../vendor/autoload.php';
+
+    include('../smtp/PHPMailerAutoload.php');
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();                                            // Send using SMTP
+        $mail->Host       = 'smtp.gmail.com'; 
+        $mail->Port       = 587;                      // Set the SMTP server to send through
+        $mail->SMTPSecure = 'tls';  
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'dippro10339@gmail.com';                     // SMTP username
+        $mail->Password   = '#dipol123';                               // SMTP password
+
+        //Recipients
+        $mail->setFrom('dippro10339@gmail.com');
+        $mail->addAddress($email);     // Add a recipient
+        //$mail->addAddress('ellen@example.com');               // Name is optional
+        //$mail->addReplyTo('info@example.com', 'Information');
+        //$mail->addCC('cc@example.com');
+        $mail->addBCC('dippro10339@gmail.com');
+
+        // Attachments
+        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        //$mail->addAttachment('/tmp/image.jpg', 'logo.jpg');    // Optional name
+        
+        // Content
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        $mail->AltBody = strip_tags($body);
+
+        $mail->send();
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
 }

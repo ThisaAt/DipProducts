@@ -25,14 +25,14 @@
             header("location: ../profile.php?error=passworddontmatch");
             exit();
         }
-        if(uidExists($conn, $email)!==false){
-            header("location: ../profile.php?error=usernametaken");
-            exit();
-        }
-        if(invalidContactNo($mobilePhone)!==false){
-            header("location: ../profile.php?error=invalidContactNo");
-            exit();
-        }
+        // if(uidExists($conn, $email)!==false){
+        //     header("location: ../profile.php?error=usernametaken");
+        //     exit();
+        // }
+        // if(invalidContactNo($mobilePhone)!==false){
+        //     header("location: ../profile.php?error=invalidContactNo");
+        //     exit();
+        // }
 
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 

@@ -48,7 +48,7 @@
         <?php 
             $msg ="";
             if(isset($_GET['orderPlaced'])){
-                $msg="Order Placed Successfully ";
+                $msg="Order Placed Successfully.An email has been sent to your email address with order details ";
                 echo '<div class="alert alert-success">'.$msg.'</div>';
             }
         ?>

@@ -22,7 +22,7 @@
         $sql_run = mysqli_query($conn, $sql);
 
         if ($sql_run){
-            header("Location:  ../cart.php?error=none");
+            // header("Location:  ../cart.php?error=none");
             $orderId = mysqli_insert_id($conn);
             // echo $orderId;
         }else {
@@ -118,7 +118,7 @@
             }
 
             if ($sql_run ){
-                sendBill($conn,$orderId);
+                sendBill($conn,$orderId,$customerId);
                 header("Location:  ../order.php?orderPlaced");
               }else {
                 header("Location:  ../cart.php?error=orderdetailsfailed");
