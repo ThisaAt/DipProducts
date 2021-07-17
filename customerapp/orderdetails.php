@@ -42,7 +42,7 @@
         require_once('./component/header.php');
     ?>
 
-    <div class="container-fluid px-5">
+    <div class="container-fluid">
 
       <!--Display categories table start -->
       <div class="row content">
@@ -76,15 +76,6 @@
         
         
     </div>
-
-
-    
-
-
-
-                 
-
-
 
     <!-- jquery cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -1,10 +1,8 @@
 <?php
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
 
 function emptyInputSignup($firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password,  $checkPassword){
         // $result;
@@ -117,6 +115,7 @@ function emptyInputLogin($email, $pw){
     }
         return $result;
 }
+
 function loginUser($conn, $email, $pw){
     $uidExists = uidExists($conn, $email);
 
@@ -162,6 +161,7 @@ function loginUser($conn, $email, $pw){
         exit();
     }
 }
+
 // public
  function getData(){
     // require_once('./dbh.inc.php');

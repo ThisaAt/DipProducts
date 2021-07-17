@@ -42,7 +42,7 @@
         require_once('./component/header.php');
     ?>
 
-    <div class="container-fluid px-5 py-2 ">
+    <div class="container-fluid ">
 
 
         <?php 
@@ -58,7 +58,7 @@
       <!--Display categories table start -->
         <div class="col-md-10" >
             <form action="" method="POST" enctype="multipart/form-data">
-                <h1 class="h2 py-1 ">Your Orders</h1>
+                <h1 class="h2 py-3 ">Your Orders</h1>
                 <table class="table table-hover  border-danger ">
                     <thead id="tableHead" class="border-danger border border-2 ">
                         <tr>   

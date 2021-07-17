@@ -118,6 +118,7 @@
             }
 
             if ($sql_run ){
+                unset($_SESSION['cart']);
                 sendBill($conn,$orderId,$customerId);
                 header("Location:  ../order.php?orderPlaced");
               }else {
