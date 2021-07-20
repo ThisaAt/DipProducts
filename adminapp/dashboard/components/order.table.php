@@ -9,7 +9,7 @@
     while($row = mysqli_fetch_array($sql_run)){
 
         $customer_name = $row['firstName']." ".$row['lastName'];
-        $customer_address=$row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row    ['address4'] ;
+        // $customer_address=$row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row    ['address4'] ;
         $customer_phone = $row['mobilePhone'];
         $date =  $row['orderDate'];
         $total =  $row['total'];
@@ -37,8 +37,11 @@
             <a href="./invoice-db.php ?id=<?=$row['orderId'];?>
             &cid=<?=$row['customerId'];?>
             &name=<?=$customer_name;?>
-            &address=<?=$customer_name;?>
-            &phone=<?=$customer_name;?>
+            &address1=<?=$row['address1'];?>
+            &address2=<?=$row['address2'];?>
+            &address3=<?=$row['address3'];?>
+            &address4=<?=$row['address4'];?>
+            &phone=<?=$customer_phone;?>
             &total=<?=$total;?>
             &date=<?=$date;?>"><button type="button" class="btn btn-outline-dark">Invoice</button></a>
 
