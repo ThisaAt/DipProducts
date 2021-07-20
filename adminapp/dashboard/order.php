@@ -123,6 +123,7 @@ if(!isset($_SESSION["adminId"])){
 
                                     <div>
                                         <input type="text" id="orderIdupdate" name="orderId" hidden>
+                                        <input type="text" id="cid" name="cid" hidden>
                                     </div>
                             </div>
                             <div class="modal-footer">

@@ -260,3 +260,86 @@ function get_safe_value($conn,$str){ //??
 		return strip_tags( mysqli_real_escape_string($conn,$str));
 	}
 }
+
+function sendUpdate($conn,$orderId,$customerId){
+    
+    $sqlOrder = "SELECT * FROM orders WHERE orderId = $orderId;";
+    $resultOrder = mysqli_query($conn, $sqlOrder);
+    $rowOrder = mysqli_fetch_array($resultOrder);
+    $total= $rowOrder['total'];
+    $phone= $rowOrder['phone'];
+    $address= $rowOrder['address1'].", ".$rowOrder['address2'].", ".$rowOrder['address3'].", ".$rowOrder['address4'];
+    $date= $rowOrder['orderDate'];
+
+    $sqlCustomer = "SELECT * FROM customer WHERE customerId = $customerId;";
+    $resultCustomer = mysqli_query($conn, $sqlCustomer);
+    $rowCustomer = mysqli_fetch_array($resultCustomer);
+    $customerName= $rowCustomer['firstName']." ".$rowCustomer['lastName'];
+    $email= $rowCustomer['customerEmail'];
+
+    $sqlEmail ="SELECT * 
+    FROM orderdetails 
+    INNER JOIN product ON orderdetails.ProductId  =product.productId
+    WHERE orderId= $orderId ;";
+
+    $query =mysqli_query($conn, $sqlEmail);
+
+    $subject ="Order Details";
+    while ($item = mysqli_fetch_array($query)) {
+        $body = "Hello ".$customerName. "! <br><br>
+        <b>Order Details of Order No:".$orderId."</b><br>
+        ".$item['productName']." (". $item['productSize'].") - ".$item['qty'] ."<br>  
+        <hr>
+        Grand Total(Rs.): ".  $total.".00<br><br>
+        Ordered Date and Time: ".  $date."<br>
+        Delivery Address: ".  $address."<br>
+        Mobile Number: ".  $phone."<br><br>
+        Thank you for shopping with Dip Products.";
+    }
+
+    sendBillEmail($email, $body, $subject);
+    header("Location:../order.php?orderPlaced");
+    exit(); 
+
+}
+
+function sendUpdateEmail($email, $body, $subject){
+    
+    require '../vendor/autoload.php';
+
+    include('../smtp/PHPMailerAutoload.php');
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();                                            // Send using SMTP
+        $mail->Host       = 'smtp.gmail.com'; 
+        $mail->Port       = 587;                      // Set the SMTP server to send through
+        $mail->SMTPSecure = 'tls';  
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'dippro10339@gmail.com';                     // SMTP username
+        $mail->Password   = '#dipol123';                               // SMTP password
+
+        //Recipients
+        $mail->setFrom('dippro10339@gmail.com');
+        $mail->addAddress($email);     // Add a recipient
+        //$mail->addAddress('ellen@example.com');               // Name is optional
+        //$mail->addReplyTo('info@example.com', 'Information');
+        //$mail->addCC('cc@example.com');
+        $mail->addBCC('dippro10339@gmail.com');
+
+        // Attachments
+        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        //$mail->addAttachment('/tmp/image.jpg', 'logo.jpg');    // Optional name
+        
+        // Content
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        $mail->AltBody = strip_tags($body);
+
+        // $mail->send(); #####
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+}

@@ -32,7 +32,8 @@
             
            <a> <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updateModal" onclick="
             document.getElementById('orderStatus').value ='<?php echo$row['orderStatus']; ?>';
-            document.getElementById('orderIdupdate').value='<?php echo $row['orderId'];?>';">Update</button></a>
+            document.getElementById('orderIdupdate').value='<?php echo $row['orderId'];?>';
+            document.getElementById('cid').value='<?php echo $row['customerId'];?>';">Update</button></a>
 
             <a href="./invoice-db.php ?id=<?=$row['orderId'];?>
             &cid=<?=$row['customerId'];?>

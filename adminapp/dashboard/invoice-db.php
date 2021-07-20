@@ -111,14 +111,6 @@ $pdf->SetFont('Arial','',12);
 
 //Numbers are right-aligned so we give 'R' after new line parameter
 
-	
-$sql ="SELECT * 
-FROM orderdetails 
-INNER JOIN product ON orderdetails.ProductId  =product.productId
-WHERE orderId= $order_id  ;";
-
-$query =mysqli_query($conn, $sql);
-$invoice = mysqli_fetch_array($query);
 
 //items
 

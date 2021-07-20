@@ -301,10 +301,25 @@ function sendBill($conn,$orderId,$customerId){
     $customerName= $rowCustomer['firstName']." ".$rowCustomer['lastName'];
     $email= $rowCustomer['customerEmail'];
 
+    $sqlEmail ="SELECT * 
+    FROM orderdetails 
+    INNER JOIN product ON orderdetails.ProductId  =product.productId
+    WHERE orderId= $orderId ;";
+
+    $query =mysqli_query($conn, $sqlEmail);
+
     $subject ="Order Details";
-    $body = "Hello ".$customerName. "! <br><br>Order Details of Order No:".$orderId."<br><br>
-            Date: ".  $date."<br>Total(Rs.): ".  $total."<br>Delivery Address: ".  $address."<br>
-            Mobile Number: ".  $phone."<br><br>Thank you for shopping with Dip Products.";
+    while ($item = mysqli_fetch_array($query)) {
+        $body = "Hello ".$customerName. "! <br><br>
+        <b>Order Details of Order No:".$orderId."</b><br>
+        ".$item['productName']." (". $item['productSize'].") - ".$item['qty'] ."<br>  
+        <hr>
+        Grand Total(Rs.): ".  $total.".00<br><br>
+        Ordered Date and Time: ".  $date."<br>
+        Delivery Address: ".  $address."<br>
+        Mobile Number: ".  $phone."<br><br>
+        Thank you for shopping with Dip Products.";
+    }
 
     sendBillEmail($email, $body, $subject);
     header("Location:../order.php?orderPlaced");

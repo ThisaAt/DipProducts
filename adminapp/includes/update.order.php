@@ -6,6 +6,7 @@
       
       $orderStatus = $_POST['orderStatus'];
       $orderId = $_POST['orderId'];
+      $customerId = $_POST['cid'];
     
         $sql = "UPDATE orders 
         SET orderStatus=' $orderStatus'
@@ -14,6 +15,7 @@
         $sql_run = mysqli_query($conn, $sql);
 
       if ($sql_run){
+        sendUpdate($conn,$orderId,$customerId);
         header("Location: ../dashboard/order.php?error=none");
       }else {
         header("Location: ../dashboard/order.php?error=noneupdatefail");
