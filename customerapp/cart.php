@@ -102,7 +102,7 @@
                         $qtyVal =1;
                         if(isset($_SESSION['cart'])){
                             $product_id = array_column($_SESSION['cart'],'product_id');
-                            print_r($_SESSION['cart']);
+                            // print_r($_SESSION['cart']);
                             $result = getData();
                             while($row = mysqli_fetch_assoc($result)){
                                 foreach($product_id as $id){
@@ -133,15 +133,36 @@
             </div>
             <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25 ">
                 <div class="pt-4">
-                    <h6>Price Details</h6>
+                    <!-- <h5>Order Details</h5>
                     <hr>
-                    
+                    <div class="mb-3 row">
+                        <label for="phone" class="col-sm-3 col-form-label">Mobile</label>
+                        <div class="col-sm-9"> 
+                            <input class="form-control" type="number" placeholder="Mobile Phone" id="mobileNumUpdate" name="mobileNum" value="<?php echo $_SESSION["mobile"] ?>">
+                            <input class="form-control" type="hidden" id="billtotal" name="billtotal" value="<?php echo $total ?>">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="address1" class="col-sm-3 col-form-label">Delivery Address</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" placeholder="Address Line one" id="address1Update" name="address1" value=" <?php echo $_SESSION["address1"] ?>">
+                            <input class="form-control" type="text" placeholder="Address Line two" id="address2Update" name="address2" value=" <?php echo $_SESSION["address2"] ?>">
+                            <input class="form-control" type="text" placeholder="Address Line three" id="address3Update" name="address3" value=" <?php echo $_SESSION["address3"] ?>">
+                            <input class="form-control" type="text" placeholder="Address Line four" id="address4Update" name="address4" value=" <?php echo $_SESSION["address4"] ?>">
+                            <input type="hidden" name="customerId" value=" <?php echo $_SESSION["customerId"] ?>" >
+                        </div>
+                    </div><br> -->
+
+                    <h6>Price Details(Cash on delivery)</h6>
+                    <p><small>*A delivery charge of Rs.50.00 will be added to every per 1Kg/1L</small></p>   
+                    <hr>
                     <div class="row price-details">
                         <div class="col-md-6">
                             <?php
                                 if(isset($_SESSION['cart'])){
                                     $count = count($_SESSION['cart']);
                                     echo "<h6 >Price($count items)</h6>";
+                                    // echo "<h6 >Delivery</h6>"; 
                                 }
                                 else{
                                     echo "<h6>Price (0 items)</h6>";
@@ -150,6 +171,8 @@
                             
                             <hr>
                             <h6>Grand Total</h6>
+                            <hr>
+                           
                         </div>
               
                         <div class="col-md-6">
@@ -164,15 +187,17 @@
                                     document.getElementById('grand').innerHTML = '0.00';
                                     document.getElementById('beforetax').innerHTML = '0.00';
                                     </script>";
+                                  
                                     unset($_SESSION['total']);
                                     $total = 0.00;
                                 }
                             }
                             
-                            echo "Rs.<span id='beforetax'>$total</span></h6>";
+                            echo "Rs.<span id='beforetax'>$total.00</span></h6>";
+                            // echo "Rs.<span>500.00</span></h6>";
                             ?>
                             <hr>
-                            <h6><?php echo "Rs.<span id='grand'> $total</span>"; ?></h6>
+                            <h6><?php echo "Rs.<span id='grand'>$total.00</span>"; ?></h6>
                             <hr>
                             <?php 
                                 if(isset($_SESSION['cart'])):
@@ -182,8 +207,7 @@
                            <?php endif; endif; ?>
                       
                         </div>
-                    </div>
-                        
+                    </div> 
 
                 </div>
 
@@ -193,24 +217,24 @@
         <!-- Are you sure to place the order Model -->
 
         <div class="modal fade " id="placeOrderAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Enter the Order Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form action="./includes/order.inc.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3 row">
-                                <label for="phone" class="col-sm-2 col-form-label">Mobile</label>
-                                <div class="col-sm-10"> 
+                                <label for="phone" class="col-sm-3 col-form-label">Mobile Number</label>
+                                <div class="col-sm-9"> 
                                     <input class="form-control" type="number" placeholder="Mobile Phone" id="mobileNumUpdate" name="mobileNum" value="<?php echo $_SESSION["mobile"] ?>">
                                     <input class="form-control" type="hidden" id="billtotal" name="billtotal" value="<?php echo $total ?>">
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="address1" class="col-sm-2 col-form-label">Delivery Address</label>
-                                <div class="col-sm-10">
+                                <label for="address1" class="col-sm-3 col-form-label">Enter the Delivery Address</label>
+                                <div class="col-sm-9">
                                     <input class="form-control" type="text" placeholder="Address Line one" id="address1Update" name="address1" value=" <?php echo $_SESSION["address1"] ?>">
                                     <input class="form-control" type="text" placeholder="Address Line two" id="address2Update" name="address2" value=" <?php echo $_SESSION["address2"] ?>">
                                     <input class="form-control" type="text" placeholder="Address Line three" id="address3Update" name="address3" value=" <?php echo $_SESSION["address3"] ?>">

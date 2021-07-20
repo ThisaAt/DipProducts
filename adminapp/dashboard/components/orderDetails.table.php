@@ -3,6 +3,7 @@
     require_once '../includes/functions.inc.php';
     // $order_id=get_safe_value($conn,$_GET['orderId']);
     $order_id = $_GET['id'];
+    // $cid = $_GET['cid'];
 
     // $res=mysqli_query($con," SELECT distinct(orderdetails.orderdetailsId) ,orderdetails.*,product.productName from orderdetails,product where orderdetails.orderId='$order_id' and  orderdetails.ProductId=product.productId  GROUP by orderdetails.orderdetailsId");
     //               $total_price=0;

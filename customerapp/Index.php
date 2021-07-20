@@ -26,7 +26,7 @@
         $count = count($_SESSION['cart']);
         $item_array= array('product_id' => $_POST['product_id'],'product_qty' => 0);
         $_SESSION['cart'][$count]= $item_array;
-        print_r($_SESSION['cart']);
+        // print_r($_SESSION['cart']);
      }
 
       // print_r($_SESSION['cart']);
@@ -80,24 +80,24 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./images/Banner-2.png" class="d-block w-100" alt="...">
+      <img src="./images/Banner 1.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+        <!-- <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p> -->
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./images/Banner-3.png" class="d-block w-100" alt="...">
+      <img src="./images/Banner 2.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <!-- <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p> -->
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./images/new-home-slode.jpg" class="d-block w-100" alt="...">
+      <img src="./images/Banner 3.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+        <!-- <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p> -->
       </div>
     </div>
   </div>
