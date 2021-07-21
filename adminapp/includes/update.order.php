@@ -4,18 +4,25 @@
       require_once 'dbh.inc.php';
       require_once 'functions.inc.php';
       
-      $orderStatus = $_POST['orderStatus'];
-      $orderId = $_POST['orderId'];
-      $customerId = $_POST['cid'];
+      $orderStatus =$_POST['orderStatus'];
+      $orderId =$_POST['orderId'];
+      $customerId =$_POST['cid'];
     
         $sql = "UPDATE orders 
-        SET orderStatus=' $orderStatus'
+        SET orderStatus='$orderStatus'
         WHERE orderId =$orderId ";
    
         $sql_run = mysqli_query($conn, $sql);
 
+        if($orderStatus=='Order Dispatched'){
+          sendOrderDispatched($conn,$orderId,$customerId);
+        } 
+        if($orderStatus=='Delivered'){
+          sendDelivered($conn,$orderId,$customerId);
+        } 
+
       if ($sql_run){
-        sendUpdate($conn,$orderId,$customerId);
+        
         header("Location: ../dashboard/order.php?error=none");
       }else {
         header("Location: ../dashboard/order.php?error=noneupdatefail");

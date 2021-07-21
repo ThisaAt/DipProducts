@@ -111,7 +111,6 @@ if(!isset($_SESSION["adminId"])){
                                         </div>
                                         <div class="col-sm-9">
                                                 <select class="form-select" name="orderStatus" id="orderStatus">
-                                                    <!-- <option selected><?php //echo$row['orderStatus']; ?></option> -->
                                                     <option value="Order Placed">Order Placed</option>
                                                     <option value="Order Processing">Order Processing</option>
                                                     <option value="Ready to Dispatch">Ready to Dispatch</option>
