@@ -14,6 +14,7 @@
         $address4 = $_POST['address4'];
         $customerId = $_POST['customerId'];
         $billtotal = $_POST['billtotal'];
+        // $delivery = $_POST['deliveryCharges'];
 
         // insert into orders table 
 
@@ -120,6 +121,7 @@
             if ($sql_run ){
                 unset($_SESSION['cart']);
                 sendBill($conn,$orderId,$customerId);
+                smsOrder($conn,$orderId,$customerId);
                 header("Location:  ../order.php?orderPlaced");
               }else {
                 header("Location:  ../cart.php?error=orderdetailsfailed");

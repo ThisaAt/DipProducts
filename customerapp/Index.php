@@ -116,7 +116,7 @@
   <div class="row row-cols-1 row-cols-md-3 g-4 px-5 pt-5">
       
     <div class="col text-center">
-      <div class="card">
+      <div class="card shadow">
         <a href="./Index.php#bestBuys">
           <img src="./images/wp png.png" class="card-img-top" alt="...">  
         </a>

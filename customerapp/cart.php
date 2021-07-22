@@ -133,7 +133,7 @@
             </div>
             <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25 ">
                 <div class="pt-4">
-                    <!-- <h5>Order Details</h5>
+                    <h5>Order Details</h5>
                     <hr>
                     <div class="mb-3 row">
                         <label for="phone" class="col-sm-3 col-form-label">Mobile</label>
@@ -145,16 +145,25 @@
                     <div class="mb-3 row">
                         <label for="address1" class="col-sm-3 col-form-label">Delivery Address</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="text" placeholder="Address Line one" id="address1Update" name="address1" value=" <?php echo $_SESSION["address1"] ?>">
-                            <input class="form-control" type="text" placeholder="Address Line two" id="address2Update" name="address2" value=" <?php echo $_SESSION["address2"] ?>">
-                            <input class="form-control" type="text" placeholder="Address Line three" id="address3Update" name="address3" value=" <?php echo $_SESSION["address3"] ?>">
-                            <input class="form-control" type="text" placeholder="Address Line four" id="address4Update" name="address4" value=" <?php echo $_SESSION["address4"] ?>">
+                            <input class="form-control" type="text" placeholder="Address Line one" id="address1Update" name="address1" value="<?php echo$_SESSION["address1"] ?>">
+                            <input class="form-control" type="text" placeholder="Address Line two" id="address2Update" name="address2" value="<?php echo$_SESSION["address2"] ?>">
+                            <input class="form-control" type="text" placeholder="Address Line three" id="address3Update" name="address3" value="<?php echo$_SESSION["address3"] ?>">
+                            <!-- <input class="form-control" type="text" placeholder="Address Line four" id="address4Update" name="address4" id="address4" value=" <?php echo $_SESSION["address4"] ?>" onchange="totalCal()"> -->
+
+                            <select class="form-select small" name="address4" id="address4" onchange="totalCal()">
+                                <option selected><small><?php echo $_SESSION["address4"] ?></small></option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kaluthara">Kaluthara</option>
+                                <option value="Kandy">Kandy</option>
+                            </select>
+
                             <input type="hidden" name="customerId" value=" <?php echo $_SESSION["customerId"] ?>" >
                         </div>
-                    </div><br> -->
+                    </div><br>  
 
                     <h6>Price Details(Cash on delivery)</h6>
-                    <p><small>*A delivery charge of Rs.50.00 will be added to every per 1Kg/1L</small></p>   
+                    <!-- <p><small>*A delivery charge of Rs.50.00 will be added to every per 1Kg/1L</small></p>    -->
                     <hr>
                     <div class="row price-details">
                         <div class="col-md-6">
@@ -168,7 +177,7 @@
                                     echo "<h6>Price (0 items)</h6>";
                                 }
                             ?>
-                            
+                            <h6>Delivery Charges</h6>
                             <hr>
                             <h6>Grand Total</h6>
                             <hr>
@@ -196,8 +205,12 @@
                             echo "Rs.<span id='beforetax'>$total.00</span></h6>";
                             // echo "Rs.<span>500.00</span></h6>";
                             ?>
+                            <!-- <h6 class="text-success">FREE</h6> -->
+                            <!-- <input type="disabled" class="form-control" id="deliveryCharges" name="deliveryCharges" disabled> -->
+                            <h6><?php echo "Rs.<span id='deliveryCharges'>$total.00</span>"; ?></h6>
                             <hr>
                             <h6><?php echo "Rs.<span id='grand'>$total.00</span>"; ?></h6>
+                            <!-- <input type="disabled" class="form-control" id="grand" name="grand" disabled> -->
                             <hr>
                             <?php 
                                 if(isset($_SESSION['cart'])):
@@ -277,12 +290,50 @@
 // require_once("./component/footer.php"); 
 ?>
 
-</div>                   
+</div>   
+ <!-- jquery cdn -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script type="text/javascript">
 
+    function totalCal(){   
 
-    <!-- jquery cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    var district=document.getElementById("address4").value;
+    
+    if(district=="Colombo") 
+    {
+        document.getElementById("deliveryCharges").innerHTML='200.00';
+    }
+    else if(district=="Gampaha") 
+    {
+        document.getElementById("deliveryCharges").innerHTML=300.00;
+    }
+    else if(district=="Kalutara") 
+    {
+        document.getElementById("deliveryCharges").innerHTML=250;
+    }
+    else if(district=="Kandy") 
+    {
+        document.getElementById("deliveryCharges").innerHTML=500;
+    }
+    else if(district=="Kegalle") 
+    {
+        document.getElementById("deliveryCharges").innerHTML=700;
+    }
+    else
+    {
+        document.getElementById("deliveryCharges").innerHTML=750;
+    }
+   
+    document.getElementById("grand").innerHTML=parseInt(document.getElementById("beforetax").innerHTML) + parseInt(document.getElementById("deliveryCharges").innerHTML) +'.00';
+
+    }
+
+  </script> 
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+   
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

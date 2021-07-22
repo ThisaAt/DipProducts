@@ -366,3 +366,39 @@ function sendBillEmail($email, $body, $subject){
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
+
+function smsOrder($conn,$orderId,$customerId){
+
+    // require_once '<div class=""> ';
+    require '../sms/vendor/autoload.php';
+    
+    $sqlOrder = "SELECT * FROM orders WHERE orderId = $orderId;";
+    $resultOrder = mysqli_query($conn, $sqlOrder);
+    $rowOrder = mysqli_fetch_array($resultOrder);
+    $total= $rowOrder['total'];
+    $phone= $rowOrder['phone'];
+    $address= $rowOrder['address1'].", ".$rowOrder['address2'].", ".$rowOrder['address3'].", ".$rowOrder['address4'];
+    $date= $rowOrder['orderDate'];
+
+    $sqlCustomer = "SELECT * FROM customer WHERE customerId = $customerId;";
+    $resultCustomer = mysqli_query($conn, $sqlCustomer);
+    $rowCustomer = mysqli_fetch_array($resultCustomer);
+    $customerName= $rowCustomer['firstName']." ".$rowCustomer['lastName'];
+    $email= $rowCustomer['customerEmail'];
+
+    $basic  = new \Vonage\Client\Credentials\Basic("10ad1919", "e22FNx0SBWdslaDv");
+    $client = new \Vonage\Client($basic);
+
+    $response = $client->sms()->send(
+        new \Vonage\SMS\Message\SMS("94703067121", "BRAND_NAME", 'A text message sent using the Nexmo SMS API')
+    );
+    
+    $message = $response->current();
+    
+    if ($message->getStatus() == 0) {
+        echo "The message was sent successfully\n";
+    } else {
+        echo "The message failed with status: " . $message->getStatus() . "\n";
+    }
+
+}

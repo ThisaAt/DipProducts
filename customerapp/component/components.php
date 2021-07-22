@@ -4,7 +4,7 @@ function component($productImg, $productName,$productSize,$productPrice, $produc
     $element = "
     <div class='col-md-3 col-sm-6 my-3 my-md-0'>
     <form action='Index.php' method='POST'>
-      <div class='card shadow' id='topic'>
+      <div class='card shadow h-100' id='topic'>
         <div><img src='data:image;base64,".base64_encode($productImg)."' alt='product image' id='img' class='img-fluid card-img-top' style='height: 300px;'>
         </div>
         <div class='card-body'>
@@ -83,7 +83,7 @@ function cartElement($productImg, $productName,$productSize, $productPrice,$prod
                     function updateTotal(Val){
                       document.getElementById('grand').innerHTML = Val+'.00';
                       document.getElementById('beforetax').innerHTML = Val+'.00';
-                      document.getElementById('totallink').href = 'add2session.php?totalqty='+Val+'.00';
+                      document.getElementById('totallink').href = 'add2session.php?totalqty='+Val;
                     }
                   
                   </script> 
