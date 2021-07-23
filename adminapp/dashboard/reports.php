@@ -59,9 +59,9 @@ if(!isset($_SESSION["adminId"])){
                         </div>
                     </div>
                 </div>
-
+                <!-- width="1140" height="541.25" -->
                 <div>
-                    <iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=4fdd227a-911a-4551-a0dc-bb75782a6a9d&autoAuth=true&ctid=84c31ca0-ac3b-4eae-ad11-519d80233e6f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+                    <iframe width="1170" height="600.25" src="https://app.powerbi.com/reportEmbed?reportId=4fdd227a-911a-4551-a0dc-bb75782a6a9d&autoAuth=true&ctid=84c31ca0-ac3b-4eae-ad11-519d80233e6f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
            
                 </div>
 

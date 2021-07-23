@@ -132,6 +132,7 @@
                 </div>
             </div>
             <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25 ">
+            <form action="./includes/order.inc.php" method="POST" enctype="multipart/form-data">
                 <div class="pt-4">
                     <h5>Order Details</h5>
                     <hr>
@@ -216,14 +217,15 @@
                                 if(isset($_SESSION['cart'])):
                                 if(count($_SESSION['cart'])>0):
                             ?>
-                            <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#placeOrderAlert">Place the Order</button><br>
+                            <!-- <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#placeOrderAlert">Place the Order</button> -->
+                            <button class='btn btn-md btn-danger my-3' type='submit' name="submit">Place the Order</button><br>
                            <?php endif; endif; ?>
                       
                         </div>
                     </div> 
 
                 </div>
-
+            </form>
             </div>
             
         </div>
@@ -306,23 +308,23 @@
     }
     else if(district=="Gampaha") 
     {
-        document.getElementById("deliveryCharges").innerHTML=300.00;
+        document.getElementById("deliveryCharges").innerHTML='300.00';
     }
     else if(district=="Kalutara") 
     {
-        document.getElementById("deliveryCharges").innerHTML=250;
+        document.getElementById("deliveryCharges").innerHTML='250.00';
     }
     else if(district=="Kandy") 
     {
-        document.getElementById("deliveryCharges").innerHTML=500;
+        document.getElementById("deliveryCharges").innerHTML='500.00';
     }
     else if(district=="Kegalle") 
     {
-        document.getElementById("deliveryCharges").innerHTML=700;
+        document.getElementById("deliveryCharges").innerHTML='700.00';
     }
     else
     {
-        document.getElementById("deliveryCharges").innerHTML=750;
+        document.getElementById("deliveryCharges").innerHTML='750.00';
     }
    
     document.getElementById("grand").innerHTML=parseInt(document.getElementById("beforetax").innerHTML) + parseInt(document.getElementById("deliveryCharges").innerHTML) +'.00';
