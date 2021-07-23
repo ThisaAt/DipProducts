@@ -48,6 +48,17 @@ function invalidContactNo($mobilePhone){
         return $result;
 }
 
+function invalidPw($password){
+    // $result;
+if( strlen($password) < 8 || strlen($password) > 20 ){
+    $result=true;
+}
+else{
+    $result=false;
+}
+    return $result;
+}
+
 function uidExists($conn, $email){
     $sql = "SELECT * FROM customer WHERE customerEmail = ?";
     $stmt = mysqli_stmt_init($conn);

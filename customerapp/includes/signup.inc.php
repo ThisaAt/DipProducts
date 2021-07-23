@@ -19,16 +19,20 @@
 
         //error handlers
 
-    if(emptyInputSignup($firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password,  $checkPassword) !== false){
-        header("location: ../signup.php?error=emptyinput");
-        exit();
-    }
+    // if(emptyInputSignup($firstName, $lastName, $address1, $address2, $address3, $address4, $email,$gender, $mobilePhone,$landPhone,$password,  $checkPassword) !== false){
+    //     header("location: ../signup.php?error=emptyinput");
+    //     exit();
+    // }
     // if(invalidUid($username)!==false){
     //     header("location: ../ui/signup.php?error=invaliduid");
     //     exit();
     // }
     if(invalidEmail($email)!==false){
         header("location: ../signup.php?error=invalidemail");
+        exit();
+    }
+    if(invalidPw($password)!==false){
+        header("location: ../signup.php?error=passwordinvalid");
         exit();
     }
     if(pwdMatch($password, $checkPassword)!==false){
@@ -39,10 +43,10 @@
         header("location: ../signup.php?error=usernametaken");
         exit();
     }
-    if(invalidContactNo($mobilePhone)!==false){
-        header("location: ../signup.php?error=invalidContactNo");
-        exit();
-    }
+    // if(invalidContactNo($mobilePhone)!==false){
+    //     header("location: ../signup.php?error=invalidContactNo");
+    //     exit();
+    // }
 
     createUser($conn, $firstName, $lastName, $address1, $address2, $address3, $address4, $email, $gender, $mobilePhone,$landPhone,$password);
     }

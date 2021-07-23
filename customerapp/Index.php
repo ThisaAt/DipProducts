@@ -127,21 +127,21 @@
     </div>
 
     <div class="col text-center">
-      <div class="card">
+      <div class="card shadow" >
       <a href="./Index.php#detergents">
         <img src="./images/wp png.png" class="card-img-top" alt="..."> </a>
         <div class="card-body">
-          <h2 class="card-title"><b>detergents</b></h2>
+          <h2 class="card-title"><b>Detergents</b></h2>
         </div>
        
       </div>
     </div>
 
     <div class="col text-center">
-      <div class="card">
+      <div class="card shadow">
         <img src="./images/wp png.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <h2 class="card-title"><b>Sanitizers</b></h2>
+          <h2 class="card-title"><b>Hand Wash</b></h2>
         </div>
       </div>
     </div>

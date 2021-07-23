@@ -106,6 +106,9 @@
                         else if($_GET["error"]=="passworddontmatch"){
                             echo '<div class="alert alert-danger" role="alert">Passwords does not match!</div>';
                         }
+                        else if($_GET["error"]=="passwordinvalid"){
+                            echo '<div class="alert alert-danger" role="alert">Choose a Proper Password!</div>';
+                        }
                         else if($_GET["error"]=="stmtfailed"){
                             echo '<div class="alert alert-danger" role="alert">Something went wrong, please try again!</div>';
                         }
@@ -121,13 +124,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
-                                <input type="text" name="firstName" class="form-control" ><br>
+                                <input type="text" name="firstName" class="form-control" required><br>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" name="lastName" class="form-control" ><br>
+                                <input type="text" name="lastName" class="form-control" required><br>
                             </div>
                         </div>
                     </div><br>
@@ -137,14 +140,15 @@
                                 <label for="">Address</label>
                                 <input type="text" name="address1" class="form-control" placeholder="Address Line One" required>
                                 <input type="text" name="address2" class="form-control" placeholder="Address Line Two" required>
-                                <input type="text" name="address3" class="form-control" placeholder="Address Line Three" >
+                                <input type="text" name="address3" class="form-control" placeholder="Address Line Three" required>
                                 <!-- <input type="text" name="address4" class="form-control" placeholder="Address Line Four"><br> -->
                                 <select class="form-select small" name="address4" id="unit">
                                     <option selected><small>District</small></option>
                                     <option value="Colombo">Colombo</option>
                                     <option value="Gampaha">Gampaha</option>
-                                    <option value="Kaluthara">Kaluthara</option>
+                                    <option value="Kaluthara">Kalutara</option>
                                     <option value="Kandy">Kandy</option>
+                                    <option value="Galle">Galle</option>
                                 </select>
                              </div>
                          </div>
@@ -181,16 +185,16 @@
                             <label for="contactNumber">Contact Number</label>
                             <div class="row">
                                 <!-- <form role="form" method="post" enctype="multipart/form-data"> -->
-                                    <div class="col-md-9">
+                                    <!-- <div class="col-md-9"> -->
                                         <div class="form-group">
                                             <!-- <label for="contactNumber">Contact Number</label> -->
-                                            <input type="number" name="mobilePhone" id="mobilePhone" class="form-control" placeholder="Mobile Phone" >
-                                            <input type="number" name="landPhone" class="form-control" placeholder="Land Phone" > <br>
+                                            <input type="number" name="mobilePhone" id="mobilePhone" class="form-control" placeholder="Mobile Phone"required >
+                                            <input type="number" name="landPhone" class="form-control" placeholder="Land Phone"required > <br>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
+                                    <!-- </div> -->
+                                    <!-- <div class="col-md-3">
                                         <button  type="submit" name="sendotp" class="btn btn-danger btn-sm">Send OTP</button>
-                                    </div>
+                                    </div> -->
                                 <!-- </form> -->
                             </div>
                     
@@ -198,15 +202,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="password">Password <small class="text-danger"> *Must be 8-20 characters long</small></label>
-                                <input type="password" name="password" class="form-control" placeholder="Enter the Password" >
-                                <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" ><br>
+                                <input type="password" name="password" class="form-control" placeholder="Enter the Password" required >
+                                <input type="password" name="checkPassword" class="form-control" placeholder="Confirm the Password" required><br>
                             </div> 
                         </div>
                     </div>
                     <div class="row"><br>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6"> -->
                             <!-- <form role="form" method="post" action=""> -->
-                                <label for="otp">OTP</label>
+                                <!-- <label for="otp">OTP</label>
                                 <div class="row">
                                     <div class="col-md-9">
                                         <input type="text" id="otp" name="otp" class="form-control" placeholder="Enter OTP" >
@@ -214,12 +218,12 @@
                                     <div class="col-md-3">
                                         <button type="submit" name="verify" class="btn btn-danger btn-sm">Verify</button>
                                     </div>
-                                </div>
+                                </div> -->
                             <!-- </form> -->
-                        </div>
-                        <div class="col-md-6">
-                            <button type="button" class="btn btn-class" data-bs-toggle="modal" data-bs-target="#modelotp" onclick="document.getElementById('mobilePhone').value='<?php $num;?>';">Signup</button>
-                            <!-- <button type="submit" name="submit" class="btn btn-class">Signup</button> -->
+                        <!-- </div> -->
+                        <div class="col-md-8">
+                            <!-- <button type="button" class="btn btn-class" data-bs-toggle="modal" data-bs-target="#modelotp" onclick="document.getElementById('mobilePhone').value='<?php $num;?>';">Signup</button> -->
+                            <button type="submit" name="submit" class="btn btn-class">Signup</button>
                             <p>Have an account? <a href="Login.php">Log in here</a></p>
                         </div>
                     </div>
