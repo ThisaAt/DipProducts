@@ -66,6 +66,7 @@
                             <!-- <th scope="col">Customer Id</th> -->
                             <th scope="col">Mobile No.</th>
                             <th scope="col">Delivery Address</th>
+                            <th scope="col">Delivery Charges (Rs.)</th>
                             <th scope="col">Grand Total (Rs.)</th>
                             <th scope="col">Date</th>
                             <th scope="col">Order Status</th>

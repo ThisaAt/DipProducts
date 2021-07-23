@@ -97,7 +97,7 @@
                     <h6>My Cart</h6>
                     <hr>
                     <?php
-
+                        $delivery=300;
                         $total =0;
                         $qtyVal =1;
                         if(isset($_SESSION['cart'])){
@@ -140,7 +140,7 @@
                         <label for="phone" class="col-sm-3 col-form-label">Mobile</label>
                         <div class="col-sm-9"> 
                             <input class="form-control" type="number" placeholder="Mobile Phone" id="mobileNumUpdate" name="mobileNum" value="<?php echo $_SESSION["mobile"] ?>">
-                            <input class="form-control" type="hidden" id="billtotal" name="billtotal" value="<?php echo $total ?>">
+                           
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -208,7 +208,7 @@
                             ?>
                             <!-- <h6 class="text-success">FREE</h6> -->
                             <!-- <input type="disabled" class="form-control" id="deliveryCharges" name="deliveryCharges" disabled> -->
-                            <h6><?php echo "Rs.<span id='deliveryCharges'>$total.00</span>"; ?></h6>
+                            <h6><?php echo "Rs.<span id='deliveryCharges'>$delivery.00</span>"; ?></h6>
                             <hr>
                             <h6><?php echo "Rs.<span id='grand'>$total.00</span>"; ?></h6>
                             <!-- <input type="disabled" class="form-control" id="grand" name="grand" disabled> -->
@@ -218,6 +218,8 @@
                                 if(count($_SESSION['cart'])>0):
                             ?>
                             <!-- <button class='btn btn-md btn-danger my-3' type='button' data-bs-toggle="modal" data-bs-target="#placeOrderAlert">Place the Order</button> -->
+                            <input class="form-control" type="hidden" id="billtotal" name="billtotal" value="<?php echo $total ?>">
+                            <input class="form-control" type="hidden" id="delivery" name="delivery" value="<?php echo $delivery ?>">
                             <button class='btn btn-md btn-danger my-3' type='submit' name="submit">Place the Order</button><br>
                            <?php endif; endif; ?>
                       

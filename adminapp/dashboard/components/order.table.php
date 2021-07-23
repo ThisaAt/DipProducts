@@ -12,6 +12,7 @@
         // $customer_address=$row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row    ['address4'] ;
         $customer_phone = $row['mobilePhone'];
         $date =  $row['orderDate'];
+        $delivery =  $row['delivery'];
         $total =  $row['total'];
     ?>
     <tr>
@@ -19,6 +20,7 @@
         <td><?php echo $row['firstName']." ".$row['lastName']; ?></td>
         <td><?php echo $row['phone']; ?></td>
         <td><?php echo $row['address1'] .", ". $row['address2'].", ". $row['address3'].", ". $row['address4'] ;?></td>
+        <td><?php echo $row['delivery'].".00"; ?></td>
         <td><?php echo $row['total'].".00"; ?></td>
         <td><?php echo $row['orderDate']; ?></td>
         <td><?php echo $row['orderStatus']; ?></td>
@@ -43,8 +45,9 @@
             &address3=<?=$row['address3'];?>
             &address4=<?=$row['address4'];?>
             &phone=<?=$customer_phone;?>
+            &delivery=<?=$delivery;?>
             &total=<?=$total;?>
-            &date=<?=$date;?>"><button type="button" class="btn btn-outline-dark">Invoice</button></a>
+            &date=<?=$date;?>" target="_blank"><button type="button" class="btn btn-outline-dark">Invoice</button></a>
 
             <!-- <a href="./invoice-db.php.php ?id=<? //=$row['orderId'];?>&cid=<?= $row['customerId'];?>&name=<?=$customer_name;?>&address=<?=$customer_address;?>&phone=<?=$customer_phone;?>"><button type="button" class="btn btn-outline-dark">Invoice</button></a> -->
         </div>

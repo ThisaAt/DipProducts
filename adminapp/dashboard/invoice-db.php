@@ -12,6 +12,7 @@
  $address3 = $_GET['address3'];
  $address4 = $_GET['address4'];
  $customer_phone = $_GET['phone'];
+ $delivery = $_GET['delivery'];
  $total = $_GET['total'];
  $date = $_GET['date'];
  
@@ -144,10 +145,13 @@ while($item = mysqli_fetch_array($query)){
 // $pdf->Cell(4	,5,'$',1,0);
 // $pdf->Cell(30	,5,number_format($tax),1,1,'R');//end of line
 
-// $pdf->Cell(130	,5,'',0,0);
-// $pdf->Cell(25	,5,'Tax Rate',0,0);
-// $pdf->Cell(4	,5,'$',1,0);
-// $pdf->Cell(30	,5,'10%',1,1,'R');//end of line
+
+$pdf->Cell(130	,5,'',0,0);
+$pdf->Cell(25	,5,'Delivery Fee',0,0);
+$pdf->Cell(8	,5,'Rs.',1,0);
+$pdf->Cell(26	,5,$delivery,1,1,'R');//end of line
+
+$pdf->SetFont('Arial','B',12);
 
 $pdf->Cell(130	,5,'',0,0);
 $pdf->Cell(25	,5,'Grand Total',0,0);

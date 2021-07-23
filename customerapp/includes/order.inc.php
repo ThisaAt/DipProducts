@@ -13,12 +13,13 @@
         $address3 = $_POST['address3'];
         $address4 = $_POST['address4'];
         $customerId = $_POST['customerId'];
-        $billtotal = $_POST['billtotal'];
-        // $delivery = $_POST['deliveryCharges'];
-
+        $beforetotal = $_POST['billtotal'];
+        $delivery = $_POST['delivery'];
+        $grandtotal = (int)$delivery+ (int)$beforetotal;
+        echo $grandtotal;
         // insert into orders table 
 
-        $sql = "INSERT INTO orders (phone, customerId, address1, address2, address3, address4, total) VALUES ('$mobile', '$customerId', '$address1', '$address2', '$address3', '$address4', '$billtotal')";
+        $sql = "INSERT INTO orders (phone, customerId, address1, address2, address3, address4,delivery,total) VALUES ('$mobile', '$customerId', '$address1', '$address2', '$address3', '$address4','$delivery', '$grandtotal')";
 
         $sql_run = mysqli_query($conn, $sql);
 

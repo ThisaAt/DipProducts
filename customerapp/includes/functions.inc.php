@@ -291,6 +291,7 @@ function sendBill($conn,$orderId,$customerId){
     $resultOrder = mysqli_query($conn, $sqlOrder);
     $rowOrder = mysqli_fetch_array($resultOrder);
     $total= $rowOrder['total'];
+    $delivery= $rowOrder['delivery'];
     $phone= $rowOrder['phone'];
     $address= $rowOrder['address1'].", ".$rowOrder['address2'].", ".$rowOrder['address3'].", ".$rowOrder['address4'];
     $date= $rowOrder['orderDate'];
@@ -314,6 +315,7 @@ function sendBill($conn,$orderId,$customerId){
         <b>Order Details of Order No:".$orderId."</b><br>
         ".$item['productName']." (". $item['productSize'].") - ".$item['qty'] ."<br>  
         <hr>
+        Delivery Charges(Rs.): ".  $delivery.".00<br><br>
         Grand Total(Rs.): ".  $total.".00<br><br>
         Ordered Date and Time: ".  $date."<br>
         Delivery Address: ".  $address."<br>
