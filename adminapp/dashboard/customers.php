@@ -96,7 +96,7 @@ if(!isset($_SESSION["adminId"])){
                                         <th scope="col">Mobile Phone</th>
                                         <th scope="col">Land Phone</th>
                                         <th scope="col">Registered Date</th>
-                                        <th scope="col">Actions</th> 
+                                        <!-- <th scope="col">Actions</th>  -->
                                     </tr>
                                 </thead>
                                 <tbody>

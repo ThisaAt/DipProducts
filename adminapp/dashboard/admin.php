@@ -51,29 +51,60 @@ if(!isset($_SESSION["userName"])){
          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Dashboard</h1>
+                    <?php
+                        echo '<h1 class="h2">Welcome ' .$_SESSION["userName"]. ' !</h1>'
+                    ?>
+                    <!-- <h1 class="h2">Dashboard</h1> -->
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">
-                                Share
-                            </button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">
-                                Export
-                            </button>
+                         <a href='./order.php'>  
+                         <button type="button" class="btn btn-sm btn-outline-secondary">All Orders</button>
+                        </a>
+                        <a href='./reports.php'>  
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Reports</button>
+                        </a>
                         </div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
                             This week
-                        </button>
+                        </button> -->
                     </div>
                 </div>
 
                 <div>
                     <?php
-                        echo '<h1 class="text-center">Welcome ' .$_SESSION["userName"]. ' !</h1>'
+                        // echo '<h1 class="text-center">Welcome ' .$_SESSION["userName"]. ' !</h1>'
                     ?>
+                    <h1 class="h2 text-center">New Orders</h1>
 
                     <!-- <iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=4fdd227a-911a-4551-a0dc-bb75782a6a9d&autoAuth=true&ctid=84c31ca0-ac3b-4eae-ad11-519d80233e6f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe> -->
+                    
+                    <!--Display categories table start -->
+                    <div class="py-3">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>   
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Customer Id</th>
+                                        <th scope="col">Mobile No.</th>
+                                        <th scope="col">Delivery Address</th>
+                                        <th scope="col">Delivery Charges (Rs.)</th>
+                                        <th scope="col">Grand Total (Rs.)</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Order Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                     include_once '../dashboard/components/newOrders.table.php'
+                                ?>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    <!--Display table end -->
                        
                 </div>
             </main>

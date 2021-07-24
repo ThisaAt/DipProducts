@@ -17,12 +17,12 @@
     <td><?php echo $row['date']; ?></td>
  
     
-    <td>
+    <!-- <td>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
             <button type="button" class="btn btn-outline-dark">Update</button>
             <button type="button" class="btn btn-outline-dark" name="delete">Delete</button>
         </div>
-    </td>
+    </td> -->
     </td>
 </tr>
 
