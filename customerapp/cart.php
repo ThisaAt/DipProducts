@@ -155,7 +155,7 @@
                                 <option selected><small><?php echo $_SESSION["address4"] ?></small></option>
                                 <option value="Colombo">Colombo</option>
                                 <option value="Gampaha">Gampaha</option>
-                                <option value="Kaluthara">Kaluthara</option>
+                                <option value="Kaluthara">Kalutara</option>
                                 <option value="Kandy">Kandy</option>
                             </select>
 
@@ -306,15 +306,15 @@
     
     if(district=="Colombo") 
     {
-        document.getElementById("deliveryCharges").innerHTML='200.00';
+        document.getElementById("deliveryCharges").innerHTML='50.00';
     }
     else if(district=="Gampaha") 
     {
-        document.getElementById("deliveryCharges").innerHTML='300.00';
+        document.getElementById("deliveryCharges").innerHTML='100.00';
     }
     else if(district=="Kalutara") 
     {
-        document.getElementById("deliveryCharges").innerHTML='250.00';
+        document.getElementById("deliveryCharges").innerHTML='100.00';
     }
     else if(district=="Kandy") 
     {
@@ -326,7 +326,7 @@
     }
     else
     {
-        document.getElementById("deliveryCharges").innerHTML='750.00';
+        document.getElementById("deliveryCharges").innerHTML='250.00';
     }
    
     document.getElementById("grand").innerHTML=parseInt(document.getElementById("beforetax").innerHTML) + parseInt(document.getElementById("deliveryCharges").innerHTML) +'.00';
