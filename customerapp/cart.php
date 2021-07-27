@@ -97,7 +97,7 @@
                     <h6>My Cart</h6>
                     <hr>
                     <?php
-                        $delivery=300;
+                        $delivery=100;
                         $total =0;
                         $qtyVal =1;
                         if(isset($_SESSION['cart'])){

@@ -115,7 +115,7 @@
 <!-- carousel end  -->
 
   <!-- category cards -->
-  <div class="row row-cols-1 row-cols-md-3 g-4 px-5 pt-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4 px-5 pt-5"id="categories">
       
     <div class="col text-center">
       <div class="card shadow">

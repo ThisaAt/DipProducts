@@ -342,11 +342,9 @@ function sendBill($conn,$orderId,$customerId){
     $subject ="Order Details";
     while ($item = mysqli_fetch_array($query)) {
         $body = "Hello ".$customerName. "! <br><br>
-        <b>Order Details of Order No:".$orderId."</b><br>
-        ".$item['productName']." (". $item['productSize'].") - ".$item['qty'] ."<br>  
-        <hr>
-        Delivery Charges(Rs.): ".  $delivery.".00<br><br>
-        Grand Total(Rs.): ".  $total.".00<br><br>
+        <b>Order Details of Order No:".$orderId."</b><br><br>
+        Delivery Charges(Rs.): ".  $delivery.".00<br>
+        Grand Total(Rs.): ".  $total.".00<br>
         Ordered Date and Time: ".  $date."<br>
         Delivery Address: ".  $address."<br>
         Mobile Number: ".  $phone."<br><br>

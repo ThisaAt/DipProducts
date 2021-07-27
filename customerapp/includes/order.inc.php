@@ -119,6 +119,44 @@
                 }
             }
 
+            $result = getDataHandWash();
+            while($row = mysqli_fetch_assoc($result)){
+                foreach($product_id as $id){
+                    if($row['productId']==$id){
+                      
+                        $productId = $row['productId'];
+                        $productQty = "1";
+                        // $productQty = $row['productQty'];
+                        $productPrice = $row['productPrice'];
+
+                        $sqlproduct = "SELECT * FROM product where productId = $productId ;";
+                        $sqlproduct_run = mysqli_query($conn, $sqlproduct);
+
+                        $qtyget = (int)$row['productQty'];
+                        $salesget = (int)$row['productSales'];
+
+                        $Qty =  $qtyget - $productQty;
+                        $Sales = $salesget +  $productQty ;
+
+
+                        $sqlUpdate = "UPDATE product 
+                            SET productQty=' $Qty', productSales ='$Sales'    
+                            WHERE productId =$productId ";
+                         $sqlUpdate_run = mysqli_query($conn, $sqlUpdate);
+
+                        $sql1 = "INSERT INTO orderdetails (orderId, ProductId, qty, price) VALUES ('$orderId','$productId', '$productQty', '$productPrice')";
+
+                        $sql1_run = mysqli_query($conn, $sql1);
+
+                        // if ($sql1_run){
+                        //   header("Location:  ../orders.php?orderPlaced");
+                        // }else {
+                        //   header("Location:  ../cart.php?error=orderdetailsfailed");
+                        // }    
+                    }
+                }
+            }
+
             if ($sql_run ){
                 unset($_SESSION['cart']);
                 sendBill($conn,$orderId,$customerId);

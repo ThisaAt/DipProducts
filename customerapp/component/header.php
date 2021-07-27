@@ -21,7 +21,7 @@
                         <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php#bestBuys">SHOP</a>
+                        <a class="nav-link active" href="index.php#categories">SHOP</a>
                     </li>
 
                     <li class="nav-item">
