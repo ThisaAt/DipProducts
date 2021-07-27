@@ -123,6 +123,16 @@
                                      }
                                 }
                             }
+                            $result = getDataHandWash();
+                            while($row = mysqli_fetch_assoc($result)){
+                                foreach($product_id as $id){
+                                    if($row['productId']==$id){
+                                        cartElement($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId'], $row['productQty'],$qtyVal);
+                                        $total = $total +(int)$row['productPrice'];
+                                       
+                                     }
+                                }
+                            }
                         }
                         else{
                             echo"<h5>Cart is Empty</h5>";

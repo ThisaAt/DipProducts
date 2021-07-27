@@ -50,13 +50,13 @@ function invalidContactNo($mobilePhone){
 
 function invalidPw($password){
     // $result;
-if( strlen($password) < 8 || strlen($password) > 20 ){
-    $result=true;
-}
-else{
-    $result=false;
-}
-    return $result;
+    if( strlen($password) < 8 || strlen($password) > 20 ){
+        $result=true;
+    }
+    else{
+        $result=false;
+    }
+        return $result;
 }
 
 function uidExists($conn, $email){
@@ -204,6 +204,25 @@ function getDataDetergents(){
     $conn = mysqli_connect($serverName, $dbUserName, $dBPassword, $dbName);
 
     $sql = "SELECT * FROM product WHERE categoryName='Detergents';";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result)>0){
+        return $result;
+    }
+
+}
+
+function getDataHandWash(){
+    // require_once('./dbh.inc.php');
+    $serverName="localhost";
+    $dbUserName="root";
+    $dBPassword="123";
+    $dbName="dipol_db"; 
+
+  //  $conn = mysqli_connect("localhost","root","","dipol_db");
+    $conn = mysqli_connect($serverName, $dbUserName, $dBPassword, $dbName);
+
+    $sql = "SELECT * FROM product WHERE categoryName='Hand Wash';";
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result)>0){

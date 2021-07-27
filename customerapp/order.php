@@ -31,6 +31,10 @@
 
     <link rel="stylesheet" type="text/css" href="./main.css">
 
+    <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" rel="stylesheet">
+
 
     <title>Dip Products (Pvt) Ltd.</title>
     <link rel="icon" href="images/logo2.png">
@@ -59,7 +63,7 @@
         <div class="col-md-10" >
             <form action="" method="POST" enctype="multipart/form-data">
                 <h1 class="h2 py-3 ">Your Orders</h1>
-                <table class="table table-hover  border-danger ">
+                <table class="table table-hover  border-danger " id="orders">
                     <thead id="tableHead" class="border-danger border border-2 ">
                         <tr>   
                             <th scope="col">Order Id</th>
@@ -87,7 +91,25 @@
         
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>           
+      <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>  
+      <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>  
+      <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>  
+      <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>  
 
+    <script> 
+        $(document).ready(function() {
+            $('#orders').DataTable( {
+                // dom: 'Bfrtip',
+                // buttons: [
+                //     // 'copy', 'csv', 'excel', 'pdf', 'print'
+                // ]
+            } );
+        } );
+    </script>        
     
 
 
@@ -97,7 +119,7 @@
 
 
     <!-- jquery cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

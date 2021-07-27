@@ -24,17 +24,17 @@
        echo "<script>window.location=index.php</script>";
      }else{
         $count = count($_SESSION['cart']);
-        $item_array= array('product_id' => $_POST['product_id'],'product_qty' => 0);
+        $item_array= array('product_id' => $_POST['product_id'],'product_qty' => 1);
         $_SESSION['cart'][$count]= $item_array;
         // print_r($_SESSION['cart']);
      }
 
-      // print_r($_SESSION['cart']);
+      // print_r($_SESSION['cart']); *
     }
     else{
-      $item_array = array ('product_id'=>$_POST['product_id'],'product_qty' => 0 );
+      $item_array = array ('product_id'=>$_POST['product_id'],'product_qty' => 1 );
       $_SESSION['cart'][0]=$item_array;
- //   print_r($_SESSION['cart']);
+    // print_r($_SESSION['cart']); *
     }
   }
 
@@ -57,6 +57,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    
 
     <link rel="stylesheet" type="text/css" href="main.css">
 
@@ -118,7 +120,7 @@
     <div class="col text-center">
       <div class="card shadow">
         <a href="./Index.php#bestBuys">
-          <img src="./images/wp png.png" class="card-img-top" alt="...">  
+          <img src="./images/st2.jpg" class="card-img-top" alt="...">  
         </a>
         <div class="card-body">
           <h2 class="card-title"><b>Sanitizers</b></h2>
@@ -129,7 +131,7 @@
     <div class="col text-center">
       <div class="card shadow" >
       <a href="./Index.php#detergents">
-        <img src="./images/wp png.png" class="card-img-top" alt="..."> </a>
+        <img src="./images/cat det.jpg" class="card-img-top" alt="..."> </a>
         <div class="card-body">
           <h2 class="card-title"><b>Detergents</b></h2>
         </div>
@@ -139,7 +141,9 @@
 
     <div class="col text-center">
       <div class="card shadow">
-        <img src="./images/wp png.png" class="card-img-top" alt="...">
+      <a href="./Index.php#handwash">
+        <img src="./images/cathw.jpg" class="card-img-top" alt="...">
+      </a>
         <div class="card-body">
           <h2 class="card-title"><b>Hand Wash</b></h2>
         </div>
@@ -179,6 +183,21 @@
       <?php
       // component('./images/wp png.png','Washing Powder', '1 Kg', 150);
        $result = getDataDetergents();
+       while($row = mysqli_fetch_assoc($result)){
+        component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
+       }
+        
+      ?>
+  </div>
+</div>
+
+
+<div class="container " id="handwash">
+  <div class="row text-center py-5">
+    <h1 class="title" >Hand Wash</h1>
+      <?php
+      // component('./images/wp png.png','Washing Powder', '1 Kg', 150);
+       $result = getDataHandWash();
        while($row = mysqli_fetch_assoc($result)){
         component($row['productImg'], $row['productName'], $row['productSize'], $row['productPrice'], $row['productId']);
        }
