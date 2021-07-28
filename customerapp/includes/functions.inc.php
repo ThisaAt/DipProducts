@@ -265,7 +265,7 @@ function sendOTP($conn,$email){
     $subject ="Recover Password";
     sendEmail($email, $body, $subject);
 
-    header("location: ../login.php?error=none");
+    header("location: ../login.php?error=emailnone");
     exit();  
 }
 

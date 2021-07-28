@@ -12,7 +12,7 @@
     <td><?php echo $row['categoryName']; ?></td>
     <td><?php echo $row['productSize']; ?></td>
     <td><?php echo $row['productPrice']; ?></td>
-    <td><?php echo $row['productDiscount']; ?></td>
+    <!-- <td><?php // echo $row['productDiscount']; ?></td> -->
     <td><?php echo $row['productQty']; ?></td>
     <td><?php echo $row['productSales']; ?></td>
     <?php  $row['productId']; ?>

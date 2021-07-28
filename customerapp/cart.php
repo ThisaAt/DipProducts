@@ -332,7 +332,7 @@
     }
     else if(district=="Kegalle") 
     {
-        document.getElementById("deliveryCharges").innerHTML='700.00';
+        document.getElementById("deliveryCharges").innerHTML='400.00';
     }
     else
     {

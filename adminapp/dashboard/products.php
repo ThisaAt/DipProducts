@@ -117,7 +117,7 @@ if(!isset($_SESSION["adminId"])){
                                         <th scope="col">Category</th>
                                         <th scope="col">Size</th>
                                         <th scope="col">Price (Rs.)</th>
-                                        <th scope="col">Discount (%)</th>
+                                        <!-- <th scope="col">Discount (%)</th> -->
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Sales</th>
                                         <th scope="col">Actions</th>
@@ -221,7 +221,7 @@ if(!isset($_SESSION["adminId"])){
                                         </div>
                                     </div>
 
-                                    <div class="mb-3 row">
+                                    <!-- <div class="mb-3 row">
                                         <label for="productDiscount" class="col-sm-2 col-form-label">Discount</label>
                                         <div class="col-sm-10">
                                             <div class="row"> 
@@ -233,7 +233,7 @@ if(!isset($_SESSION["adminId"])){
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="mb-3 row">
                                         <label for="categoryDescription"
                                             class="col-sm-2 col-form-label">Description</label>
@@ -349,7 +349,7 @@ if(!isset($_SESSION["adminId"])){
                                         </div>
                                     </div>
 
-                                    <div class="mb-3 row">
+                                    <!-- <div class="mb-3 row">
                                         <label for="productDiscount" class="col-sm-2 col-form-label">Discount</label>
                                         <div class="col-sm-10">
                                             <div class="row"> 
@@ -361,7 +361,7 @@ if(!isset($_SESSION["adminId"])){
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="mb-3 row">
                                         <label for="productImg" class="col-sm-2 col-form-label">Image</label>
                                         <div class="col-sm-10">

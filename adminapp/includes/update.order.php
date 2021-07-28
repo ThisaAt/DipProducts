@@ -23,7 +23,7 @@
 
       if ($sql_run){
         
-        header("Location: ../dashboard/order.php?error=none");
+        header("Location: ../dashboard/order.php?errornone");
       }else {
         header("Location: ../dashboard/order.php?error=noneupdatefail");
       }

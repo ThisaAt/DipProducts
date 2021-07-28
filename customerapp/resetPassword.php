@@ -46,7 +46,7 @@
                           <label for="email">Email</label>
                           <input type="email" name="email" class="form-control" required><br>
                         </div>
-                        <button type="submit" name="reset" class="btn btn-class">Send Verification Code</button><br><br>
+                        <button type="submit" name="reset" class="btn btn-class">Send Temporary Password</button><br><br>
                    </form>
                    
                 </div>

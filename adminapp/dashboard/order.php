@@ -67,6 +67,19 @@ if(!isset($_SESSION["adminId"])){
 
                 <div>
                     <div>
+                    <?php 
+                            $msg ="";
+                           
+                            if(isset($_GET['errornone'])){
+                                $msg="Successfully Updated the Order Status";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }
+                            if(isset($_GET['updatefail'])){
+                                $msg="Error Updating the Product";
+                                echo '<div class="alert alert-success">'.$msg.'</div>';
+                            }     
+                           
+                        ?>
                     
                     </div>
 

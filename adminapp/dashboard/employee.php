@@ -145,7 +145,7 @@ if(!isset($_SESSION["adminId"])){
                                         <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="text" placeholder="First Name"
-                                                id="firstName" name="firstName">
+                                                id="firstName" name="firstName" required>
                                         </div>
                                     </div>
 
@@ -153,7 +153,7 @@ if(!isset($_SESSION["adminId"])){
                                         <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="text" placeholder="Last Name"
-                                                id="lastName" name="lastName">
+                                                id="lastName" name="lastName" required>
                                         </div>
                                     </div>
 
@@ -161,7 +161,7 @@ if(!isset($_SESSION["adminId"])){
                                         <label for="jobRole" class="col-sm-2 col-form-label">Job Role</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="text" placeholder="Job Role"
-                                                id="jobRole" name="jobRole">
+                                                id="jobRole" name="jobRole" required>
                                         </div>
                                     </div>
 
@@ -169,14 +169,14 @@ if(!isset($_SESSION["adminId"])){
                                         <label for="nic" class="col-sm-2 col-form-label">NIC No.</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" type="text" placeholder="NIC Number"
-                                                id="nic" name="nic">
+                                                id="nic" name="nic" required>
                                         </div>
                                     </div>
 
                                     <div class="mb-3 row">
                                         <label for="phone" class="col-sm-2 col-form-label">Contact Numbers</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Land Phone" id="landNum" name="landNum">
+                                            <input class="form-control" type="text" placeholder="Land Phone" id="landNum" name="landNum" required>
                                             <input class="form-control" type="text" placeholder="Mobile Phone" id="mobileNum" name="mobileNum">
                                         </div>
                                     </div>

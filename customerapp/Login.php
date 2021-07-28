@@ -31,6 +31,9 @@
                         }
                         else if($_GET["error"]=="wronglogin"){
                           echo '<div class="alert alert-danger" role="alert">Incorrect login credentials!</div>';
+                        }
+                        else if($_GET["error"]=="emailnone"){
+                          echo '<div class="alert alert-success" role="alert">An email has been send with new password. Please log with the new password!</div>';
                         }}
                       //   else if($_GET["error"]=="none"){
                       //     echo '<div class="alert alert-success" role="alert">You have signed up successfully, Please login!</div>';
